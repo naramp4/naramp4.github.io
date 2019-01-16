@@ -104,15 +104,15 @@ analytics:
 
 # Site Author
 author:
-  name             : "chancoke"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  # name             : "chancoke"
+  avatar           : /assets/img/IMG_5198.jpeg
   bio              : ""
-  # location         : "Jejudo"
+  location         : "Jejudo"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: mailto:your.name@email.com
+      url: mailto:naramp4@gmail.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
@@ -121,10 +121,10 @@ author:
       # url: "https://twitter.com/"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
+      #url: "http://www.facebook.com/sanguk.yu.5"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/naramp4"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
