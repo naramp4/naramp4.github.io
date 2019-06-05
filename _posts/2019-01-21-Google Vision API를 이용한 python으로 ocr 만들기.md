@@ -1,5 +1,4 @@
 ---
-title : OCR - Google Vision API - python
 category:
     - python
 tags:
