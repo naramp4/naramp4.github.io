@@ -12,4 +12,4 @@ sidebar:
 
 소스코드 같은 것은 역자의 [github](https://github.com/rickiepark/deep-learning-with-python-notebooks){:target='_blank'}에 잘 요약정리 되어 있기 참고하기 바란다.
 
-[1장 딥러닝이란?](/케라스 창시자에게 배우는 딥러닝/1장-딥러닝이란/)
+[1장 딥러닝이란?](/케라스 창시자에게 배우는 딥러닝/1장-딥러닝이란-_케라스-창시자에게-배우는-딥러닝/)
