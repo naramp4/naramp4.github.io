@@ -503,7 +503,7 @@
   .nav__title {
     color: #fff;
     font-size: $type-size-6;
-    background: $primary-color;
+    background: #3d4350;
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
   }
@@ -511,6 +511,7 @@
   // Scrollspy marks toc items as .active when they are in focus
   .active {
     @include yiq-contrasted($active-color);
+    background-color:#717171;
   }
 }
 
