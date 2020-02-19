@@ -24,7 +24,7 @@ sidebar:
   {% for category in site.categories %}
     {% if category[1].size == i %}
         {% for post in category.last %}
-            {% if category[0] == 'keras book' %}
+            {% if category[0] == 'keras-book' %}
                 {% include archive-title.html type=page.entries_layout %}
             {% endif %}
         {% endfor %}
