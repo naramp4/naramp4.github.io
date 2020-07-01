@@ -318,7 +318,6 @@ defaults:
   #             nav: "keras"
   #     toc: true
   #     toc_sticky: true
-
 collections_dir: collections
 collections:
   AI :
@@ -328,5 +327,8 @@ collections:
     output: true
     permalink: /:collection/:path/
   programming :
+    output: true
+    permalink: /:collection/:path/
+  etc :
     output: true
     permalink: /:collection/:path/

@@ -6,6 +6,8 @@ main:
     url: /programming/index/
   - title: "os"
     url: /os/index/
+  - title: "기타"
+    url: /etc/index/
   - title: "모아보기"
     url: /categories/
   # - title: "tags"
