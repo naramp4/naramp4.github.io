@@ -1,5 +1,5 @@
 ---
-title: "etc"
+title: "기타"
 layout : category
 ---
 
