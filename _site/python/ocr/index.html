@@ -1,0 +1,720 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.14.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>파이썬으로 google vision api의 ocr 만들기 - chancoke Blog</title>
+<meta name="description" content="python과 Google Vision API를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 ocr에 대해 알아 보겠다.      스크린샷 이미지와 OCR이후 텍스트준비물python3, 구글 계정, 해외 결제가 되는 카드(신용카드 또는 체크카드), 스캔할 대상 파일Google Cloud Platform 가입  Google Vision API 접속 후 무료로 사용해보기 버튼 클릭  서비스 약관 및 이메일로 정보 수신 여부 선택 후 AGREE AND CONTINUE 버튼 클릭  고객 정보에 빨간 줄을 필수 값으로 입력 후 가입  결제 수단인 카드 정보도 입력해야 함  가입이 완료 되었으면 Google Cloude Platform의 왼쪽메뉴에서 인공지능 &gt; Vision 클릭  Use the pre-trained model의 Learn about the Vision API 클릭  사용설정 버튼 클릭  사용자 인증 정보 만들기 클릭  Cloud Vision API, 아니요 선택 후 ‘어떤 사용자 인증 정보가 필요한가요?’ 버튼 클릭  서비스 계정 이름 및 ID 입력, JSON 선택 후 계속 클릭JSON 파일 다운 완료가 되면 준비물 완성 !!!!폴더 구조  파이썬 루트 폴더 아래에 아래 그림과 같이 book_img, book_txt 폴더와 인증정보가 담겨있는 JSON 파일을 같이 넣는다.Google Vision API 사용자 인증위 폴더 위치에서 Terminal 실행 후export GOOGLE_APPLICATION_CREDENTIALS=&quot;인증파일 JSON 위치&quot;예)export GOOGLE_APPLICATION_CREDENTIALS=&quot;./My First Project-c13a79533674.json&quot;이후 jupyter notebook 실행파이썬 코드  필요한 모듈 불러오기import io # 파일을 읽고 쓰기위한 모듈import os # os의 기능을 사용하기 위한 모듈# Imports the Google Cloud client libraryfrom google.cloud import visionfrom google.cloud.vision import types  필요 변수 설정client = vision.ImageAnnotatorClient()filenames = os.listdir(&#39;./book_img&#39;) # book_img 아래에 있는 이미지 파일 이름을 불러오기  book_img 아래의 파일을 읽은 후 같은 이름의 txt 포맷으로 book_txt에 저장for filename in filenames:    path = os.path.join(&#39;./book_img&#39;, filename)    # Loads the image into memory    with io.open(path, &#39;rb&#39;) as image_file:        content = image_file.read()    image = vision.types.Image(content=content)    response = client.text_detection(image=image)    texts = response.text_annotations    with open(&#39;./book_txt/&#39;+filename[0:-4]+&#39;.txt&#39;, &quot;w&quot;) as f:        f.write(texts[0].description)결과 화면      스크린샷 이미지와 OCR이후 텍스트위와 같은 방법으로 스캔 되어 있는 600page를 한번에 OCR를 해보았는데 생각보다 인식률이 좋게 나와 공유하는 차원에 포스팅을 해보았다.이를 이용하면 학생인 경우 참고서를 OCR하여 자신만의 요약집을 만들때 유용할거 같고, 아니면 집 한켠에 쌓아두고 있는 책들을 이북으로 만들때 유용하게 이용이 될수 있을 거 같다.하지만 이 Google Vision API에도 문제점이 몇가지가 있는데,  사용자가 쓴 손글씨의 인식률이 너무 낮다.  ‘책이’라는 단어를 OCR를 하면 ‘이’가 숫자 0, 1로 인식되는 경우가 있다.위와 같은 문제점으로 OCR를 한후에 후처리 과정이 필수로 보이는데 그래도 전부 타이핑하는 시간을 획기적으로 줄일수 있는 방법으로 보인다.해당 소스 github 주소 : ocr코드 바로가기">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko">
+<meta property="og:site_name" content="chancoke Blog">
+<meta property="og:title" content="파이썬으로 google vision api의 ocr 만들기">
+<meta property="og:url" content="http://localhost:4000/python/ocr/">
+
+  <meta property="og:description" content="python과 Google Vision API를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 ocr에 대해 알아 보겠다.      스크린샷 이미지와 OCR이후 텍스트준비물python3, 구글 계정, 해외 결제가 되는 카드(신용카드 또는 체크카드), 스캔할 대상 파일Google Cloud Platform 가입  Google Vision API 접속 후 무료로 사용해보기 버튼 클릭  서비스 약관 및 이메일로 정보 수신 여부 선택 후 AGREE AND CONTINUE 버튼 클릭  고객 정보에 빨간 줄을 필수 값으로 입력 후 가입  결제 수단인 카드 정보도 입력해야 함  가입이 완료 되었으면 Google Cloude Platform의 왼쪽메뉴에서 인공지능 &gt; Vision 클릭  Use the pre-trained model의 Learn about the Vision API 클릭  사용설정 버튼 클릭  사용자 인증 정보 만들기 클릭  Cloud Vision API, 아니요 선택 후 ‘어떤 사용자 인증 정보가 필요한가요?’ 버튼 클릭  서비스 계정 이름 및 ID 입력, JSON 선택 후 계속 클릭JSON 파일 다운 완료가 되면 준비물 완성 !!!!폴더 구조  파이썬 루트 폴더 아래에 아래 그림과 같이 book_img, book_txt 폴더와 인증정보가 담겨있는 JSON 파일을 같이 넣는다.Google Vision API 사용자 인증위 폴더 위치에서 Terminal 실행 후export GOOGLE_APPLICATION_CREDENTIALS=&quot;인증파일 JSON 위치&quot;예)export GOOGLE_APPLICATION_CREDENTIALS=&quot;./My First Project-c13a79533674.json&quot;이후 jupyter notebook 실행파이썬 코드  필요한 모듈 불러오기import io # 파일을 읽고 쓰기위한 모듈import os # os의 기능을 사용하기 위한 모듈# Imports the Google Cloud client libraryfrom google.cloud import visionfrom google.cloud.vision import types  필요 변수 설정client = vision.ImageAnnotatorClient()filenames = os.listdir(&#39;./book_img&#39;) # book_img 아래에 있는 이미지 파일 이름을 불러오기  book_img 아래의 파일을 읽은 후 같은 이름의 txt 포맷으로 book_txt에 저장for filename in filenames:    path = os.path.join(&#39;./book_img&#39;, filename)    # Loads the image into memory    with io.open(path, &#39;rb&#39;) as image_file:        content = image_file.read()    image = vision.types.Image(content=content)    response = client.text_detection(image=image)    texts = response.text_annotations    with open(&#39;./book_txt/&#39;+filename[0:-4]+&#39;.txt&#39;, &quot;w&quot;) as f:        f.write(texts[0].description)결과 화면      스크린샷 이미지와 OCR이후 텍스트위와 같은 방법으로 스캔 되어 있는 600page를 한번에 OCR를 해보았는데 생각보다 인식률이 좋게 나와 공유하는 차원에 포스팅을 해보았다.이를 이용하면 학생인 경우 참고서를 OCR하여 자신만의 요약집을 만들때 유용할거 같고, 아니면 집 한켠에 쌓아두고 있는 책들을 이북으로 만들때 유용하게 이용이 될수 있을 거 같다.하지만 이 Google Vision API에도 문제점이 몇가지가 있는데,  사용자가 쓴 손글씨의 인식률이 너무 낮다.  ‘책이’라는 단어를 OCR를 하면 ‘이’가 숫자 0, 1로 인식되는 경우가 있다.위와 같은 문제점으로 OCR를 한후에 후처리 과정이 필수로 보이는데 그래도 전부 타이핑하는 시간을 획기적으로 줄일수 있는 방법으로 보인다.해당 소스 github 주소 : ocr코드 바로가기">
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-01-21T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/python/ocr/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ryu Sang uk",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="chancoke Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+<meta name="naver-site-verification" content="50a215d9074fdd1a832aabc3895ba1b3935ca52d"/>
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/">chancoke Blog</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/AI/index/" >AI</a>
+            </li><li class="masthead__menu-item">
+              <a href="/programming/index/" >programming</a>
+            </li><li class="masthead__menu-item">
+              <a href="/os/index/" >os</a>
+            </li><li class="masthead__menu-item">
+              <a href="/etc/index/" >기타</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/" >모아보기</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">programming</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/programming/index/#python" class="">python</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="파이썬으로 google vision api의 ocr 만들기">
+    <meta itemprop="description" content="python과 Google Vision API를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 ocr에 대해 알아 보겠다.      스크린샷 이미지와 OCR이후 텍스트준비물python3, 구글 계정, 해외 결제가 되는 카드(신용카드 또는 체크카드), 스캔할 대상 파일Google Cloud Platform 가입  Google Vision API 접속 후 무료로 사용해보기 버튼 클릭  서비스 약관 및 이메일로 정보 수신 여부 선택 후 AGREE AND CONTINUE 버튼 클릭  고객 정보에 빨간 줄을 필수 값으로 입력 후 가입  결제 수단인 카드 정보도 입력해야 함  가입이 완료 되었으면 Google Cloude Platform의 왼쪽메뉴에서 인공지능 &gt; Vision 클릭  Use the pre-trained model의 Learn about the Vision API 클릭  사용설정 버튼 클릭  사용자 인증 정보 만들기 클릭  Cloud Vision API, 아니요 선택 후 ‘어떤 사용자 인증 정보가 필요한가요?’ 버튼 클릭  서비스 계정 이름 및 ID 입력, JSON 선택 후 계속 클릭JSON 파일 다운 완료가 되면 준비물 완성 !!!!폴더 구조  파이썬 루트 폴더 아래에 아래 그림과 같이 book_img, book_txt 폴더와 인증정보가 담겨있는 JSON 파일을 같이 넣는다.Google Vision API 사용자 인증위 폴더 위치에서 Terminal 실행 후export GOOGLE_APPLICATION_CREDENTIALS=&quot;인증파일 JSON 위치&quot;예)export GOOGLE_APPLICATION_CREDENTIALS=&quot;./My First Project-c13a79533674.json&quot;이후 jupyter notebook 실행파이썬 코드  필요한 모듈 불러오기import io # 파일을 읽고 쓰기위한 모듈import os # os의 기능을 사용하기 위한 모듈# Imports the Google Cloud client libraryfrom google.cloud import visionfrom google.cloud.vision import types  필요 변수 설정client = vision.ImageAnnotatorClient()filenames = os.listdir(&#39;./book_img&#39;) # book_img 아래에 있는 이미지 파일 이름을 불러오기  book_img 아래의 파일을 읽은 후 같은 이름의 txt 포맷으로 book_txt에 저장for filename in filenames:    path = os.path.join(&#39;./book_img&#39;, filename)    # Loads the image into memory    with io.open(path, &#39;rb&#39;) as image_file:        content = image_file.read()    image = vision.types.Image(content=content)    response = client.text_detection(image=image)    texts = response.text_annotations    with open(&#39;./book_txt/&#39;+filename[0:-4]+&#39;.txt&#39;, &quot;w&quot;) as f:        f.write(texts[0].description)결과 화면      스크린샷 이미지와 OCR이후 텍스트위와 같은 방법으로 스캔 되어 있는 600page를 한번에 OCR를 해보았는데 생각보다 인식률이 좋게 나와 공유하는 차원에 포스팅을 해보았다.이를 이용하면 학생인 경우 참고서를 OCR하여 자신만의 요약집을 만들때 유용할거 같고, 아니면 집 한켠에 쌓아두고 있는 책들을 이북으로 만들때 유용하게 이용이 될수 있을 거 같다.하지만 이 Google Vision API에도 문제점이 몇가지가 있는데,  사용자가 쓴 손글씨의 인식률이 너무 낮다.  ‘책이’라는 단어를 OCR를 하면 ‘이’가 숫자 0, 1로 인식되는 경우가 있다.위와 같은 문제점으로 OCR를 한후에 후처리 과정이 필수로 보이는데 그래도 전부 타이핑하는 시간을 획기적으로 줄일수 있는 방법으로 보인다.해당 소스 github 주소 : ocr코드 바로가기">
+    <meta itemprop="datePublished" content="January 21, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">파이썬으로 google vision api의 ocr 만들기
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#준비물">준비물</a></li>
+  <li><a href="#google-cloud-platform-가입">Google Cloud Platform 가입</a></li>
+  <li><a href="#폴더-구조">폴더 구조</a></li>
+  <li><a href="#google-vision-api-사용자-인증">Google Vision API 사용자 인증</a></li>
+  <li><a href="#파이썬-코드">파이썬 코드</a></li>
+  <li><a href="#결과-화면">결과 화면</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p><code class="language-plaintext highlighter-rouge">python</code>과 <code class="language-plaintext highlighter-rouge">Google Vision API</code>를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 <code class="language-plaintext highlighter-rouge">ocr</code>에 대해 알아 보겠다.</p>
+
+<figure class="half">
+  <img src="/assets/img/20190121/hello-486a0821-d0fa-4f57-8a14-f0d8e9bed0e7.png" alt="스캔 이미지" />
+  <img src="/assets/img/20190121/2019-01-172-47369ec2-cb34-43d6-ab80-16aa779479d5.35.25.png" alt="OCR이 후 이미지" />
+  <figcaption>스크린샷 이미지와 OCR이후 텍스트</figcaption>
+</figure>
+
+<h2 id="준비물">준비물</h2>
+
+<p>python3, 구글 계정, 해외 결제가 되는 카드(신용카드 또는 체크카드), 스캔할 대상 파일</p>
+
+<h2 id="google-cloud-platform-가입">Google Cloud Platform 가입</h2>
+
+<ul>
+  <li><a href="https://cloud.google.com/vision/?hl=ko" target="_blank">Google Vision API</a> 접속 후 무료로 사용해보기 버튼 클릭</li>
+</ul>
+
+<p><img src="/assets/img/20190121/2-2d707945-fc84-465e-89ab-35b9d44d80b8.png" alt="" /></p>
+
+<hr />
+
+<ul>
+  <li>서비스 약관 및 이메일로 정보 수신 여부 선택 후 AGREE AND CONTINUE 버튼 클릭</li>
+</ul>
+
+<p><img src="/assets/img/20190121/3-ca90889f-21ac-4543-b863-86757b18bfbb.png" alt="" /></p>
+
+<hr />
+
+<ul>
+  <li>고객 정보에 빨간 줄을 필수 값으로 입력 후 가입</li>
+  <li>결제 수단인 카드 정보도 입력해야 함</li>
+</ul>
+
+<p><img src="/assets/img/20190121/4-e7158275-fc16-4a8a-b499-d7c6f840aead.png" alt="" /></p>
+
+<hr />
+
+<ul>
+  <li>가입이 완료 되었으면 Google Cloude Platform의 왼쪽메뉴에서 인공지능 &gt; Vision 클릭</li>
+</ul>
+
+<p><img src="/assets/img/20190121/5-07da49e6-8ef6-4e54-8bd8-32af96c10716.png" alt="" /></p>
+
+<hr />
+
+<ul>
+  <li>Use the pre-trained model의 Learn about the Vision API 클릭</li>
+</ul>
+
+<p><img src="/assets/img/20190121/6-1ad44c7b-bc27-47d8-87b0-48c02e2c4377.png" alt="" /></p>
+
+<hr />
+
+<ul>
+  <li>사용설정 버튼 클릭</li>
+</ul>
+
+<p><img src="/assets/img/20190121/7-d7774bf0-2675-41e8-ba9a-f38e0b47ef3d.png" alt="" /></p>
+
+<hr />
+
+<ul>
+  <li>사용자 인증 정보 만들기 클릭</li>
+</ul>
+
+<p><img src="/assets/img/20190121/8-bf4640a1-4487-4526-b7b5-9133fa242dca.png" alt="" /></p>
+
+<hr />
+
+<ul>
+  <li>Cloud Vision API, 아니요 선택 후 ‘어떤 사용자 인증 정보가 필요한가요?’ 버튼 클릭</li>
+</ul>
+
+<p><img src="/assets/img/20190121/9-2f157cba-8176-45b5-9f9b-a0ce2cf6ba97.png" alt="" /></p>
+
+<hr />
+
+<ul>
+  <li>서비스 계정 이름 및 ID 입력, JSON 선택 후 계속 클릭</li>
+</ul>
+
+<p><img src="/assets/img/20190121/10-e9cccec9-6341-4f91-b816-bcfee5bf45d3.png" alt="" /></p>
+
+<hr />
+
+<p>JSON 파일 다운 완료가 되면 준비물 완성 !!!!</p>
+
+<h2 id="폴더-구조">폴더 구조</h2>
+
+<ul>
+  <li>파이썬 루트 폴더 아래에 아래 그림과 같이 book_img, book_txt 폴더와 인증정보가 담겨있는 JSON 파일을 같이 넣는다.</li>
+</ul>
+
+<p><img src="/assets/img/20190121/2019-01-2111-e381a92f-7fae-4cfb-9168-0a5405c8c9be.31.00.png" alt="" /></p>
+
+<h2 id="google-vision-api-사용자-인증">Google Vision API 사용자 인증</h2>
+
+<p>위 폴더 위치에서 Terminal 실행 후</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">GOOGLE_APPLICATION_CREDENTIALS</span><span class="o">=</span><span class="s2">"인증파일 JSON 위치"</span>
+예<span class="o">)</span>
+<span class="nb">export </span><span class="nv">GOOGLE_APPLICATION_CREDENTIALS</span><span class="o">=</span><span class="s2">"./My First Project-c13a79533674.json"</span>
+</code></pre></div></div>
+<p>이후 jupyter notebook 실행</p>
+
+<h2 id="파이썬-코드">파이썬 코드</h2>
+
+<ul>
+  <li>필요한 모듈 불러오기</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">io</span> <span class="c1"># 파일을 읽고 쓰기위한 모듈
+</span><span class="kn">import</span> <span class="nn">os</span> <span class="c1"># os의 기능을 사용하기 위한 모듈
+</span>
+<span class="c1"># Imports the Google Cloud client library
+</span><span class="kn">from</span> <span class="nn">google.cloud</span> <span class="kn">import</span> <span class="n">vision</span>
+<span class="kn">from</span> <span class="nn">google.cloud.vision</span> <span class="kn">import</span> <span class="n">types</span>
+</code></pre></div></div>
+
+<ul>
+  <li>필요 변수 설정</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">client</span> <span class="o">=</span> <span class="n">vision</span><span class="p">.</span><span class="n">ImageAnnotatorClient</span><span class="p">()</span>
+<span class="n">filenames</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'./book_img'</span><span class="p">)</span> <span class="c1"># book_img 아래에 있는 이미지 파일 이름을 불러오기
+</span></code></pre></div></div>
+
+<ul>
+  <li>book_img 아래의 파일을 읽은 후 같은 이름의 txt 포맷으로 book_txt에 저장</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s">'./book_img'</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+    <span class="c1"># Loads the image into memory
+</span>    <span class="k">with</span> <span class="n">io</span><span class="p">.</span><span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">image_file</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">image_file</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="n">image</span> <span class="o">=</span> <span class="n">vision</span><span class="p">.</span><span class="n">types</span><span class="p">.</span><span class="n">Image</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">text_detection</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">)</span>
+    <span class="n">texts</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">text_annotations</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'./book_txt/'</span><span class="o">+</span><span class="n">filename</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span><span class="o">+</span><span class="s">'.txt'</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">texts</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">description</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="결과-화면">결과 화면</h2>
+
+<figure class="half">
+  <img src="/assets/img/20190121/hello-486a0821-d0fa-4f57-8a14-f0d8e9bed0e7.png" alt="스캔 이미지" />
+  <img src="/assets/img/20190121/2019-01-172-47369ec2-cb34-43d6-ab80-16aa779479d5.35.25.png" alt="OCR이 후 이미지" />
+  <figcaption>스크린샷 이미지와 OCR이후 텍스트</figcaption>
+</figure>
+
+<hr />
+
+<p>위와 같은 방법으로 스캔 되어 있는 600page를 한번에 OCR를 해보았는데 생각보다 인식률이 좋게 나와 공유하는 차원에 포스팅을 해보았다.</p>
+
+<p>이를 이용하면 학생인 경우 참고서를 OCR하여 자신만의 요약집을 만들때 유용할거 같고, 아니면 집 한켠에 쌓아두고 있는 책들을 이북으로 만들때 유용하게 이용이 될수 있을 거 같다.</p>
+
+<p>하지만 이 Google Vision API에도 문제점이 몇가지가 있는데,</p>
+
+<ol>
+  <li>사용자가 쓴 손글씨의 인식률이 너무 낮다.</li>
+  <li>‘책이’라는 단어를 OCR를 하면 ‘이’가 숫자 0, 1로 인식되는 경우가 있다.</li>
+</ol>
+
+<p>위와 같은 문제점으로 OCR를 한후에 후처리 과정이 필수로 보이는데 그래도 전부 타이핑하는 시간을 획기적으로 줄일수 있는 방법으로 보인다.</p>
+
+<hr />
+
+<p>해당 소스 github 주소 : <a href="https://github.com/naramp4/python/tree/master/ocr" target="_blank" class="btn btn--primary">ocr코드 바로가기</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#python" class="page__taxonomy-item" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2019-01-21T00:00:00+09:00">January 21, 2019</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C+google+vision+api%EC%9D%98+ocr+%EB%A7%8C%EB%93%A4%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fpython%2Focr%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fpython%2Focr%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2Focr%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Google Plus"><i class="fab fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2Focr%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/os/oh-my-zsh/" class="pagination--pager" title="Oh My Zsh
+">이전</a>
+    
+    
+      <a href="/keras-book/keras-book-01/" class="pagination--pager" title="1장 딥러닝이란?
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/opentutorials/tensorflow001/" rel="permalink">1일차 - 머신러닝이란?
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">머신러닝이란?
+
+기계를 학습시켜서 인간의 판단능력을 기계에 위임하는 것을 머신러닝이라고 하는데 머신러닝이 할 수 있는 대표적인 기술들은 아래와 같다.
+
+
+
+해당 강의에서 텐서플로우로 해결하려고하는 문제는 지도학습의 분류, 회귀 문제이다.
+
+
+  
+    분류문제
+흰색 돌과 검은색 ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/python/azure/" rel="permalink">Microsoft Graph API
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">목적
+
+파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다.
+
+주의
+
+
+  개인 Microsoft ID로는 불가능 하다.
+  참고
+    
+      참고 링크
+    
+  
+
+
+Microsoft ID 만들기
+
+
+  
+    직장 혹은 학교 계정이 없다면 ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/os/windows-terminal-add-context-menu/" rel="permalink">windows 10 context menu에 terminal  추가하기
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Microsoft에서 WSL2 및 terminal 서비스를 하게 되면서 자주 사용하게 되는데
+
+PowerShell과 같이 폴더에서 오른쪽클릭해서 해당위치로 바로 못여는것에 대한 아쉬움이 있었다.
+
+
+
+[그림] terminal에서 실행시킨 ubuntu
+
+위 아쉬움을 해결하고자 구글링...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/keras-book/keras-book-01/" rel="permalink">1장 딥러닝이란?
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">케라스 창시자에게 배우는 딥러닝을 공부하면서 공부한 흔적을 남기는게 중요할거 같아 내용을 내 나름대로 요약 정리를 해보고자 한다. 이번 포스팅에서는 앞으로 시작할 딥러닝을 위해 AI, 머신러닝, 딥러닝에 대해 알아보도록 한다.
+
+딥러닝이란?
+
+Deep Learning에 대해 알아보...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Ryu Sang uk. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.6.0/js/all.js" integrity="sha384-z9ZOvGHHo21RqN5De4rfJMoAxYpaVoiYhuJXPyVmSs8yn20IE3PmBM534CffwSJI" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/python/ocr/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/python/ocr"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://naramp4.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+  </body>
+</html>

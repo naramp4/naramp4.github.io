@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-22T21:41:47+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">chancoke Blog</title><subtitle>An amazing website.</subtitle><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><entry><title type="html">1일차 - 머신러닝이란?</title><link href="http://localhost:4000/opentutorials/tensorflow001/" rel="alternate" type="text/html" title="1일차 - 머신러닝이란?" /><published>2020-08-22T00:00:00+09:00</published><updated>2020-08-22T00:00:00+09:00</updated><id>http://localhost:4000/opentutorials/tensorflow001</id><content type="html" xml:base="http://localhost:4000/opentutorials/tensorflow001/">&lt;h1 id=&quot;머신러닝이란&quot;&gt;머신러닝이란?&lt;/h1&gt;
+
+&lt;p&gt;기계를 학습시켜서 인간의 판단능력을 기계에 위임하는 것을 머신러닝이라고 하는데 머신러닝이 할 수 있는 대표적인 기술들은 아래와 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200822/Untitled.png&quot; alt=&quot;/assets/img/20200822/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;해당 강의에서 텐서플로우로 해결하려고하는 문제는 &lt;strong&gt;지도학습&lt;/strong&gt;의 &lt;strong&gt;분류&lt;/strong&gt;, &lt;strong&gt;회귀&lt;/strong&gt; 문제이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;분류문제&lt;br /&gt;
+흰색 돌과 검은색 돌을 나누는 것과 같이 카테고리 형태로 예측하는 문제&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/img/20200822/Untitled%201.png&quot; alt=&quot;/assets/img/20200822/Untitled%201.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;회귀문제&lt;br /&gt;
+부동산의 가격 예측과 같이 숫자로된 결과를 예측하는 문제&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;분류문제와 회귀문제를 해결할 수 있는 대표적인 알고리즘으로는&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Decision Tree&lt;/li&gt;
+  &lt;li&gt;Random Forest&lt;/li&gt;
+  &lt;li&gt;KNN&lt;/li&gt;
+  &lt;li&gt;SVM&lt;/li&gt;
+  &lt;li&gt;Neural Network&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;위 5가지가 있는데 우리가 실습을 해보고 사용해볼 알고리즘은 Neural Network이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Neural Network&lt;br /&gt;
+Neural Network는 인간의 뉴런을 모방하여 고안된 알고리즘이다. 요즘 많이 들리는 딥러닝은 이러한 뉴런들을 여러개 쌓아서 만든 알고리즘이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200822/Untitled%202.png&quot; alt=&quot;/assets/img/20200822/Untitled%202.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;요즘 딥러닝이 인공지능의 대체어로 많이 사용되는 것을 들을 수 가 있는데 실질적으로는 아래 그림과 같이 딥러닝은 머신러닝 여러 알고리즘 중 하나이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200822/Untitled%203.png&quot; alt=&quot;/assets/img/20200822/Untitled%203.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;딥러닝이 이렇게 유명해진 이유로는 천재들도, 대기업들도 해결하기에 어려워 보였던 문제들을 척척 풀어가는 모습을 보여주었고, 또한 딥러닝의 구체적인 원리를 잘 몰라도 코드 몇줄로 딥러닝을 이용할 수 있도록 도와주는 여러 라이브러리들이 나왔기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;여러 라이브러리 중 구글에서 오픈소스로 제공해주고 있는 텐서플로우를 사용해보고자 한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;이번 강의의 목표는 가볍게 딥러닝을 만나보고 즐겁게 사용할 수 있는 것을 지향을 하고 있다. 예를 들어 만드는데 굉장히 복잡한 도구인 스마트폰인 경우 이것이 만들어 지기까지의 원리나 구현방법을 알지 못해도 재미 있게 사용하듯이 딥러닝도 이렇게 자연스럽게 사용하는 방법을 알아 보고자 한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;지도학습&quot;&gt;지도학습&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200822/Untitled%204.png&quot; alt=&quot;/assets/img/20200822/Untitled%204.png&quot; /&gt;
+&lt;em&gt;출처 : Opentutorials - Tensorflow1 - 지도학습의 빅픽처, 이숙번님의 강의자료 - &lt;a href=&quot;https://opentutorials.org/module/4966/28967&quot;&gt;링크&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;지도학습이란 과거의 데이터를 통해 모델을 학습하고, 독립변수와 종속변수간의 규칙을 찾아내어&lt;/p&gt;
+
+&lt;p&gt;전혀 새로운 값이 들어 왔을 때 해당 규칙을 통해 새로운 결과값을 예측하는 것을 의미한다.&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;opentutorials&quot;]" /><category term="AI" /><category term="deeplearning" /><category term="tensorflow" /><summary type="html">머신러닝이란? 기계를 학습시켜서 인간의 판단능력을 기계에 위임하는 것을 머신러닝이라고 하는데 머신러닝이 할 수 있는 대표적인 기술들은 아래와 같다. 해당 강의에서 텐서플로우로 해결하려고하는 문제는 지도학습의 분류, 회귀 문제이다. 분류문제 흰색 돌과 검은색 돌을 나누는 것과 같이 카테고리 형태로 예측하는 문제 회귀문제 부동산의 가격 예측과 같이 숫자로된 결과를 예측하는 문제 분류문제와 회귀문제를 해결할 수 있는 대표적인 알고리즘으로는 Decision Tree Random Forest KNN SVM Neural Network 위 5가지가 있는데 우리가 실습을 해보고 사용해볼 알고리즘은 Neural Network이다. Neural Network Neural Network는 인간의 뉴런을 모방하여 고안된 알고리즘이다. 요즘 많이 들리는 딥러닝은 이러한 뉴런들을 여러개 쌓아서 만든 알고리즘이다. 요즘 딥러닝이 인공지능의 대체어로 많이 사용되는 것을 들을 수 가 있는데 실질적으로는 아래 그림과 같이 딥러닝은 머신러닝 여러 알고리즘 중 하나이다. 딥러닝이 이렇게 유명해진 이유로는 천재들도, 대기업들도 해결하기에 어려워 보였던 문제들을 척척 풀어가는 모습을 보여주었고, 또한 딥러닝의 구체적인 원리를 잘 몰라도 코드 몇줄로 딥러닝을 이용할 수 있도록 도와주는 여러 라이브러리들이 나왔기 때문이다. 여러 라이브러리 중 구글에서 오픈소스로 제공해주고 있는 텐서플로우를 사용해보고자 한다. 이번 강의의 목표는 가볍게 딥러닝을 만나보고 즐겁게 사용할 수 있는 것을 지향을 하고 있다. 예를 들어 만드는데 굉장히 복잡한 도구인 스마트폰인 경우 이것이 만들어 지기까지의 원리나 구현방법을 알지 못해도 재미 있게 사용하듯이 딥러닝도 이렇게 자연스럽게 사용하는 방법을 알아 보고자 한다. 지도학습 출처 : Opentutorials - Tensorflow1 - 지도학습의 빅픽처, 이숙번님의 강의자료 - 링크 지도학습이란 과거의 데이터를 통해 모델을 학습하고, 독립변수와 종속변수간의 규칙을 찾아내어 전혀 새로운 값이 들어 왔을 때 해당 규칙을 통해 새로운 결과값을 예측하는 것을 의미한다.</summary></entry><entry><title type="html">Microsoft Graph API</title><link href="http://localhost:4000/python/azure/" rel="alternate" type="text/html" title="Microsoft Graph API" /><published>2020-07-01T00:00:00+09:00</published><updated>2020-07-01T00:00:00+09:00</updated><id>http://localhost:4000/python/azure</id><content type="html" xml:base="http://localhost:4000/python/azure/">&lt;h1 id=&quot;목적&quot;&gt;목적&lt;/h1&gt;
+
+&lt;p&gt;파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다.&lt;/p&gt;
+
+&lt;h1 id=&quot;주의&quot;&gt;주의&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;개인 Microsoft ID로는 불가능 하다.&lt;/li&gt;
+  &lt;li&gt;참고
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://answers.microsoft.com/en-us/msoffice/forum/all/login-for-external-users-ext-in-o365-entreprise/494ce5f3-db91-4b05-8d93-01e352b1449b?auth=1&quot; target=&quot;_blank&quot;&gt;참고 링크&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;microsoft-id-만들기&quot;&gt;Microsoft ID 만들기&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;직장 혹은 학교 계정이 없다면 아래 그림을 참조하여 새로운 체험판 ID를 만들도록 한다.
+&lt;a href=&quot;https://docs.microsoft.com/ko-kr/outlook/rest/get-started&quot; target=&quot;_blank&quot;&gt;링크&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/img/20200701/Untitled.png&quot; alt=&quot;Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;azure-active-directory-앱-등록&quot;&gt;Azure Active Directory 앱 등록&lt;/h1&gt;
+
+&lt;p&gt;Microsoft Graph의 API를 사용하고자 하면 Azure Active Directory에 우선 앱 등록을 해야한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;앱등록&quot;&gt;앱등록&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-azure-홈페이지로-들어-가서-로그인을-한다&quot;&gt;1. &lt;a href=&quot;https://portal.azure.com&quot; target=&quot;_blank&quot;&gt;Azure 홈페이지&lt;/a&gt;로 들어 가서 로그인을 한다.&lt;/h3&gt;
+
+&lt;h3 id=&quot;2-평가판-시작-클릭&quot;&gt;2. 평가판 시작 클릭&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200701/Untitled 1.png&quot; alt=&quot;Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%201.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;3-사용자-정보입력&quot;&gt;3. 사용자 정보입력&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200701/Untitled 2.png&quot; alt=&quot;Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%202.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;4-azure-active-directory에-앱등록&quot;&gt;4. Azure Active Directory에 앱등록&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Azure AD(Azure Active Directory)는 리소스에 액세스할 수 있게 해주는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스이다.&lt;/li&gt;
+  &lt;li&gt;Azure Portal의 메뉴를 통해 Azure AD에 접근&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200701/Untitled 3.png&quot; alt=&quot;Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%203.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Azure AD의 앱등록 선택&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200701/Untitled 4.png&quot; alt=&quot;Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%204.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;앱 이름 및 리다이렉션 URI 입력&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200701/Untitled 5.png&quot; alt=&quot;Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%205.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;권한-설정&quot;&gt;권한 설정&lt;/h2&gt;
+
+&lt;p&gt;어떠한 API 사용을 하려면 그것에 맞는 권한을 허용을 해줘야한다.
+예시로 유저의 정보를 갖고 오는 권한을 활성해 보겠다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;메뉴에서 API 사용권한 클릭 &amp;gt; + 권한추가 클릭 &amp;gt; Microsoft Graph 클릭 &amp;gt; 위임된 권한에서 Directory, User, tasks, group 하위 모든 권한 활성화&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200701/Untitled 6.png&quot; alt=&quot;Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%206.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;관리자동의 허용 클릭&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200701/Untitled 7.png&quot; alt=&quot;Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%207.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;파이썬에서-사용자-정보-가져오기&quot;&gt;파이썬에서 사용자 정보 가져오기&lt;/h2&gt;
+
+&lt;h3 id=&quot;token-가져오기&quot;&gt;token 가져오기&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;json&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 중간에 디렉터리(테넌트) ID 입력
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://login.microsoftonline.com/d5288197-6699-4eba-8295-*********/oauth2/v2.0/token'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'grant_type'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'client_credentials'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#인증방법
+&lt;/span&gt;    &lt;span class=&quot;s&quot;&gt;'client_id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'dfe91331-ca77-4be8-8793-**********'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#app id
+&lt;/span&gt;    &lt;span class=&quot;s&quot;&gt;'client_secret'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'BR3sTX9b4S_T2LhCZdL8UB********'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#암호
+&lt;/span&gt;    &lt;span class=&quot;s&quot;&gt;'scope'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'https://graph.microsoft.com/.default'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'access_token'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;테넌트-id-및-app-id-확인&quot;&gt;테넌트 ID 및 app id 확인&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;개요를 보면 확인할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200701/Untitled 8.png&quot; alt=&quot;Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%208.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;암호-생성&quot;&gt;암호 생성&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200701/Untitled 9.png&quot; alt=&quot;Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%209.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;사용자정보-갖고-오기&quot;&gt;사용자정보 갖고 오기&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;s&quot;&gt;'Authorization'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Bearer {}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://graph.microsoft.com/v1.0/me'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;header에 받은 token을 넣어서 me로  request를 보내면 사용자 정보를 얻을 수 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;tasks&quot;&gt;tasks&lt;/h2&gt;
+
+&lt;p&gt;tasks를 갖고 오는 방법은 2가지가 있습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;outlook API를 사용하는 방법&lt;/li&gt;
+  &lt;li&gt;Microsoft graph의 planner API를 사용하여 task를 갖고 오는 방법&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;outlook API를 사용하여 갖고오는 방법은&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.microsoft.com/ko-kr/outlook/rest/reference&quot;&gt;https://docs.microsoft.com/ko-kr/outlook/rest/reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;위 문서에 나와 있다시피 아직 베타버전만 제공하고 있을 뿐 정식 릴리즈 되진않았습니다.(2017년도 작성 문서인데 아직까지 안나온거 보면 출시할 생각이 없는거 같습니다.)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;베타버전사용법&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/graph/api/outlooktask-get?view=graph-rest-beta&amp;amp;tabs=http&quot; target=&quot;_blank&quot;&gt;참고 URL&lt;/a&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;s&quot;&gt;'Authorization'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Bearer {}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://graph.microsoft.com/beta/me/outlook/tasks'&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;따라서 현재로써는 Microsoft graph의 planner API를 사용하여 갖고오는 수밖에 없습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;planner에서-나에게-할당된-tasks-가져-오기&quot;&gt;planner에서 나에게 할당된 tasks 가져 오기&lt;/h2&gt;
+
+&lt;p&gt;참고 : &lt;a href=&quot;https://docs.microsoft.com/en-us/graph/planner-concept-overview&quot;&gt;https://docs.microsoft.com/en-us/graph/planner-concept-overview&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;s&quot;&gt;'Authorization'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Bearer {}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://graph.microsoft.com/v1.0/me/planner/tasks'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;group-확인-하기&quot;&gt;group 확인 하기&lt;/h2&gt;
+
+&lt;p&gt;참고 : &lt;a href=&quot;https://docs.microsoft.com/en-us/graph/office365-groups-concept-overview&quot;&gt;https://docs.microsoft.com/en-us/graph/office365-groups-concept-overview&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;s&quot;&gt;'Authorization'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Bearer {}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://graph.microsoft.com/v1.0/groups'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;python&quot;]" /><category term="azure" /><category term="Microsoft Graph API" /><category term="python" /><summary type="html">목적 파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다. 주의 개인 Microsoft ID로는 불가능 하다. 참고 참고 링크 Microsoft ID 만들기 직장 혹은 학교 계정이 없다면 아래 그림을 참조하여 새로운 체험판 ID를 만들도록 한다. 링크 Azure Active Directory 앱 등록 Microsoft Graph의 API를 사용하고자 하면 Azure Active Directory에 우선 앱 등록을 해야한다. 앱등록 1. Azure 홈페이지로 들어 가서 로그인을 한다. 2. 평가판 시작 클릭 3. 사용자 정보입력 4. Azure Active Directory에 앱등록 Azure AD(Azure Active Directory)는 리소스에 액세스할 수 있게 해주는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스이다. Azure Portal의 메뉴를 통해 Azure AD에 접근 Azure AD의 앱등록 선택 앱 이름 및 리다이렉션 URI 입력 권한 설정 어떠한 API 사용을 하려면 그것에 맞는 권한을 허용을 해줘야한다. 예시로 유저의 정보를 갖고 오는 권한을 활성해 보겠다. 메뉴에서 API 사용권한 클릭 &amp;gt; + 권한추가 클릭 &amp;gt; Microsoft Graph 클릭 &amp;gt; 위임된 권한에서 Directory, User, tasks, group 하위 모든 권한 활성화 관리자동의 허용 클릭 파이썬에서 사용자 정보 가져오기 token 가져오기 import requests import json # 중간에 디렉터리(테넌트) ID 입력 url = 'https://login.microsoftonline.com/d5288197-6699-4eba-8295-*********/oauth2/v2.0/token' data = { 'grant_type': 'client_credentials', #인증방법 'client_id': 'dfe91331-ca77-4be8-8793-**********', #app id 'client_secret': 'BR3sTX9b4S_T2LhCZdL8UB********', #암호 'scope':'https://graph.microsoft.com/.default'} token = requests.post(url, data=data).json().get('access_token') 테넌트 ID 및 app id 확인 개요를 보면 확인할 수 있다. 암호 생성 사용자정보 갖고 오기 headers = { 'Authorization': 'Bearer {}'.format(token) } url = 'https://graph.microsoft.com/v1.0/me' response = requests.get(url, headers=headers).json() header에 받은 token을 넣어서 me로 request를 보내면 사용자 정보를 얻을 수 있다. tasks tasks를 갖고 오는 방법은 2가지가 있습니다. outlook API를 사용하는 방법 Microsoft graph의 planner API를 사용하여 task를 갖고 오는 방법 outlook API를 사용하여 갖고오는 방법은 https://docs.microsoft.com/ko-kr/outlook/rest/reference 위 문서에 나와 있다시피 아직 베타버전만 제공하고 있을 뿐 정식 릴리즈 되진않았습니다.(2017년도 작성 문서인데 아직까지 안나온거 보면 출시할 생각이 없는거 같습니다.) 베타버전사용법 참고 URL headers = { 'Authorization': 'Bearer {}'.format(token) } url = 'https://graph.microsoft.com/beta/me/outlook/tasks' response = requests.get(url, headers=headers).json() response 따라서 현재로써는 Microsoft graph의 planner API를 사용하여 갖고오는 수밖에 없습니다. planner에서 나에게 할당된 tasks 가져 오기 참고 : https://docs.microsoft.com/en-us/graph/planner-concept-overview headers = { 'Authorization': 'Bearer {}'.format(token) } url = 'https://graph.microsoft.com/v1.0/me/planner/tasks' response = requests.get(url, headers=headers).json() group 확인 하기 참고 : https://docs.microsoft.com/en-us/graph/office365-groups-concept-overview headers = { 'Authorization': 'Bearer {}'.format(token) } url = 'https://graph.microsoft.com/v1.0/groups' response = requests.get(url, headers=headers).json() response</summary></entry><entry><title type="html">windows 10 context menu에 terminal 추가하기</title><link href="http://localhost:4000/os/windows-terminal-add-context-menu/" rel="alternate" type="text/html" title="windows 10 context menu에 terminal 추가하기" /><published>2020-06-19T00:00:00+09:00</published><updated>2020-06-19T00:00:00+09:00</updated><id>http://localhost:4000/os/windows-terminal-add-context-menu</id><content type="html" xml:base="http://localhost:4000/os/windows-terminal-add-context-menu/">&lt;p&gt;Microsoft에서 WSL2 및 terminal 서비스를 하게 되면서 자주 사용하게 되는데&lt;/p&gt;
+
+&lt;p&gt;PowerShell과 같이 폴더에서 오른쪽클릭해서 해당위치로 바로 못여는것에 대한 아쉬움이 있었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200619/Untitled.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;[그림] terminal에서 실행시킨 ubuntu&lt;/p&gt;
+
+&lt;p&gt;위 아쉬움을 해결하고자 구글링을 해본결과!!&lt;/p&gt;
+
+&lt;p&gt;해결법을 찾게되어 공유하고자 한다.&lt;/p&gt;
+
+&lt;p&gt;사실 terminal에서 한줄만 실행시키면 되긴하는데 혹시 찾으시는분이 있을까봐 공유를 한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;준비물&quot;&gt;준비물&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;windows Terminal&lt;br /&gt;
+&lt;a href=&quot;https://aka.ms/terminal&quot; target=&quot;_blank&quot;&gt;설치 바로가기&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;windows PowerShell7&lt;br /&gt;
+&lt;a href=&quot;https://github.com/PowerShell/PowerShell/releases&quot; target=&quot;_blank&quot;&gt;설치 방법 보러가기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;설치&quot;&gt;설치&lt;/h1&gt;
+
+&lt;p&gt;powerShell7를 관리자권한으로 실행시킨 후&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;Set-ExecutionPolicy&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Bypass&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-Scope&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Process&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-Force&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;System.Net.&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;ServicePointManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SecurityProtocol&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;System.Net.&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;ServicePointManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SecurityProtocol&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-bor&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;3072&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;New-Object&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;System.Net.WebClient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;DownloadString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'https://raw.githubusercontent.com/lextm/windowsterminal-shell/master/install.ps1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위 코드를 입력시킨다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200619/Untitled1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;[그림] contextmenu에 terminal를 추가한 사진&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;os&quot;]" /><category term="terminal" /><summary type="html">Microsoft에서 WSL2 및 terminal 서비스를 하게 되면서 자주 사용하게 되는데 PowerShell과 같이 폴더에서 오른쪽클릭해서 해당위치로 바로 못여는것에 대한 아쉬움이 있었다. [그림] terminal에서 실행시킨 ubuntu 위 아쉬움을 해결하고자 구글링을 해본결과!! 해결법을 찾게되어 공유하고자 한다. 사실 terminal에서 한줄만 실행시키면 되긴하는데 혹시 찾으시는분이 있을까봐 공유를 한다. 준비물 windows Terminal 설치 바로가기 windows PowerShell7 설치 방법 보러가기 설치 powerShell7를 관리자권한으로 실행시킨 후 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/lextm/windowsterminal-shell/master/install.ps1')) 위 코드를 입력시킨다. [그림] contextmenu에 terminal를 추가한 사진</summary></entry><entry><title type="html">1장 딥러닝이란?</title><link href="http://localhost:4000/keras-book/keras-book-01/" rel="alternate" type="text/html" title="1장 딥러닝이란?" /><published>2019-02-28T00:00:00+09:00</published><updated>2019-02-28T00:00:00+09:00</updated><id>http://localhost:4000/keras-book/keras-book-01</id><content type="html" xml:base="http://localhost:4000/keras-book/keras-book-01/">&lt;p&gt;케라스 창시자에게 배우는 딥러닝을 공부하면서 공부한 흔적을 남기는게 중요할거 같아 내용을 내 나름대로 요약 정리를 해보고자 한다. 이번 포스팅에서는 앞으로 시작할 딥러닝을 위해 AI, 머신러닝, 딥러닝에 대해 알아보도록 한다.&lt;/p&gt;
+
+&lt;h1 id=&quot;딥러닝이란&quot;&gt;딥러닝이란?&lt;/h1&gt;
+
+&lt;p&gt;Deep Learning에 대해 알아보기 앞서서 인공지능(AI), 머신러닝(Machine Learning) 대해 간략하게 먼저 알아보도록 하겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190228/-f204aedd-1bdb-477d-a5b4-51466d7eabcaUntitled&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;인공지능artificial-intelligence&quot;&gt;인공지능(Artificial Intelligence)&lt;/h2&gt;
+
+&lt;p&gt;인공지능 즉, AI는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;보통의 사람이 수행하는 지능적인 작업을 자동화하기 위한 연구 활동&lt;/code&gt;으로 정의될 수가 있다. 이렇듯 AI는 머신러닝과 딥러닝을 포괄하는 개념이다. 또한 일련의 학습과정을 거치지 않고 프로그래머가 하드코딩으로 규칙을 정하여 만든 프로그램도 포함한다. 이런 방식을 심볼릭 AI라고 하며 인공지능 연구 초반에는 이러한 방법론이 주를 이루었다. 하지만 논리적인 규칙을 가지고 있지 않는 음성, 이미지, 언어 분석 등과 같은 방식에는 적용하기에 한계점이 있었고, 이를 해결하고자 머신러닝이 대두되었다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;머신러닝&quot;&gt;머신러닝&lt;/h2&gt;
+
+&lt;p&gt;머신러닝은 심볼릭 AI와 같이 프로그래머가 하나하나 규칙을 설정하는 것이 아닌 컴퓨터 스스로 데이터를 보고 규칙을 자동으로 학습할 수 없을까? 라는 질문에서 부터 시작되었으며, 새로운 패러다임 장을 열게되었다. 즉, 기존의 프로그래밍 방식으로는 규칙과, 데이터를 입력하면 해답이 나오지만, 머신러닝에서는 데이터와 해답을 입력하면 규칙이 출력이 되고 이를 새 데이터에 적용을 하면 해답을 얻을 수 있다. 여기서 규칙을 얻어내는 과정을 훈련이라 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190228/-90dcb575-2033-4fc0-be39-d8969a589d08Untitled&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;학습하기&quot;&gt;학습하기&lt;/h2&gt;
+
+&lt;p&gt;딥러닝을 이해하기 위해 우선, 머신러닝의 알고리즘에 대해 알아보기로 한다. 앞에서 말했듯이 머신러닝은 데이터와 해답이 주어지면 규칙을 찾게 되는데 이를 위해서는 세 가지가 필요하다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터 - 음성파일, 사진, 텍스트와 같은 데이터&lt;/li&gt;
+  &lt;li&gt;해답 - 사진인 경우 ‘사람’, ‘강아지’와 같은 정답 태깅&lt;/li&gt;
+  &lt;li&gt;측정값 - 머신러닝에서 예측한 값과 실제 해답간의 차이를 결정하기 위한 값, 이 측정값으로 머신러닝에 피드백하여 수정단계를 거치게 되는데 이 과정을 학습이라고 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;머신러닝은 이미 알고 있는 데이터와 해답으로 부터 의미있는 값을 출력할 수 있도록 하는 학습의 과정이다. 그렇기 때문에 핵심 문제는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;의미 있는 데이터로의 변환&lt;/code&gt;이다. 즉, 입력 데이터를 기반으로 해답에 가깝게 하는 유용한 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;표현&lt;/code&gt;을 학습하는 것이라 할 수 있다. 여기서 표현은 데이터를 바라보는 방법이다. 예를 들어 색은 RGB 포맷이나 HSV포맷으로 인코딩이 될 수 있는데 이 둘다 색을 표현하는 방법이다. 표현에 따라 문제를 쉽게 해결할 수 있고, 또는 어려울 수 있는데 예를 들어 파란색만 추출하고자 할때 RGB 포맷에서는 쉽지만 HSV 포맷으로는 어렵다.  이와 같이 머신러닝은 입력 데이터에서 적절한 표현을 찾는 것이다.&lt;/p&gt;
+
+&lt;p&gt;또 다른 예로 아래 그림과 같이 좌표 위에 있는 두가지의 점을 구분하는 문제를 해결해보고자 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190228/-d77e2e37-4c61-494c-bf75-5bc0aa84b74bUntitled&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 그림에서 3가지를 알수가 있는데&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;입력 데이터는 x, y의 좌표 값이다.&lt;/li&gt;
+  &lt;li&gt;해답은 흰 점과 검은 점 2가지이다.&lt;/li&gt;
+  &lt;li&gt;예측 값과 해답을 비교하여 측정 값을 알 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이를 해결하는 방법으로 여러 방법이 있지만 사용할 수 있는 변환 방법 중 하나는 아래 그림과 같은 좌표 변환이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190228/-2249095d-62ce-45e0-aaaa-19dc63467524Untitled&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;점에 대한 새로운 좌표 값은 새로운 표현이라 할 수 있다. 예를 들어 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x &amp;gt; 0 이면 검은 점이다.&lt;/code&gt; 또는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x &amp;lt; 0 이면 흰 점이다.&lt;/code&gt;으로 간단한 규칙으로 나타낼 수 있다. 이러한 과정을 우리가 직접 하였지만, 머신러닝을 이용하면 더 나은 표현을 찾는 과정을 자동화 할 수 있을 것이고, 이 과정을 학습이라 한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;딥러닝에서-딥이란&quot;&gt;딥러닝에서 딥이란?&lt;/h2&gt;
+
+&lt;p&gt;머신러닝의 한 분야인 딥러닝은 연속된 층에서 의미 있는 표현을 찾는데 강점이 있다. 여기서 딥은 깊은 통찰력을 얻을 수 있다는 뜻이 아닌 여러 층으로 표현을 학습하는 것을 의미한다. 즉, 얼마나 많은 층을 사용했냐에 따라 딥러닝 모델의 깊이가 정해진다. 최근 딥러닝 모델에서는 신경망이라는 모델을 곂곂이 쌓아 올려 수십개 부터 수백 개의 층으로 이루어져 있다.  보통 딥러닝을 설명을 할때 뇌 를 모방하여 만들었다는 글들이 있지만, 이는 사실이 아니며 처음 접하는 사람들에게는 이러한 설명 때문에 혼란을 가중 시킬수 있다. 딥러닝은 단지 데이터로부터 표현을 학습 하는 수학 모델일 뿐이다.&lt;/p&gt;
+
+&lt;p&gt;숫자 이미지를 인식하는 딥러닝 알고리즘을 간략하게 나타내면 아래 그림과 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190228/-b6ed93ce-5ca7-44cb-9939-369b084b6c08untitled&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;원본 데이터가 딥러닝 모델에 들어가게 되면 층을 거칠때 마다 더 나은 표현으로 자동으로 이미지가 변하게 되고, 결국에는 마지막 층에서는 예측값을 얻을 수가 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;딥러닝의-작동-원리&quot;&gt;딥러닝의 작동 원리&lt;/h2&gt;
+
+&lt;p&gt;입력데이터가 층을 거치면서 일어나는 변환들은 가중치에 수치로 저장이 된다.&lt;/p&gt;
+
+&lt;p&gt;즉, 우리가 원하는 해답을 얻기위해서는 학습을 통해 가중치의 수치를 변경하는 과정을 거쳐야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190228/-3db9bac8-4d8e-4cbd-9333-ea9876060ec1untitled&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;가중치의 수치를 변경하기 위해서는 해답과 얼마나 벗어나 있는지 파악을 해야 하는데 이를 loss function이 담당 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190228/-9e45e20e-2d5b-41a4-8c90-29642ae41e74untitled&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;loss function에서 나온 값으로 가중치의 수치를 조정하게 되는데 이를 optimizer가 담당한다.&lt;/p&gt;
+
+&lt;p&gt;이러한 메카니즘을 구현한 알고리즘이 역전파(backpropagation) 알고리즘이라 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190228/-9e4d85bd-d92e-43a2-80ac-63872ca4a1cduntitled&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;딥러닝의-성과&quot;&gt;딥러닝의 성과&lt;/h2&gt;
+
+&lt;p&gt;2010년 초부터 유명세를 탔지만 이미지분류, 음성인식, 필기인식등 여러 분야에서 괄목할만한 여러 성과를 냈다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190228/-5048caa2-5180-4063-a6e5-063fbc6435bbuntitled&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;ai-겨울-및-전망&quot;&gt;AI 겨울 및 전망&lt;/h2&gt;
+
+&lt;p&gt;딥러닝이 최근 몇 년 동안 괄목할만한 성과를 냈지만 앞으로도 단기간내에 이와 같은 성장세를 탈것이라 생각하면 안된다. 일례로 1960년대 심볼릭 AI에 기대가 높았는데 심볼릭 AI에 대한 권위가 높았던 마빈 민스키는 몇년안에 사람 수준의 지능을 가진 AI가 나올것이라 했었다. 하지만 기대와는 다르게 구체화가 되지 못하여 투자는 줄어들었고, 첫 번째 AI 겨울이 시작되었다.&lt;/p&gt;
+
+&lt;p&gt;1980년대 심볼릭 AI의 발전시켜 전문가 시스템이 인기를 끌기 시작하였다. 하지만 유지 비용이 비싸고, 확장이 어렵고 하여 관심이 사그라들어 두 번째 AI 겨울이 시작하였다.&lt;/p&gt;
+
+&lt;p&gt;지금 현재 딥러닝의 놀라운 성과로 이목을 집중시키고 있지만, 앞으로도 계속 장미빛이 계속 될지, 아니면 앞써 본 AI 겨울이 찾아 올지도 모른다.&lt;/p&gt;
+
+&lt;p&gt;하지만 장기적인 관점에서 보면 AI의 전망은 아주 밝다. 비록 단기적인 관점에선 또 세번째 AI 겨울이 찾아 올지 모르지만 AI의 시대는 올것이고, 지금과는 다른 미래가 기다리고 있을 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190228/-c442fdcd-47e8-45f6-a700-5e4bde9bda7funtitled&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;출처&quot;&gt;출처&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;프랑소와 숄레 지음 박해선 옮김(2018). “케라스 창시자에게 배우는 딥러닝”. (주)도서출판 길벗.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;keras-book&quot;]" /><category term="AI" /><category term="deeplearning" /><category term="케라스 창시자에게 배우는 딥러닝" /><summary type="html">케라스 창시자에게 배우는 딥러닝을 공부하면서 공부한 흔적을 남기는게 중요할거 같아 내용을 내 나름대로 요약 정리를 해보고자 한다. 이번 포스팅에서는 앞으로 시작할 딥러닝을 위해 AI, 머신러닝, 딥러닝에 대해 알아보도록 한다. 딥러닝이란? Deep Learning에 대해 알아보기 앞서서 인공지능(AI), 머신러닝(Machine Learning) 대해 간략하게 먼저 알아보도록 하겠다. 인공지능(Artificial Intelligence) 인공지능 즉, AI는 보통의 사람이 수행하는 지능적인 작업을 자동화하기 위한 연구 활동으로 정의될 수가 있다. 이렇듯 AI는 머신러닝과 딥러닝을 포괄하는 개념이다. 또한 일련의 학습과정을 거치지 않고 프로그래머가 하드코딩으로 규칙을 정하여 만든 프로그램도 포함한다. 이런 방식을 심볼릭 AI라고 하며 인공지능 연구 초반에는 이러한 방법론이 주를 이루었다. 하지만 논리적인 규칙을 가지고 있지 않는 음성, 이미지, 언어 분석 등과 같은 방식에는 적용하기에 한계점이 있었고, 이를 해결하고자 머신러닝이 대두되었다. 머신러닝 머신러닝은 심볼릭 AI와 같이 프로그래머가 하나하나 규칙을 설정하는 것이 아닌 컴퓨터 스스로 데이터를 보고 규칙을 자동으로 학습할 수 없을까? 라는 질문에서 부터 시작되었으며, 새로운 패러다임 장을 열게되었다. 즉, 기존의 프로그래밍 방식으로는 규칙과, 데이터를 입력하면 해답이 나오지만, 머신러닝에서는 데이터와 해답을 입력하면 규칙이 출력이 되고 이를 새 데이터에 적용을 하면 해답을 얻을 수 있다. 여기서 규칙을 얻어내는 과정을 훈련이라 한다. 학습하기 딥러닝을 이해하기 위해 우선, 머신러닝의 알고리즘에 대해 알아보기로 한다. 앞에서 말했듯이 머신러닝은 데이터와 해답이 주어지면 규칙을 찾게 되는데 이를 위해서는 세 가지가 필요하다. 데이터 - 음성파일, 사진, 텍스트와 같은 데이터 해답 - 사진인 경우 ‘사람’, ‘강아지’와 같은 정답 태깅 측정값 - 머신러닝에서 예측한 값과 실제 해답간의 차이를 결정하기 위한 값, 이 측정값으로 머신러닝에 피드백하여 수정단계를 거치게 되는데 이 과정을 학습이라고 한다. 머신러닝은 이미 알고 있는 데이터와 해답으로 부터 의미있는 값을 출력할 수 있도록 하는 학습의 과정이다. 그렇기 때문에 핵심 문제는 의미 있는 데이터로의 변환이다. 즉, 입력 데이터를 기반으로 해답에 가깝게 하는 유용한 표현을 학습하는 것이라 할 수 있다. 여기서 표현은 데이터를 바라보는 방법이다. 예를 들어 색은 RGB 포맷이나 HSV포맷으로 인코딩이 될 수 있는데 이 둘다 색을 표현하는 방법이다. 표현에 따라 문제를 쉽게 해결할 수 있고, 또는 어려울 수 있는데 예를 들어 파란색만 추출하고자 할때 RGB 포맷에서는 쉽지만 HSV 포맷으로는 어렵다. 이와 같이 머신러닝은 입력 데이터에서 적절한 표현을 찾는 것이다. 또 다른 예로 아래 그림과 같이 좌표 위에 있는 두가지의 점을 구분하는 문제를 해결해보고자 한다. 위 그림에서 3가지를 알수가 있는데 입력 데이터는 x, y의 좌표 값이다. 해답은 흰 점과 검은 점 2가지이다. 예측 값과 해답을 비교하여 측정 값을 알 수 있다. 이를 해결하는 방법으로 여러 방법이 있지만 사용할 수 있는 변환 방법 중 하나는 아래 그림과 같은 좌표 변환이다. 점에 대한 새로운 좌표 값은 새로운 표현이라 할 수 있다. 예를 들어 x &amp;gt; 0 이면 검은 점이다. 또는 x &amp;lt; 0 이면 흰 점이다.으로 간단한 규칙으로 나타낼 수 있다. 이러한 과정을 우리가 직접 하였지만, 머신러닝을 이용하면 더 나은 표현을 찾는 과정을 자동화 할 수 있을 것이고, 이 과정을 학습이라 한다. 딥러닝에서 딥이란? 머신러닝의 한 분야인 딥러닝은 연속된 층에서 의미 있는 표현을 찾는데 강점이 있다. 여기서 딥은 깊은 통찰력을 얻을 수 있다는 뜻이 아닌 여러 층으로 표현을 학습하는 것을 의미한다. 즉, 얼마나 많은 층을 사용했냐에 따라 딥러닝 모델의 깊이가 정해진다. 최근 딥러닝 모델에서는 신경망이라는 모델을 곂곂이 쌓아 올려 수십개 부터 수백 개의 층으로 이루어져 있다. 보통 딥러닝을 설명을 할때 뇌 를 모방하여 만들었다는 글들이 있지만, 이는 사실이 아니며 처음 접하는 사람들에게는 이러한 설명 때문에 혼란을 가중 시킬수 있다. 딥러닝은 단지 데이터로부터 표현을 학습 하는 수학 모델일 뿐이다. 숫자 이미지를 인식하는 딥러닝 알고리즘을 간략하게 나타내면 아래 그림과 같다. 원본 데이터가 딥러닝 모델에 들어가게 되면 층을 거칠때 마다 더 나은 표현으로 자동으로 이미지가 변하게 되고, 결국에는 마지막 층에서는 예측값을 얻을 수가 있다. 딥러닝의 작동 원리 입력데이터가 층을 거치면서 일어나는 변환들은 가중치에 수치로 저장이 된다. 즉, 우리가 원하는 해답을 얻기위해서는 학습을 통해 가중치의 수치를 변경하는 과정을 거쳐야 한다. 가중치의 수치를 변경하기 위해서는 해답과 얼마나 벗어나 있는지 파악을 해야 하는데 이를 loss function이 담당 한다. loss function에서 나온 값으로 가중치의 수치를 조정하게 되는데 이를 optimizer가 담당한다. 이러한 메카니즘을 구현한 알고리즘이 역전파(backpropagation) 알고리즘이라 한다. 딥러닝의 성과 2010년 초부터 유명세를 탔지만 이미지분류, 음성인식, 필기인식등 여러 분야에서 괄목할만한 여러 성과를 냈다. AI 겨울 및 전망 딥러닝이 최근 몇 년 동안 괄목할만한 성과를 냈지만 앞으로도 단기간내에 이와 같은 성장세를 탈것이라 생각하면 안된다. 일례로 1960년대 심볼릭 AI에 기대가 높았는데 심볼릭 AI에 대한 권위가 높았던 마빈 민스키는 몇년안에 사람 수준의 지능을 가진 AI가 나올것이라 했었다. 하지만 기대와는 다르게 구체화가 되지 못하여 투자는 줄어들었고, 첫 번째 AI 겨울이 시작되었다. 1980년대 심볼릭 AI의 발전시켜 전문가 시스템이 인기를 끌기 시작하였다. 하지만 유지 비용이 비싸고, 확장이 어렵고 하여 관심이 사그라들어 두 번째 AI 겨울이 시작하였다. 지금 현재 딥러닝의 놀라운 성과로 이목을 집중시키고 있지만, 앞으로도 계속 장미빛이 계속 될지, 아니면 앞써 본 AI 겨울이 찾아 올지도 모른다. 하지만 장기적인 관점에서 보면 AI의 전망은 아주 밝다. 비록 단기적인 관점에선 또 세번째 AI 겨울이 찾아 올지 모르지만 AI의 시대는 올것이고, 지금과는 다른 미래가 기다리고 있을 것이다. 출처 프랑소와 숄레 지음 박해선 옮김(2018). “케라스 창시자에게 배우는 딥러닝”. (주)도서출판 길벗.</summary></entry><entry><title type="html">파이썬으로 google vision api의 ocr 만들기</title><link href="http://localhost:4000/python/ocr/" rel="alternate" type="text/html" title="파이썬으로 google vision api의 ocr 만들기" /><published>2019-01-21T00:00:00+09:00</published><updated>2019-01-21T00:00:00+09:00</updated><id>http://localhost:4000/python/ocr</id><content type="html" xml:base="http://localhost:4000/python/ocr/">&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python&lt;/code&gt;과 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Google Vision API&lt;/code&gt;를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ocr&lt;/code&gt;에 대해 알아 보겠다.&lt;/p&gt;
+
+&lt;figure class=&quot;half&quot;&gt;
+  &lt;img src=&quot;/assets/img/20190121/hello-486a0821-d0fa-4f57-8a14-f0d8e9bed0e7.png&quot; alt=&quot;스캔 이미지&quot; /&gt;
+  &lt;img src=&quot;/assets/img/20190121/2019-01-172-47369ec2-cb34-43d6-ab80-16aa779479d5.35.25.png&quot; alt=&quot;OCR이 후 이미지&quot; /&gt;
+  &lt;figcaption&gt;스크린샷 이미지와 OCR이후 텍스트&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;준비물&quot;&gt;준비물&lt;/h2&gt;
+
+&lt;p&gt;python3, 구글 계정, 해외 결제가 되는 카드(신용카드 또는 체크카드), 스캔할 대상 파일&lt;/p&gt;
+
+&lt;h2 id=&quot;google-cloud-platform-가입&quot;&gt;Google Cloud Platform 가입&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cloud.google.com/vision/?hl=ko&quot; target=&quot;_blank&quot;&gt;Google Vision API&lt;/a&gt; 접속 후 무료로 사용해보기 버튼 클릭&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/2-2d707945-fc84-465e-89ab-35b9d44d80b8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서비스 약관 및 이메일로 정보 수신 여부 선택 후 AGREE AND CONTINUE 버튼 클릭&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/3-ca90889f-21ac-4543-b863-86757b18bfbb.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;고객 정보에 빨간 줄을 필수 값으로 입력 후 가입&lt;/li&gt;
+  &lt;li&gt;결제 수단인 카드 정보도 입력해야 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/4-e7158275-fc16-4a8a-b499-d7c6f840aead.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;가입이 완료 되었으면 Google Cloude Platform의 왼쪽메뉴에서 인공지능 &amp;gt; Vision 클릭&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/5-07da49e6-8ef6-4e54-8bd8-32af96c10716.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Use the pre-trained model의 Learn about the Vision API 클릭&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/6-1ad44c7b-bc27-47d8-87b0-48c02e2c4377.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용설정 버튼 클릭&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/7-d7774bf0-2675-41e8-ba9a-f38e0b47ef3d.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;사용자 인증 정보 만들기 클릭&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/8-bf4640a1-4487-4526-b7b5-9133fa242dca.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cloud Vision API, 아니요 선택 후 ‘어떤 사용자 인증 정보가 필요한가요?’ 버튼 클릭&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/9-2f157cba-8176-45b5-9f9b-a0ce2cf6ba97.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;서비스 계정 이름 및 ID 입력, JSON 선택 후 계속 클릭&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/10-e9cccec9-6341-4f91-b816-bcfee5bf45d3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;JSON 파일 다운 완료가 되면 준비물 완성 !!!!&lt;/p&gt;
+
+&lt;h2 id=&quot;폴더-구조&quot;&gt;폴더 구조&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;파이썬 루트 폴더 아래에 아래 그림과 같이 book_img, book_txt 폴더와 인증정보가 담겨있는 JSON 파일을 같이 넣는다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/2019-01-2111-e381a92f-7fae-4cfb-9168-0a5405c8c9be.31.00.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;google-vision-api-사용자-인증&quot;&gt;Google Vision API 사용자 인증&lt;/h2&gt;
+
+&lt;p&gt;위 폴더 위치에서 Terminal 실행 후&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOOGLE_APPLICATION_CREDENTIALS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;인증파일 JSON 위치&quot;&lt;/span&gt;
+예&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOOGLE_APPLICATION_CREDENTIALS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;./My First Project-c13a79533674.json&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;이후 jupyter notebook 실행&lt;/p&gt;
+
+&lt;h2 id=&quot;파이썬-코드&quot;&gt;파이썬 코드&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;필요한 모듈 불러오기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 파일을 읽고 쓰기위한 모듈
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# os의 기능을 사용하기 위한 모듈
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Imports the Google Cloud client library
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;google.cloud&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vision&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;google.cloud.vision&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;types&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;필요 변수 설정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;client&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ImageAnnotatorClient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;filenames&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./book_img'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# book_img 아래에 있는 이미지 파일 이름을 불러오기
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;book_img 아래의 파일을 읽은 후 같은 이름의 txt 포맷으로 book_txt에 저장&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filenames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./book_img'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Loads the image into memory
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text_detection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;texts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text_annotations&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./book_txt/'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'.txt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;w&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;결과-화면&quot;&gt;결과 화면&lt;/h2&gt;
+
+&lt;figure class=&quot;half&quot;&gt;
+  &lt;img src=&quot;/assets/img/20190121/hello-486a0821-d0fa-4f57-8a14-f0d8e9bed0e7.png&quot; alt=&quot;스캔 이미지&quot; /&gt;
+  &lt;img src=&quot;/assets/img/20190121/2019-01-172-47369ec2-cb34-43d6-ab80-16aa779479d5.35.25.png&quot; alt=&quot;OCR이 후 이미지&quot; /&gt;
+  &lt;figcaption&gt;스크린샷 이미지와 OCR이후 텍스트&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;위와 같은 방법으로 스캔 되어 있는 600page를 한번에 OCR를 해보았는데 생각보다 인식률이 좋게 나와 공유하는 차원에 포스팅을 해보았다.&lt;/p&gt;
+
+&lt;p&gt;이를 이용하면 학생인 경우 참고서를 OCR하여 자신만의 요약집을 만들때 유용할거 같고, 아니면 집 한켠에 쌓아두고 있는 책들을 이북으로 만들때 유용하게 이용이 될수 있을 거 같다.&lt;/p&gt;
+
+&lt;p&gt;하지만 이 Google Vision API에도 문제점이 몇가지가 있는데,&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;사용자가 쓴 손글씨의 인식률이 너무 낮다.&lt;/li&gt;
+  &lt;li&gt;‘책이’라는 단어를 OCR를 하면 ‘이’가 숫자 0, 1로 인식되는 경우가 있다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;위와 같은 문제점으로 OCR를 한후에 후처리 과정이 필수로 보이는데 그래도 전부 타이핑하는 시간을 획기적으로 줄일수 있는 방법으로 보인다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;해당 소스 github 주소 : &lt;a href=&quot;https://github.com/naramp4/python/tree/master/ocr&quot; target=&quot;_blank&quot; class=&quot;btn btn--primary&quot;&gt;ocr코드 바로가기&lt;/a&gt;&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;python&quot;]" /><category term="OCR" /><category term="python" /><category term="google vision api" /><summary type="html">python과 Google Vision API를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 ocr에 대해 알아 보겠다. 스크린샷 이미지와 OCR이후 텍스트 준비물 python3, 구글 계정, 해외 결제가 되는 카드(신용카드 또는 체크카드), 스캔할 대상 파일 Google Cloud Platform 가입 Google Vision API 접속 후 무료로 사용해보기 버튼 클릭 서비스 약관 및 이메일로 정보 수신 여부 선택 후 AGREE AND CONTINUE 버튼 클릭 고객 정보에 빨간 줄을 필수 값으로 입력 후 가입 결제 수단인 카드 정보도 입력해야 함 가입이 완료 되었으면 Google Cloude Platform의 왼쪽메뉴에서 인공지능 &amp;gt; Vision 클릭 Use the pre-trained model의 Learn about the Vision API 클릭 사용설정 버튼 클릭 사용자 인증 정보 만들기 클릭 Cloud Vision API, 아니요 선택 후 ‘어떤 사용자 인증 정보가 필요한가요?’ 버튼 클릭 서비스 계정 이름 및 ID 입력, JSON 선택 후 계속 클릭 JSON 파일 다운 완료가 되면 준비물 완성 !!!! 폴더 구조 파이썬 루트 폴더 아래에 아래 그림과 같이 book_img, book_txt 폴더와 인증정보가 담겨있는 JSON 파일을 같이 넣는다. Google Vision API 사용자 인증 위 폴더 위치에서 Terminal 실행 후 export GOOGLE_APPLICATION_CREDENTIALS=&quot;인증파일 JSON 위치&quot; 예) export GOOGLE_APPLICATION_CREDENTIALS=&quot;./My First Project-c13a79533674.json&quot; 이후 jupyter notebook 실행 파이썬 코드 필요한 모듈 불러오기 import io # 파일을 읽고 쓰기위한 모듈 import os # os의 기능을 사용하기 위한 모듈 # Imports the Google Cloud client library from google.cloud import vision from google.cloud.vision import types 필요 변수 설정 client = vision.ImageAnnotatorClient() filenames = os.listdir('./book_img') # book_img 아래에 있는 이미지 파일 이름을 불러오기 book_img 아래의 파일을 읽은 후 같은 이름의 txt 포맷으로 book_txt에 저장 for filename in filenames: path = os.path.join('./book_img', filename) # Loads the image into memory with io.open(path, 'rb') as image_file: content = image_file.read() image = vision.types.Image(content=content) response = client.text_detection(image=image) texts = response.text_annotations with open('./book_txt/'+filename[0:-4]+'.txt', &quot;w&quot;) as f: f.write(texts[0].description) 결과 화면 스크린샷 이미지와 OCR이후 텍스트 위와 같은 방법으로 스캔 되어 있는 600page를 한번에 OCR를 해보았는데 생각보다 인식률이 좋게 나와 공유하는 차원에 포스팅을 해보았다. 이를 이용하면 학생인 경우 참고서를 OCR하여 자신만의 요약집을 만들때 유용할거 같고, 아니면 집 한켠에 쌓아두고 있는 책들을 이북으로 만들때 유용하게 이용이 될수 있을 거 같다. 하지만 이 Google Vision API에도 문제점이 몇가지가 있는데, 사용자가 쓴 손글씨의 인식률이 너무 낮다. ‘책이’라는 단어를 OCR를 하면 ‘이’가 숫자 0, 1로 인식되는 경우가 있다. 위와 같은 문제점으로 OCR를 한후에 후처리 과정이 필수로 보이는데 그래도 전부 타이핑하는 시간을 획기적으로 줄일수 있는 방법으로 보인다. 해당 소스 github 주소 : ocr코드 바로가기</summary></entry><entry><title type="html">Oh My Zsh</title><link href="http://localhost:4000/os/oh-my-zsh/" rel="alternate" type="text/html" title="Oh My Zsh" /><published>2019-01-14T00:00:00+09:00</published><updated>2019-01-14T00:00:00+09:00</updated><id>http://localhost:4000/os/oh-my-zsh</id><content type="html" xml:base="http://localhost:4000/os/oh-my-zsh/">&lt;h1 id=&quot;zsh-oh-my-zsh&quot;&gt;zsh, oh-my-zsh&lt;/h1&gt;
+
+&lt;p&gt;mac의 터미널을 보다 보기 편하고 편리한 기능을 가지고 있는 oh-my-zsh의 설치 방법에 대해 알아보도록 하겠다.&lt;/p&gt;
+
+&lt;h2 id=&quot;zsh-설치확인&quot;&gt;zsh 설치확인&lt;/h2&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;zsh &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;설치가-안되어-있으면&quot;&gt;설치가 안되어 있으면&lt;/h2&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;zsh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;기본-쉘을-zsh로-바꾸기&quot;&gt;기본 쉘을 zsh로 바꾸기&lt;/h2&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chsh &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;which zsh&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$SHELL&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;iterm2 종료 후 재실행&lt;/p&gt;
+
+&lt;h2 id=&quot;oh-my-zsh-설치&quot;&gt;oh-my-zsh 설치&lt;/h2&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;oh-my-zsh-테마-설정---agnoster-테마-적용&quot;&gt;oh-my-zsh 테마 설정 - agnoster 테마 적용&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;~/.zshrc 파일 열기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#atom 사용&lt;/span&gt;
+atom ~/.zshrc
+
+&lt;span class=&quot;c&quot;&gt;#vim 사용&lt;/span&gt;
+vim ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;해당 파일에 아래 내용 추가&lt;/p&gt;
+
+    &lt;p&gt;ZSH_THEME=”agnoster”&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;변경한 내용 적용&lt;/p&gt;
+
+    &lt;p&gt;source ~/.zshrc&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;해당 테마를 적용하면 별로 예쁘지 않게 나오는데 iterm2의 배경을 Solarized Dark로 변경하면 예쁘게 나온다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Solarized Dark로 변경&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;iterm2 실행&lt;/li&gt;
+    &lt;li&gt;cmd + , (iterm2의 preferences로 진입)&lt;/li&gt;
+    &lt;li&gt;Profiles 메뉴로 이동&lt;/li&gt;
+    &lt;li&gt;Profiles의 Colors 탭으로 이동&lt;/li&gt;
+    &lt;li&gt;우측 하단의 Color Presets 샐렉트 박스 클릭 후 Solarized Dark 선택&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;figure class=&quot;half &quot;&gt;
+  
+    
+      &lt;img src=&quot;/assets/img/20190114/2018-11-071-e59a8a7c-e668-41d0-85d4-3abaf191a404.42.37.png&quot; alt=&quot;before&quot; /&gt;
+    
+  
+    
+      &lt;img src=&quot;/assets/img/20190114/2018-11-071-8d26a001-0ec8-4e16-a2e4-876b773c7c36.41.46.png&quot; alt=&quot;before&quot; /&gt;
+    
+  
+  
+    &lt;figcaption&gt;해당 소스 적용 전후 사진
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;깨지는-폰트-잘나오도록-폰트-설정-변경&quot;&gt;깨지는 폰트 잘나오도록 폰트 설정 변경&lt;/h2&gt;
+
+&lt;p&gt;네이버 코딩 글꼴,  Ubuntu_Mono_derivative_Powerline 등 깨지는 않는 글꼴로 변경이 필요하다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;네이버 코딩 글꼴 다운 위치&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developers.naver.com/opensource/tools/editor/&quot;&gt;https://developers.naver.com/opensource/tools/editor/&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ubuntu_Mono_derivative_Powerline 글꼴 다운 위치&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/powerline/fonts/tree/master/UbuntuMono&quot;&gt;https://github.com/powerline/fonts/tree/master/UbuntuMono&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;글꼴을 설치한 후 iterm2에 적용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;iterm2 실행&lt;/li&gt;
+    &lt;li&gt;cmd + , (iterm2의 preferences로 진입)&lt;/li&gt;
+    &lt;li&gt;Profiles 메뉴로 이동&lt;/li&gt;
+    &lt;li&gt;Profiles의 Text 탭으로 이동&lt;/li&gt;
+    &lt;li&gt;Change Font 버튼 클릭 후 해당 글꼴 선택&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190114/2018-11-071-3a329769-fa79-465e-a5f5-8ffb54c37324.39.27.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;사용자-이름-나오게-않게-변경&quot;&gt;사용자 이름 나오게 않게 변경&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;~/.zshrc 파일 열기&lt;/p&gt;
+
+    &lt;p&gt;#atom 사용
+  atom ~/.zshrc&lt;/p&gt;
+
+    &lt;p&gt;#vim 사용
+  vim ~/.zshrc&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;해당 파일에 아래 내용 추가&lt;/p&gt;
+
+    &lt;p&gt;prompt_context() {
+  }&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;변경한 내용 적용&lt;/p&gt;
+
+    &lt;p&gt;source ~/.zshrc&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;half &quot;&gt;
+  
+    
+      &lt;img src=&quot;/assets/img/20190114/2018-11-071-da26032a-1dfd-463c-8ebe-528907558ed3.18.13.png&quot; alt=&quot;before&quot; /&gt;
+    
+  
+    
+      &lt;img src=&quot;/assets/img/20190114/2018-11-071-430e5529-6e37-4857-9343-495e03dd27db.19.25.png&quot; alt=&quot;after&quot; /&gt;
+    
+  
+  
+    &lt;figcaption&gt;해당 소스 적용 전후 사진
+&lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;멀티라인-적용&quot;&gt;멀티라인 적용&lt;/h2&gt;
+
+&lt;p&gt;폴더의 depth가 깊어지거나, 창의 넓이가 좁으면 명령어의 영역이 좁아져서 가독이 나빠진다.&lt;/p&gt;
+
+&lt;p&gt;이를 해결하기 위해 멀티라인을 적용한다.&lt;/p&gt;
+
+&lt;p&gt;해당 함수는&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://totuworld.github.io/2016/04/08/zsh2line/&quot;&gt;http://totuworld.github.io/2016/04/08/zsh2line/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;위 블로그의 작성글을 참고하여 적용하였다.&lt;/p&gt;
+
+&lt;p&gt;아래 명령어는 agnoster 테마를 적용한 경우를 예를 들었다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;agnoster 테마 설정파일 파일 열기&lt;/p&gt;
+
+    &lt;p&gt;#atom 사용
+  atom ~/.oh-my-zsh/themes/agnoster.zsh-theme&lt;/p&gt;
+
+    &lt;p&gt;#vim 사용
+  vim ~/.oh-my-zsh/themes/agnoster.zsh-theme&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;해당 파일에 아래 내용 추가&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;prompt_newline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;vg&quot;&gt;$CURRENT_BG&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]];&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR
+    %{%k%F{blue}%}$SEGMENT_SEPARATOR&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;%{%k%}&quot;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;fi&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;%{%f%}&quot;&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;CURRENT_BG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;기존 함수 수정&lt;/p&gt;
+
+    &lt;p&gt;## Main prompt
+  build_prompt() {
+    RETVAL=$?
+    prompt_status
+    prompt_virtualenv
+    prompt_context
+    prompt_dir
+    prompt_git
+    prompt_hg
+    prompt_newline
+    prompt_end
+  }&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;변경한 내용 적용&lt;/p&gt;
+
+    &lt;p&gt;source ~/.oh-my-zsh/themes/agnoster.zsh-theme&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;최종적용-모습&quot;&gt;최종적용 모습&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20190114/2018-11-072-1ec363c3-df4e-477e-8338-a48504ea46ce.15.32.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;참고&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://nolboo.kim/blog/2015/08/21/oh-my-zsh/&quot;&gt;https://nolboo.kim/blog/2015/08/21/oh-my-zsh/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://wayhome25.github.io/etc/2017/03/12/zsh-alias/&quot;&gt;https://wayhome25.github.io/etc/2017/03/12/zsh-alias/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://totuworld.github.io/2016/04/08/zsh2line/&quot;&gt;http://totuworld.github.io/2016/04/08/zsh2line/&lt;/a&gt;&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;os&quot;]" /><category term="oh my zsh" /><summary type="html">zsh, oh-my-zsh mac의 터미널을 보다 보기 편하고 편리한 기능을 가지고 있는 oh-my-zsh의 설치 방법에 대해 알아보도록 하겠다. zsh 설치확인 zsh --version 설치가 안되어 있으면 brew install zsh 기본 쉘을 zsh로 바꾸기 chsh -s `which zsh` echo $SHELL iterm2 종료 후 재실행 oh-my-zsh 설치 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh oh-my-zsh 테마 설정 - agnoster 테마 적용 ~/.zshrc 파일 열기 #atom 사용 atom ~/.zshrc #vim 사용 vim ~/.zshrc 해당 파일에 아래 내용 추가 ZSH_THEME=”agnoster” 변경한 내용 적용 source ~/.zshrc 해당 테마를 적용하면 별로 예쁘지 않게 나오는데 iterm2의 배경을 Solarized Dark로 변경하면 예쁘게 나온다. Solarized Dark로 변경 iterm2 실행 cmd + , (iterm2의 preferences로 진입) Profiles 메뉴로 이동 Profiles의 Colors 탭으로 이동 우측 하단의 Color Presets 샐렉트 박스 클릭 후 Solarized Dark 선택 해당 소스 적용 전후 사진 깨지는 폰트 잘나오도록 폰트 설정 변경 네이버 코딩 글꼴, Ubuntu_Mono_derivative_Powerline 등 깨지는 않는 글꼴로 변경이 필요하다. 네이버 코딩 글꼴 다운 위치 https://developers.naver.com/opensource/tools/editor/ Ubuntu_Mono_derivative_Powerline 글꼴 다운 위치 https://github.com/powerline/fonts/tree/master/UbuntuMono 글꼴을 설치한 후 iterm2에 적용 iterm2 실행 cmd + , (iterm2의 preferences로 진입) Profiles 메뉴로 이동 Profiles의 Text 탭으로 이동 Change Font 버튼 클릭 후 해당 글꼴 선택 사용자 이름 나오게 않게 변경 ~/.zshrc 파일 열기 #atom 사용 atom ~/.zshrc #vim 사용 vim ~/.zshrc 해당 파일에 아래 내용 추가 prompt_context() { } 변경한 내용 적용 source ~/.zshrc 해당 소스 적용 전후 사진 멀티라인 적용 폴더의 depth가 깊어지거나, 창의 넓이가 좁으면 명령어의 영역이 좁아져서 가독이 나빠진다. 이를 해결하기 위해 멀티라인을 적용한다. 해당 함수는 http://totuworld.github.io/2016/04/08/zsh2line/ 위 블로그의 작성글을 참고하여 적용하였다. 아래 명령어는 agnoster 테마를 적용한 경우를 예를 들었다. agnoster 테마 설정파일 파일 열기 #atom 사용 atom ~/.oh-my-zsh/themes/agnoster.zsh-theme #vim 사용 vim ~/.oh-my-zsh/themes/agnoster.zsh-theme 해당 파일에 아래 내용 추가 prompt_newline() { if [[ -n $CURRENT_BG ]]; then echo -n &quot;%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR %{%k%F{blue}%}$SEGMENT_SEPARATOR&quot; else echo -n &quot;%{%k%}&quot; fi echo -n &quot;%{%f%}&quot; CURRENT_BG='' } 기존 함수 수정 ## Main prompt build_prompt() { RETVAL=$? prompt_status prompt_virtualenv prompt_context prompt_dir prompt_git prompt_hg prompt_newline prompt_end } 변경한 내용 적용 source ~/.oh-my-zsh/themes/agnoster.zsh-theme 최종적용 모습 참고 https://nolboo.kim/blog/2015/08/21/oh-my-zsh/ https://wayhome25.github.io/etc/2017/03/12/zsh-alias/ http://totuworld.github.io/2016/04/08/zsh2line/</summary></entry></feed>

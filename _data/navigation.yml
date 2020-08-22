@@ -43,3 +43,9 @@ keras:
       children:
           - title: "1장 딥러닝이란?"
             url : /keras-book/keras-book-01/
+opentutorials:
+    - title: "머신러닝 야학"
+      url : /AI/lecture/opentutorials/index/
+      children:
+          - title: "1일차"
+            url : /opentutorials/tensorflow001/

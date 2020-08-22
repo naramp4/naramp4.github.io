@@ -1,0 +1,735 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.14.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Oh My Zsh - chancoke Blog</title>
+<meta name="description" content="zsh, oh-my-zshmac의 터미널을 보다 보기 편하고 편리한 기능을 가지고 있는 oh-my-zsh의 설치 방법에 대해 알아보도록 하겠다.zsh 설치확인zsh --version설치가 안되어 있으면brew install zsh기본 쉘을 zsh로 바꾸기chsh -s `which zsh`echo $SHELLiterm2 종료 후 재실행oh-my-zsh 설치curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | shoh-my-zsh 테마 설정 - agnoster 테마 적용  ~/.zshrc 파일 열기#atom 사용atom ~/.zshrc#vim 사용vim ~/.zshrc      해당 파일에 아래 내용 추가    ZSH_THEME=”agnoster”        변경한 내용 적용    source ~/.zshrc  해당 테마를 적용하면 별로 예쁘지 않게 나오는데 iterm2의 배경을 Solarized Dark로 변경하면 예쁘게 나온다.  Solarized Dark로 변경      iterm2 실행    cmd + , (iterm2의 preferences로 진입)    Profiles 메뉴로 이동    Profiles의 Colors 탭으로 이동    우측 하단의 Color Presets 샐렉트 박스 클릭 후 Solarized Dark 선택                                          해당 소스 적용 전후 사진  깨지는 폰트 잘나오도록 폰트 설정 변경네이버 코딩 글꼴,  Ubuntu_Mono_derivative_Powerline 등 깨지는 않는 글꼴로 변경이 필요하다.  네이버 코딩 글꼴 다운 위치https://developers.naver.com/opensource/tools/editor/  Ubuntu_Mono_derivative_Powerline 글꼴 다운 위치https://github.com/powerline/fonts/tree/master/UbuntuMono  글꼴을 설치한 후 iterm2에 적용      iterm2 실행    cmd + , (iterm2의 preferences로 진입)    Profiles 메뉴로 이동    Profiles의 Text 탭으로 이동    Change Font 버튼 클릭 후 해당 글꼴 선택  사용자 이름 나오게 않게 변경      ~/.zshrc 파일 열기    #atom 사용  atom ~/.zshrc    #vim 사용  vim ~/.zshrc        해당 파일에 아래 내용 추가    prompt_context() {  }        변경한 내용 적용    source ~/.zshrc                                          해당 소스 적용 전후 사진  멀티라인 적용폴더의 depth가 깊어지거나, 창의 넓이가 좁으면 명령어의 영역이 좁아져서 가독이 나빠진다.이를 해결하기 위해 멀티라인을 적용한다.해당 함수는http://totuworld.github.io/2016/04/08/zsh2line/위 블로그의 작성글을 참고하여 적용하였다.아래 명령어는 agnoster 테마를 적용한 경우를 예를 들었다.      agnoster 테마 설정파일 파일 열기    #atom 사용  atom ~/.oh-my-zsh/themes/agnoster.zsh-theme    #vim 사용  vim ~/.oh-my-zsh/themes/agnoster.zsh-theme        해당 파일에 아래 내용 추가  prompt_newline() {  if [[ -n $CURRENT_BG ]]; then    echo -n &quot;%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR    %{%k%F{blue}%}$SEGMENT_SEPARATOR&quot;  else    echo -n &quot;%{%k%}&quot;  fi  echo -n &quot;%{%f%}&quot;  CURRENT_BG=&#39;&#39;}      기존 함수 수정    ## Main prompt  build_prompt() {    RETVAL=$?    prompt_status    prompt_virtualenv    prompt_context    prompt_dir    prompt_git    prompt_hg    prompt_newline    prompt_end  }        변경한 내용 적용    source ~/.oh-my-zsh/themes/agnoster.zsh-theme  최종적용 모습참고https://nolboo.kim/blog/2015/08/21/oh-my-zsh/https://wayhome25.github.io/etc/2017/03/12/zsh-alias/http://totuworld.github.io/2016/04/08/zsh2line/">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko">
+<meta property="og:site_name" content="chancoke Blog">
+<meta property="og:title" content="Oh My Zsh">
+<meta property="og:url" content="http://localhost:4000/os/oh-my-zsh/">
+
+  <meta property="og:description" content="zsh, oh-my-zshmac의 터미널을 보다 보기 편하고 편리한 기능을 가지고 있는 oh-my-zsh의 설치 방법에 대해 알아보도록 하겠다.zsh 설치확인zsh --version설치가 안되어 있으면brew install zsh기본 쉘을 zsh로 바꾸기chsh -s `which zsh`echo $SHELLiterm2 종료 후 재실행oh-my-zsh 설치curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | shoh-my-zsh 테마 설정 - agnoster 테마 적용  ~/.zshrc 파일 열기#atom 사용atom ~/.zshrc#vim 사용vim ~/.zshrc      해당 파일에 아래 내용 추가    ZSH_THEME=”agnoster”        변경한 내용 적용    source ~/.zshrc  해당 테마를 적용하면 별로 예쁘지 않게 나오는데 iterm2의 배경을 Solarized Dark로 변경하면 예쁘게 나온다.  Solarized Dark로 변경      iterm2 실행    cmd + , (iterm2의 preferences로 진입)    Profiles 메뉴로 이동    Profiles의 Colors 탭으로 이동    우측 하단의 Color Presets 샐렉트 박스 클릭 후 Solarized Dark 선택                                          해당 소스 적용 전후 사진  깨지는 폰트 잘나오도록 폰트 설정 변경네이버 코딩 글꼴,  Ubuntu_Mono_derivative_Powerline 등 깨지는 않는 글꼴로 변경이 필요하다.  네이버 코딩 글꼴 다운 위치https://developers.naver.com/opensource/tools/editor/  Ubuntu_Mono_derivative_Powerline 글꼴 다운 위치https://github.com/powerline/fonts/tree/master/UbuntuMono  글꼴을 설치한 후 iterm2에 적용      iterm2 실행    cmd + , (iterm2의 preferences로 진입)    Profiles 메뉴로 이동    Profiles의 Text 탭으로 이동    Change Font 버튼 클릭 후 해당 글꼴 선택  사용자 이름 나오게 않게 변경      ~/.zshrc 파일 열기    #atom 사용  atom ~/.zshrc    #vim 사용  vim ~/.zshrc        해당 파일에 아래 내용 추가    prompt_context() {  }        변경한 내용 적용    source ~/.zshrc                                          해당 소스 적용 전후 사진  멀티라인 적용폴더의 depth가 깊어지거나, 창의 넓이가 좁으면 명령어의 영역이 좁아져서 가독이 나빠진다.이를 해결하기 위해 멀티라인을 적용한다.해당 함수는http://totuworld.github.io/2016/04/08/zsh2line/위 블로그의 작성글을 참고하여 적용하였다.아래 명령어는 agnoster 테마를 적용한 경우를 예를 들었다.      agnoster 테마 설정파일 파일 열기    #atom 사용  atom ~/.oh-my-zsh/themes/agnoster.zsh-theme    #vim 사용  vim ~/.oh-my-zsh/themes/agnoster.zsh-theme        해당 파일에 아래 내용 추가  prompt_newline() {  if [[ -n $CURRENT_BG ]]; then    echo -n &quot;%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR    %{%k%F{blue}%}$SEGMENT_SEPARATOR&quot;  else    echo -n &quot;%{%k%}&quot;  fi  echo -n &quot;%{%f%}&quot;  CURRENT_BG=&#39;&#39;}      기존 함수 수정    ## Main prompt  build_prompt() {    RETVAL=$?    prompt_status    prompt_virtualenv    prompt_context    prompt_dir    prompt_git    prompt_hg    prompt_newline    prompt_end  }        변경한 내용 적용    source ~/.oh-my-zsh/themes/agnoster.zsh-theme  최종적용 모습참고https://nolboo.kim/blog/2015/08/21/oh-my-zsh/https://wayhome25.github.io/etc/2017/03/12/zsh-alias/http://totuworld.github.io/2016/04/08/zsh2line/">
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-01-14T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/os/oh-my-zsh/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ryu Sang uk",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="chancoke Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+<meta name="naver-site-verification" content="50a215d9074fdd1a832aabc3895ba1b3935ca52d"/>
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/">chancoke Blog</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/AI/index/" >AI</a>
+            </li><li class="masthead__menu-item">
+              <a href="/programming/index/" >programming</a>
+            </li><li class="masthead__menu-item">
+              <a href="/os/index/" >os</a>
+            </li><li class="masthead__menu-item">
+              <a href="/etc/index/" >기타</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/" >모아보기</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Oh My Zsh">
+    <meta itemprop="description" content="zsh, oh-my-zshmac의 터미널을 보다 보기 편하고 편리한 기능을 가지고 있는 oh-my-zsh의 설치 방법에 대해 알아보도록 하겠다.zsh 설치확인zsh --version설치가 안되어 있으면brew install zsh기본 쉘을 zsh로 바꾸기chsh -s `which zsh`echo $SHELLiterm2 종료 후 재실행oh-my-zsh 설치curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | shoh-my-zsh 테마 설정 - agnoster 테마 적용  ~/.zshrc 파일 열기#atom 사용atom ~/.zshrc#vim 사용vim ~/.zshrc      해당 파일에 아래 내용 추가    ZSH_THEME=”agnoster”        변경한 내용 적용    source ~/.zshrc  해당 테마를 적용하면 별로 예쁘지 않게 나오는데 iterm2의 배경을 Solarized Dark로 변경하면 예쁘게 나온다.  Solarized Dark로 변경      iterm2 실행    cmd + , (iterm2의 preferences로 진입)    Profiles 메뉴로 이동    Profiles의 Colors 탭으로 이동    우측 하단의 Color Presets 샐렉트 박스 클릭 후 Solarized Dark 선택                                          해당 소스 적용 전후 사진  깨지는 폰트 잘나오도록 폰트 설정 변경네이버 코딩 글꼴,  Ubuntu_Mono_derivative_Powerline 등 깨지는 않는 글꼴로 변경이 필요하다.  네이버 코딩 글꼴 다운 위치https://developers.naver.com/opensource/tools/editor/  Ubuntu_Mono_derivative_Powerline 글꼴 다운 위치https://github.com/powerline/fonts/tree/master/UbuntuMono  글꼴을 설치한 후 iterm2에 적용      iterm2 실행    cmd + , (iterm2의 preferences로 진입)    Profiles 메뉴로 이동    Profiles의 Text 탭으로 이동    Change Font 버튼 클릭 후 해당 글꼴 선택  사용자 이름 나오게 않게 변경      ~/.zshrc 파일 열기    #atom 사용  atom ~/.zshrc    #vim 사용  vim ~/.zshrc        해당 파일에 아래 내용 추가    prompt_context() {  }        변경한 내용 적용    source ~/.zshrc                                          해당 소스 적용 전후 사진  멀티라인 적용폴더의 depth가 깊어지거나, 창의 넓이가 좁으면 명령어의 영역이 좁아져서 가독이 나빠진다.이를 해결하기 위해 멀티라인을 적용한다.해당 함수는http://totuworld.github.io/2016/04/08/zsh2line/위 블로그의 작성글을 참고하여 적용하였다.아래 명령어는 agnoster 테마를 적용한 경우를 예를 들었다.      agnoster 테마 설정파일 파일 열기    #atom 사용  atom ~/.oh-my-zsh/themes/agnoster.zsh-theme    #vim 사용  vim ~/.oh-my-zsh/themes/agnoster.zsh-theme        해당 파일에 아래 내용 추가  prompt_newline() {  if [[ -n $CURRENT_BG ]]; then    echo -n &quot;%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR    %{%k%F{blue}%}$SEGMENT_SEPARATOR&quot;  else    echo -n &quot;%{%k%}&quot;  fi  echo -n &quot;%{%f%}&quot;  CURRENT_BG=&#39;&#39;}      기존 함수 수정    ## Main prompt  build_prompt() {    RETVAL=$?    prompt_status    prompt_virtualenv    prompt_context    prompt_dir    prompt_git    prompt_hg    prompt_newline    prompt_end  }        변경한 내용 적용    source ~/.oh-my-zsh/themes/agnoster.zsh-theme  최종적용 모습참고https://nolboo.kim/blog/2015/08/21/oh-my-zsh/https://wayhome25.github.io/etc/2017/03/12/zsh-alias/http://totuworld.github.io/2016/04/08/zsh2line/">
+    <meta itemprop="datePublished" content="January 14, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Oh My Zsh
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#zsh-oh-my-zsh">zsh, oh-my-zsh</a>
+    <ul>
+      <li><a href="#zsh-설치확인">zsh 설치확인</a></li>
+      <li><a href="#설치가-안되어-있으면">설치가 안되어 있으면</a></li>
+      <li><a href="#기본-쉘을-zsh로-바꾸기">기본 쉘을 zsh로 바꾸기</a></li>
+      <li><a href="#oh-my-zsh-설치">oh-my-zsh 설치</a></li>
+      <li><a href="#oh-my-zsh-테마-설정---agnoster-테마-적용">oh-my-zsh 테마 설정 - agnoster 테마 적용</a></li>
+      <li><a href="#깨지는-폰트-잘나오도록-폰트-설정-변경">깨지는 폰트 잘나오도록 폰트 설정 변경</a></li>
+      <li><a href="#사용자-이름-나오게-않게-변경">사용자 이름 나오게 않게 변경</a></li>
+      <li><a href="#멀티라인-적용">멀티라인 적용</a></li>
+      <li><a href="#최종적용-모습">최종적용 모습</a></li>
+    </ul>
+  </li>
+</ul>
+            </nav>
+          </aside>
+        
+        <h1 id="zsh-oh-my-zsh">zsh, oh-my-zsh</h1>
+
+<p>mac의 터미널을 보다 보기 편하고 편리한 기능을 가지고 있는 oh-my-zsh의 설치 방법에 대해 알아보도록 하겠다.</p>
+
+<h2 id="zsh-설치확인">zsh 설치확인</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zsh <span class="nt">--version</span>
+</code></pre></div></div>
+<h2 id="설치가-안되어-있으면">설치가 안되어 있으면</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>zsh
+</code></pre></div></div>
+<h2 id="기본-쉘을-zsh로-바꾸기">기본 쉘을 zsh로 바꾸기</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chsh <span class="nt">-s</span> <span class="sb">`</span>which zsh<span class="sb">`</span>
+<span class="nb">echo</span> <span class="nv">$SHELL</span>
+</code></pre></div></div>
+<p>iterm2 종료 후 재실행</p>
+
+<h2 id="oh-my-zsh-설치">oh-my-zsh 설치</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-L</span> https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+</code></pre></div></div>
+<h2 id="oh-my-zsh-테마-설정---agnoster-테마-적용">oh-my-zsh 테마 설정 - agnoster 테마 적용</h2>
+
+<ul>
+  <li>~/.zshrc 파일 열기</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#atom 사용</span>
+atom ~/.zshrc
+
+<span class="c">#vim 사용</span>
+vim ~/.zshrc
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>해당 파일에 아래 내용 추가</p>
+
+    <p>ZSH_THEME=”agnoster”</p>
+  </li>
+  <li>
+    <p>변경한 내용 적용</p>
+
+    <p>source ~/.zshrc</p>
+  </li>
+</ul>
+
+<p>해당 테마를 적용하면 별로 예쁘지 않게 나오는데 iterm2의 배경을 Solarized Dark로 변경하면 예쁘게 나온다.</p>
+
+<ul>
+  <li>Solarized Dark로 변경</li>
+</ul>
+
+<blockquote>
+
+  <ol>
+    <li>iterm2 실행</li>
+    <li>cmd + , (iterm2의 preferences로 진입)</li>
+    <li>Profiles 메뉴로 이동</li>
+    <li>Profiles의 Colors 탭으로 이동</li>
+    <li>우측 하단의 Color Presets 샐렉트 박스 클릭 후 Solarized Dark 선택</li>
+  </ol>
+</blockquote>
+
+<figure class="half ">
+  
+    
+      <img src="/assets/img/20190114/2018-11-071-e59a8a7c-e668-41d0-85d4-3abaf191a404.42.37.png" alt="before" />
+    
+  
+    
+      <img src="/assets/img/20190114/2018-11-071-8d26a001-0ec8-4e16-a2e4-876b773c7c36.41.46.png" alt="before" />
+    
+  
+  
+    <figcaption>해당 소스 적용 전후 사진
+</figcaption>
+  
+</figure>
+
+<h2 id="깨지는-폰트-잘나오도록-폰트-설정-변경">깨지는 폰트 잘나오도록 폰트 설정 변경</h2>
+
+<p>네이버 코딩 글꼴,  Ubuntu_Mono_derivative_Powerline 등 깨지는 않는 글꼴로 변경이 필요하다.</p>
+
+<ul>
+  <li>네이버 코딩 글꼴 다운 위치</li>
+</ul>
+
+<p><a href="https://developers.naver.com/opensource/tools/editor/">https://developers.naver.com/opensource/tools/editor/</a></p>
+
+<ul>
+  <li>Ubuntu_Mono_derivative_Powerline 글꼴 다운 위치</li>
+</ul>
+
+<p><a href="https://github.com/powerline/fonts/tree/master/UbuntuMono">https://github.com/powerline/fonts/tree/master/UbuntuMono</a></p>
+
+<ul>
+  <li>글꼴을 설치한 후 iterm2에 적용</li>
+</ul>
+
+<blockquote>
+
+  <ol>
+    <li>iterm2 실행</li>
+    <li>cmd + , (iterm2의 preferences로 진입)</li>
+    <li>Profiles 메뉴로 이동</li>
+    <li>Profiles의 Text 탭으로 이동</li>
+    <li>Change Font 버튼 클릭 후 해당 글꼴 선택</li>
+  </ol>
+</blockquote>
+
+<p><img src="/assets/img/20190114/2018-11-071-3a329769-fa79-465e-a5f5-8ffb54c37324.39.27.png" alt="" /></p>
+
+<h2 id="사용자-이름-나오게-않게-변경">사용자 이름 나오게 않게 변경</h2>
+
+<ul>
+  <li>
+    <p>~/.zshrc 파일 열기</p>
+
+    <p>#atom 사용
+  atom ~/.zshrc</p>
+
+    <p>#vim 사용
+  vim ~/.zshrc</p>
+  </li>
+  <li>
+    <p>해당 파일에 아래 내용 추가</p>
+
+    <p>prompt_context() {
+  }</p>
+  </li>
+  <li>
+    <p>변경한 내용 적용</p>
+
+    <p>source ~/.zshrc</p>
+  </li>
+</ul>
+
+<figure class="half ">
+  
+    
+      <img src="/assets/img/20190114/2018-11-071-da26032a-1dfd-463c-8ebe-528907558ed3.18.13.png" alt="before" />
+    
+  
+    
+      <img src="/assets/img/20190114/2018-11-071-430e5529-6e37-4857-9343-495e03dd27db.19.25.png" alt="after" />
+    
+  
+  
+    <figcaption>해당 소스 적용 전후 사진
+</figcaption>
+  
+</figure>
+
+<h2 id="멀티라인-적용">멀티라인 적용</h2>
+
+<p>폴더의 depth가 깊어지거나, 창의 넓이가 좁으면 명령어의 영역이 좁아져서 가독이 나빠진다.</p>
+
+<p>이를 해결하기 위해 멀티라인을 적용한다.</p>
+
+<p>해당 함수는</p>
+
+<p><a href="http://totuworld.github.io/2016/04/08/zsh2line/">http://totuworld.github.io/2016/04/08/zsh2line/</a></p>
+
+<p>위 블로그의 작성글을 참고하여 적용하였다.</p>
+
+<p>아래 명령어는 agnoster 테마를 적용한 경우를 예를 들었다.</p>
+
+<ul>
+  <li>
+    <p>agnoster 테마 설정파일 파일 열기</p>
+
+    <p>#atom 사용
+  atom ~/.oh-my-zsh/themes/agnoster.zsh-theme</p>
+
+    <p>#vim 사용
+  vim ~/.oh-my-zsh/themes/agnoster.zsh-theme</p>
+  </li>
+  <li>
+    <p>해당 파일에 아래 내용 추가</p>
+  </li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">prompt_newline</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">[[</span> <span class="o">-</span><span class="n">n</span> <span class="vg">$CURRENT_BG</span> <span class="p">]];</span> <span class="k">then</span>
+    <span class="n">echo</span> <span class="o">-</span><span class="n">n</span> <span class="s2">"%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR
+    %{%k%F{blue}%}$SEGMENT_SEPARATOR"</span>
+  <span class="k">else</span>
+    <span class="n">echo</span> <span class="o">-</span><span class="n">n</span> <span class="s2">"%{%k%}"</span>
+  <span class="n">fi</span>
+  <span class="n">echo</span> <span class="o">-</span><span class="n">n</span> <span class="s2">"%{%f%}"</span>
+  <span class="no">CURRENT_BG</span><span class="o">=</span><span class="s1">''</span>
+<span class="p">}</span></code></pre></figure>
+
+<ul>
+  <li>
+    <p>기존 함수 수정</p>
+
+    <p>## Main prompt
+  build_prompt() {
+    RETVAL=$?
+    prompt_status
+    prompt_virtualenv
+    prompt_context
+    prompt_dir
+    prompt_git
+    prompt_hg
+    prompt_newline
+    prompt_end
+  }</p>
+  </li>
+  <li>
+    <p>변경한 내용 적용</p>
+
+    <p>source ~/.oh-my-zsh/themes/agnoster.zsh-theme</p>
+  </li>
+</ul>
+
+<h2 id="최종적용-모습">최종적용 모습</h2>
+
+<p><img src="/assets/img/20190114/2018-11-072-1ec363c3-df4e-477e-8338-a48504ea46ce.15.32.png" alt="" /></p>
+
+<p>참고</p>
+
+<p><a href="https://nolboo.kim/blog/2015/08/21/oh-my-zsh/">https://nolboo.kim/blog/2015/08/21/oh-my-zsh/</a></p>
+
+<p><a href="https://wayhome25.github.io/etc/2017/03/12/zsh-alias/">https://wayhome25.github.io/etc/2017/03/12/zsh-alias/</a></p>
+
+<p><a href="http://totuworld.github.io/2016/04/08/zsh2line/">http://totuworld.github.io/2016/04/08/zsh2line/</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#os" class="page__taxonomy-item" rel="tag">os</a>
+    
+    </span>
+  </p>
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2019-01-14T00:00:00+09:00">January 14, 2019</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Oh+My+Zsh%20http%3A%2F%2Flocalhost%3A4000%2Fos%2Foh-my-zsh%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fos%2Foh-my-zsh%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Fos%2Foh-my-zsh%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Google Plus"><i class="fab fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fos%2Foh-my-zsh%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">이전</a>
+    
+    
+      <a href="/python/ocr/" class="pagination--pager" title="파이썬으로 google vision api의 ocr 만들기
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/opentutorials/tensorflow001/" rel="permalink">1일차 - 머신러닝이란?
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">머신러닝이란?
+
+기계를 학습시켜서 인간의 판단능력을 기계에 위임하는 것을 머신러닝이라고 하는데 머신러닝이 할 수 있는 대표적인 기술들은 아래와 같다.
+
+
+
+해당 강의에서 텐서플로우로 해결하려고하는 문제는 지도학습의 분류, 회귀 문제이다.
+
+
+  
+    분류문제
+흰색 돌과 검은색 ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/python/azure/" rel="permalink">Microsoft Graph API
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">목적
+
+파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다.
+
+주의
+
+
+  개인 Microsoft ID로는 불가능 하다.
+  참고
+    
+      참고 링크
+    
+  
+
+
+Microsoft ID 만들기
+
+
+  
+    직장 혹은 학교 계정이 없다면 ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/os/windows-terminal-add-context-menu/" rel="permalink">windows 10 context menu에 terminal  추가하기
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Microsoft에서 WSL2 및 terminal 서비스를 하게 되면서 자주 사용하게 되는데
+
+PowerShell과 같이 폴더에서 오른쪽클릭해서 해당위치로 바로 못여는것에 대한 아쉬움이 있었다.
+
+
+
+[그림] terminal에서 실행시킨 ubuntu
+
+위 아쉬움을 해결하고자 구글링...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/keras-book/keras-book-01/" rel="permalink">1장 딥러닝이란?
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">케라스 창시자에게 배우는 딥러닝을 공부하면서 공부한 흔적을 남기는게 중요할거 같아 내용을 내 나름대로 요약 정리를 해보고자 한다. 이번 포스팅에서는 앞으로 시작할 딥러닝을 위해 AI, 머신러닝, 딥러닝에 대해 알아보도록 한다.
+
+딥러닝이란?
+
+Deep Learning에 대해 알아보...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Ryu Sang uk. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.6.0/js/all.js" integrity="sha384-z9ZOvGHHo21RqN5De4rfJMoAxYpaVoiYhuJXPyVmSs8yn20IE3PmBM534CffwSJI" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/os/oh-my-zsh/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/os/oh-my-zsh"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://naramp4.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+  </body>
+</html>

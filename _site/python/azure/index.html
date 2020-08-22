@@ -1,0 +1,733 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.14.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Microsoft Graph API - chancoke Blog</title>
+<meta name="description" content="목적파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다.주의  개인 Microsoft ID로는 불가능 하다.  참고          참고 링크      Microsoft ID 만들기      직장 혹은 학교 계정이 없다면 아래 그림을 참조하여 새로운 체험판 ID를 만들도록 한다.링크      Azure Active Directory 앱 등록Microsoft Graph의 API를 사용하고자 하면 Azure Active Directory에 우선 앱 등록을 해야한다.앱등록1. Azure 홈페이지로 들어 가서 로그인을 한다.2. 평가판 시작 클릭3. 사용자 정보입력4. Azure Active Directory에 앱등록  Azure AD(Azure Active Directory)는 리소스에 액세스할 수 있게 해주는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스이다.  Azure Portal의 메뉴를 통해 Azure AD에 접근  Azure AD의 앱등록 선택  앱 이름 및 리다이렉션 URI 입력권한 설정어떠한 API 사용을 하려면 그것에 맞는 권한을 허용을 해줘야한다.예시로 유저의 정보를 갖고 오는 권한을 활성해 보겠다.  메뉴에서 API 사용권한 클릭 &gt; + 권한추가 클릭 &gt; Microsoft Graph 클릭 &gt; 위임된 권한에서 Directory, User, tasks, group 하위 모든 권한 활성화  관리자동의 허용 클릭파이썬에서 사용자 정보 가져오기token 가져오기import requestsimport json# 중간에 디렉터리(테넌트) ID 입력url = &#39;https://login.microsoftonline.com/d5288197-6699-4eba-8295-*********/oauth2/v2.0/token&#39;data = {    &#39;grant_type&#39;: &#39;client_credentials&#39;, #인증방법    &#39;client_id&#39;: &#39;dfe91331-ca77-4be8-8793-**********&#39;, #app id    &#39;client_secret&#39;: &#39;BR3sTX9b4S_T2LhCZdL8UB********&#39;, #암호    &#39;scope&#39;:&#39;https://graph.microsoft.com/.default&#39;}token = requests.post(url, data=data).json().get(&#39;access_token&#39;)테넌트 ID 및 app id 확인  개요를 보면 확인할 수 있다.암호 생성사용자정보 갖고 오기headers = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/me&#39;response = requests.get(url, headers=headers).json()header에 받은 token을 넣어서 me로  request를 보내면 사용자 정보를 얻을 수 있다.taskstasks를 갖고 오는 방법은 2가지가 있습니다.  outlook API를 사용하는 방법  Microsoft graph의 planner API를 사용하여 task를 갖고 오는 방법outlook API를 사용하여 갖고오는 방법은https://docs.microsoft.com/ko-kr/outlook/rest/reference위 문서에 나와 있다시피 아직 베타버전만 제공하고 있을 뿐 정식 릴리즈 되진않았습니다.(2017년도 작성 문서인데 아직까지 안나온거 보면 출시할 생각이 없는거 같습니다.)      베타버전사용법    참고 URL      headers = {   &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)  }  url = &#39;https://graph.microsoft.com/beta/me/outlook/tasks&#39;  response = requests.get(url, headers=headers).json()  response      따라서 현재로써는 Microsoft graph의 planner API를 사용하여 갖고오는 수밖에 없습니다.planner에서 나에게 할당된 tasks 가져 오기참고 : https://docs.microsoft.com/en-us/graph/planner-concept-overviewheaders = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/me/planner/tasks&#39;response = requests.get(url, headers=headers).json()group 확인 하기참고 : https://docs.microsoft.com/en-us/graph/office365-groups-concept-overviewheaders = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/groups&#39;response = requests.get(url, headers=headers).json()response">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko">
+<meta property="og:site_name" content="chancoke Blog">
+<meta property="og:title" content="Microsoft Graph API">
+<meta property="og:url" content="http://localhost:4000/python/azure/">
+
+  <meta property="og:description" content="목적파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다.주의  개인 Microsoft ID로는 불가능 하다.  참고          참고 링크      Microsoft ID 만들기      직장 혹은 학교 계정이 없다면 아래 그림을 참조하여 새로운 체험판 ID를 만들도록 한다.링크      Azure Active Directory 앱 등록Microsoft Graph의 API를 사용하고자 하면 Azure Active Directory에 우선 앱 등록을 해야한다.앱등록1. Azure 홈페이지로 들어 가서 로그인을 한다.2. 평가판 시작 클릭3. 사용자 정보입력4. Azure Active Directory에 앱등록  Azure AD(Azure Active Directory)는 리소스에 액세스할 수 있게 해주는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스이다.  Azure Portal의 메뉴를 통해 Azure AD에 접근  Azure AD의 앱등록 선택  앱 이름 및 리다이렉션 URI 입력권한 설정어떠한 API 사용을 하려면 그것에 맞는 권한을 허용을 해줘야한다.예시로 유저의 정보를 갖고 오는 권한을 활성해 보겠다.  메뉴에서 API 사용권한 클릭 &gt; + 권한추가 클릭 &gt; Microsoft Graph 클릭 &gt; 위임된 권한에서 Directory, User, tasks, group 하위 모든 권한 활성화  관리자동의 허용 클릭파이썬에서 사용자 정보 가져오기token 가져오기import requestsimport json# 중간에 디렉터리(테넌트) ID 입력url = &#39;https://login.microsoftonline.com/d5288197-6699-4eba-8295-*********/oauth2/v2.0/token&#39;data = {    &#39;grant_type&#39;: &#39;client_credentials&#39;, #인증방법    &#39;client_id&#39;: &#39;dfe91331-ca77-4be8-8793-**********&#39;, #app id    &#39;client_secret&#39;: &#39;BR3sTX9b4S_T2LhCZdL8UB********&#39;, #암호    &#39;scope&#39;:&#39;https://graph.microsoft.com/.default&#39;}token = requests.post(url, data=data).json().get(&#39;access_token&#39;)테넌트 ID 및 app id 확인  개요를 보면 확인할 수 있다.암호 생성사용자정보 갖고 오기headers = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/me&#39;response = requests.get(url, headers=headers).json()header에 받은 token을 넣어서 me로  request를 보내면 사용자 정보를 얻을 수 있다.taskstasks를 갖고 오는 방법은 2가지가 있습니다.  outlook API를 사용하는 방법  Microsoft graph의 planner API를 사용하여 task를 갖고 오는 방법outlook API를 사용하여 갖고오는 방법은https://docs.microsoft.com/ko-kr/outlook/rest/reference위 문서에 나와 있다시피 아직 베타버전만 제공하고 있을 뿐 정식 릴리즈 되진않았습니다.(2017년도 작성 문서인데 아직까지 안나온거 보면 출시할 생각이 없는거 같습니다.)      베타버전사용법    참고 URL      headers = {   &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)  }  url = &#39;https://graph.microsoft.com/beta/me/outlook/tasks&#39;  response = requests.get(url, headers=headers).json()  response      따라서 현재로써는 Microsoft graph의 planner API를 사용하여 갖고오는 수밖에 없습니다.planner에서 나에게 할당된 tasks 가져 오기참고 : https://docs.microsoft.com/en-us/graph/planner-concept-overviewheaders = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/me/planner/tasks&#39;response = requests.get(url, headers=headers).json()group 확인 하기참고 : https://docs.microsoft.com/en-us/graph/office365-groups-concept-overviewheaders = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/groups&#39;response = requests.get(url, headers=headers).json()response">
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-07-01T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/python/azure/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ryu Sang uk",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="chancoke Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+<meta name="naver-site-verification" content="50a215d9074fdd1a832aabc3895ba1b3935ca52d"/>
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/">chancoke Blog</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/AI/index/" >AI</a>
+            </li><li class="masthead__menu-item">
+              <a href="/programming/index/" >programming</a>
+            </li><li class="masthead__menu-item">
+              <a href="/os/index/" >os</a>
+            </li><li class="masthead__menu-item">
+              <a href="/etc/index/" >기타</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/" >모아보기</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">programming</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/programming/index/#python" class="">python</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Microsoft Graph API">
+    <meta itemprop="description" content="목적파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다.주의  개인 Microsoft ID로는 불가능 하다.  참고          참고 링크      Microsoft ID 만들기      직장 혹은 학교 계정이 없다면 아래 그림을 참조하여 새로운 체험판 ID를 만들도록 한다.링크      Azure Active Directory 앱 등록Microsoft Graph의 API를 사용하고자 하면 Azure Active Directory에 우선 앱 등록을 해야한다.앱등록1. Azure 홈페이지로 들어 가서 로그인을 한다.2. 평가판 시작 클릭3. 사용자 정보입력4. Azure Active Directory에 앱등록  Azure AD(Azure Active Directory)는 리소스에 액세스할 수 있게 해주는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스이다.  Azure Portal의 메뉴를 통해 Azure AD에 접근  Azure AD의 앱등록 선택  앱 이름 및 리다이렉션 URI 입력권한 설정어떠한 API 사용을 하려면 그것에 맞는 권한을 허용을 해줘야한다.예시로 유저의 정보를 갖고 오는 권한을 활성해 보겠다.  메뉴에서 API 사용권한 클릭 &gt; + 권한추가 클릭 &gt; Microsoft Graph 클릭 &gt; 위임된 권한에서 Directory, User, tasks, group 하위 모든 권한 활성화  관리자동의 허용 클릭파이썬에서 사용자 정보 가져오기token 가져오기import requestsimport json# 중간에 디렉터리(테넌트) ID 입력url = &#39;https://login.microsoftonline.com/d5288197-6699-4eba-8295-*********/oauth2/v2.0/token&#39;data = {    &#39;grant_type&#39;: &#39;client_credentials&#39;, #인증방법    &#39;client_id&#39;: &#39;dfe91331-ca77-4be8-8793-**********&#39;, #app id    &#39;client_secret&#39;: &#39;BR3sTX9b4S_T2LhCZdL8UB********&#39;, #암호    &#39;scope&#39;:&#39;https://graph.microsoft.com/.default&#39;}token = requests.post(url, data=data).json().get(&#39;access_token&#39;)테넌트 ID 및 app id 확인  개요를 보면 확인할 수 있다.암호 생성사용자정보 갖고 오기headers = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/me&#39;response = requests.get(url, headers=headers).json()header에 받은 token을 넣어서 me로  request를 보내면 사용자 정보를 얻을 수 있다.taskstasks를 갖고 오는 방법은 2가지가 있습니다.  outlook API를 사용하는 방법  Microsoft graph의 planner API를 사용하여 task를 갖고 오는 방법outlook API를 사용하여 갖고오는 방법은https://docs.microsoft.com/ko-kr/outlook/rest/reference위 문서에 나와 있다시피 아직 베타버전만 제공하고 있을 뿐 정식 릴리즈 되진않았습니다.(2017년도 작성 문서인데 아직까지 안나온거 보면 출시할 생각이 없는거 같습니다.)      베타버전사용법    참고 URL      headers = {   &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)  }  url = &#39;https://graph.microsoft.com/beta/me/outlook/tasks&#39;  response = requests.get(url, headers=headers).json()  response      따라서 현재로써는 Microsoft graph의 planner API를 사용하여 갖고오는 수밖에 없습니다.planner에서 나에게 할당된 tasks 가져 오기참고 : https://docs.microsoft.com/en-us/graph/planner-concept-overviewheaders = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/me/planner/tasks&#39;response = requests.get(url, headers=headers).json()group 확인 하기참고 : https://docs.microsoft.com/en-us/graph/office365-groups-concept-overviewheaders = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/groups&#39;response = requests.get(url, headers=headers).json()response">
+    <meta itemprop="datePublished" content="July 01, 2020">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Microsoft Graph API
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#목적">목적</a></li>
+  <li><a href="#주의">주의</a></li>
+  <li><a href="#microsoft-id-만들기">Microsoft ID 만들기</a></li>
+  <li><a href="#azure-active-directory-앱-등록">Azure Active Directory 앱 등록</a>
+    <ul>
+      <li><a href="#앱등록">앱등록</a>
+        <ul>
+          <li><a href="#1-azure-홈페이지로-들어-가서-로그인을-한다">1. Azure 홈페이지로 들어 가서 로그인을 한다.</a></li>
+          <li><a href="#2-평가판-시작-클릭">2. 평가판 시작 클릭</a></li>
+          <li><a href="#3-사용자-정보입력">3. 사용자 정보입력</a></li>
+          <li><a href="#4-azure-active-directory에-앱등록">4. Azure Active Directory에 앱등록</a></li>
+        </ul>
+      </li>
+      <li><a href="#권한-설정">권한 설정</a></li>
+      <li><a href="#파이썬에서-사용자-정보-가져오기">파이썬에서 사용자 정보 가져오기</a>
+        <ul>
+          <li><a href="#token-가져오기">token 가져오기</a></li>
+          <li><a href="#테넌트-id-및-app-id-확인">테넌트 ID 및 app id 확인</a></li>
+          <li><a href="#암호-생성">암호 생성</a></li>
+        </ul>
+      </li>
+      <li><a href="#사용자정보-갖고-오기">사용자정보 갖고 오기</a></li>
+      <li><a href="#tasks">tasks</a></li>
+      <li><a href="#planner에서-나에게-할당된-tasks-가져-오기">planner에서 나에게 할당된 tasks 가져 오기</a></li>
+      <li><a href="#group-확인-하기">group 확인 하기</a></li>
+    </ul>
+  </li>
+</ul>
+            </nav>
+          </aside>
+        
+        <h1 id="목적">목적</h1>
+
+<p>파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다.</p>
+
+<h1 id="주의">주의</h1>
+
+<ul>
+  <li>개인 Microsoft ID로는 불가능 하다.</li>
+  <li>참고
+    <ul>
+      <li><a href="https://answers.microsoft.com/en-us/msoffice/forum/all/login-for-external-users-ext-in-o365-entreprise/494ce5f3-db91-4b05-8d93-01e352b1449b?auth=1" target="_blank">참고 링크</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="microsoft-id-만들기">Microsoft ID 만들기</h1>
+
+<ul>
+  <li>
+    <p>직장 혹은 학교 계정이 없다면 아래 그림을 참조하여 새로운 체험판 ID를 만들도록 한다.
+<a href="https://docs.microsoft.com/ko-kr/outlook/rest/get-started" target="_blank">링크</a></p>
+
+    <p><img src="/assets/img/20200701/Untitled.png" alt="Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled.png" /></p>
+  </li>
+</ul>
+
+<h1 id="azure-active-directory-앱-등록">Azure Active Directory 앱 등록</h1>
+
+<p>Microsoft Graph의 API를 사용하고자 하면 Azure Active Directory에 우선 앱 등록을 해야한다.</p>
+
+<h2 id="앱등록">앱등록</h2>
+
+<h3 id="1-azure-홈페이지로-들어-가서-로그인을-한다">1. <a href="https://portal.azure.com" target="_blank">Azure 홈페이지</a>로 들어 가서 로그인을 한다.</h3>
+
+<h3 id="2-평가판-시작-클릭">2. 평가판 시작 클릭</h3>
+
+<p><img src="/assets/img/20200701/Untitled 1.png" alt="Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%201.png" /></p>
+
+<h3 id="3-사용자-정보입력">3. 사용자 정보입력</h3>
+
+<p><img src="/assets/img/20200701/Untitled 2.png" alt="Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%202.png" /></p>
+
+<h3 id="4-azure-active-directory에-앱등록">4. Azure Active Directory에 앱등록</h3>
+
+<ul>
+  <li>Azure AD(Azure Active Directory)는 리소스에 액세스할 수 있게 해주는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스이다.</li>
+  <li>Azure Portal의 메뉴를 통해 Azure AD에 접근</li>
+</ul>
+
+<p><img src="/assets/img/20200701/Untitled 3.png" alt="Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%203.png" /></p>
+
+<ul>
+  <li>Azure AD의 앱등록 선택</li>
+</ul>
+
+<p><img src="/assets/img/20200701/Untitled 4.png" alt="Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%204.png" /></p>
+
+<ul>
+  <li>앱 이름 및 리다이렉션 URI 입력</li>
+</ul>
+
+<p><img src="/assets/img/20200701/Untitled 5.png" alt="Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%205.png" /></p>
+
+<h2 id="권한-설정">권한 설정</h2>
+
+<p>어떠한 API 사용을 하려면 그것에 맞는 권한을 허용을 해줘야한다.
+예시로 유저의 정보를 갖고 오는 권한을 활성해 보겠다.</p>
+
+<ul>
+  <li>메뉴에서 API 사용권한 클릭 &gt; + 권한추가 클릭 &gt; Microsoft Graph 클릭 &gt; 위임된 권한에서 Directory, User, tasks, group 하위 모든 권한 활성화</li>
+</ul>
+
+<p><img src="/assets/img/20200701/Untitled 6.png" alt="Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%206.png" /></p>
+
+<ul>
+  <li>관리자동의 허용 클릭</li>
+</ul>
+
+<p><img src="/assets/img/20200701/Untitled 7.png" alt="Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%207.png" /></p>
+
+<h2 id="파이썬에서-사용자-정보-가져오기">파이썬에서 사용자 정보 가져오기</h2>
+
+<h3 id="token-가져오기">token 가져오기</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="c1"># 중간에 디렉터리(테넌트) ID 입력
+</span><span class="n">url</span> <span class="o">=</span> <span class="s">'https://login.microsoftonline.com/d5288197-6699-4eba-8295-*********/oauth2/v2.0/token'</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'grant_type'</span><span class="p">:</span> <span class="s">'client_credentials'</span><span class="p">,</span> <span class="c1">#인증방법
+</span>    <span class="s">'client_id'</span><span class="p">:</span> <span class="s">'dfe91331-ca77-4be8-8793-**********'</span><span class="p">,</span> <span class="c1">#app id
+</span>    <span class="s">'client_secret'</span><span class="p">:</span> <span class="s">'BR3sTX9b4S_T2LhCZdL8UB********'</span><span class="p">,</span> <span class="c1">#암호
+</span>    <span class="s">'scope'</span><span class="p">:</span><span class="s">'https://graph.microsoft.com/.default'</span><span class="p">}</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">).</span><span class="n">json</span><span class="p">().</span><span class="n">get</span><span class="p">(</span><span class="s">'access_token'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="테넌트-id-및-app-id-확인">테넌트 ID 및 app id 확인</h3>
+
+<ul>
+  <li>개요를 보면 확인할 수 있다.</li>
+</ul>
+
+<p><img src="/assets/img/20200701/Untitled 8.png" alt="Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%208.png" /></p>
+
+<h3 id="암호-생성">암호 생성</h3>
+
+<p><img src="/assets/img/20200701/Untitled 9.png" alt="Microsoft%20Graph%20API%20d6ede380f2434278a8439f1b7f099938/Untitled%209.png" /></p>
+
+<h2 id="사용자정보-갖고-오기">사용자정보 갖고 오기</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+ <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://graph.microsoft.com/v1.0/me'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">).</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>header에 받은 token을 넣어서 me로  request를 보내면 사용자 정보를 얻을 수 있다.</p>
+
+<h2 id="tasks">tasks</h2>
+
+<p>tasks를 갖고 오는 방법은 2가지가 있습니다.</p>
+
+<ul>
+  <li>outlook API를 사용하는 방법</li>
+  <li>Microsoft graph의 planner API를 사용하여 task를 갖고 오는 방법</li>
+</ul>
+
+<p>outlook API를 사용하여 갖고오는 방법은</p>
+
+<p><a href="https://docs.microsoft.com/ko-kr/outlook/rest/reference">https://docs.microsoft.com/ko-kr/outlook/rest/reference</a></p>
+
+<p>위 문서에 나와 있다시피 아직 베타버전만 제공하고 있을 뿐 정식 릴리즈 되진않았습니다.(2017년도 작성 문서인데 아직까지 안나온거 보면 출시할 생각이 없는거 같습니다.)</p>
+
+<ul>
+  <li>
+    <p>베타버전사용법</p>
+
+    <p><a href="https://docs.microsoft.com/en-us/graph/api/outlooktask-get?view=graph-rest-beta&amp;tabs=http" target="_blank">참고 URL</a></p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="n">url</span> <span class="o">=</span> <span class="s">'https://graph.microsoft.com/beta/me/outlook/tasks'</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">).</span><span class="n">json</span><span class="p">()</span>
+  <span class="n">response</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>따라서 현재로써는 Microsoft graph의 planner API를 사용하여 갖고오는 수밖에 없습니다.</p>
+
+<h2 id="planner에서-나에게-할당된-tasks-가져-오기">planner에서 나에게 할당된 tasks 가져 오기</h2>
+
+<p>참고 : <a href="https://docs.microsoft.com/en-us/graph/planner-concept-overview">https://docs.microsoft.com/en-us/graph/planner-concept-overview</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+ <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://graph.microsoft.com/v1.0/me/planner/tasks'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">).</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="group-확인-하기">group 확인 하기</h2>
+
+<p>참고 : <a href="https://docs.microsoft.com/en-us/graph/office365-groups-concept-overview">https://docs.microsoft.com/en-us/graph/office365-groups-concept-overview</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+ <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://graph.microsoft.com/v1.0/groups'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">).</span><span class="n">json</span><span class="p">()</span>
+<span class="n">response</span>
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#python" class="page__taxonomy-item" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2020-07-01T00:00:00+09:00">July 01, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Microsoft+Graph+API%20http%3A%2F%2Flocalhost%3A4000%2Fpython%2Fazure%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fpython%2Fazure%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2Fazure%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Google Plus"><i class="fab fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2Fazure%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/os/windows-terminal-add-context-menu/" class="pagination--pager" title="windows 10 context menu에 terminal  추가하기
+">이전</a>
+    
+    
+      <a href="/opentutorials/tensorflow001/" class="pagination--pager" title="1일차 - 머신러닝이란?
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/opentutorials/tensorflow001/" rel="permalink">1일차 - 머신러닝이란?
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">머신러닝이란?
+
+기계를 학습시켜서 인간의 판단능력을 기계에 위임하는 것을 머신러닝이라고 하는데 머신러닝이 할 수 있는 대표적인 기술들은 아래와 같다.
+
+
+
+해당 강의에서 텐서플로우로 해결하려고하는 문제는 지도학습의 분류, 회귀 문제이다.
+
+
+  
+    분류문제
+흰색 돌과 검은색 ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/os/windows-terminal-add-context-menu/" rel="permalink">windows 10 context menu에 terminal  추가하기
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Microsoft에서 WSL2 및 terminal 서비스를 하게 되면서 자주 사용하게 되는데
+
+PowerShell과 같이 폴더에서 오른쪽클릭해서 해당위치로 바로 못여는것에 대한 아쉬움이 있었다.
+
+
+
+[그림] terminal에서 실행시킨 ubuntu
+
+위 아쉬움을 해결하고자 구글링...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/keras-book/keras-book-01/" rel="permalink">1장 딥러닝이란?
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">케라스 창시자에게 배우는 딥러닝을 공부하면서 공부한 흔적을 남기는게 중요할거 같아 내용을 내 나름대로 요약 정리를 해보고자 한다. 이번 포스팅에서는 앞으로 시작할 딥러닝을 위해 AI, 머신러닝, 딥러닝에 대해 알아보도록 한다.
+
+딥러닝이란?
+
+Deep Learning에 대해 알아보...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/python/ocr/" rel="permalink">파이썬으로 google vision api의 ocr 만들기
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">python과 Google Vision API를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 ocr에 대해 알아 보겠다.
+
+
+  
+  
+  스크린샷 이미지와 OCR이후 텍스트
+
+
+준비물
+
+python3,...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Ryu Sang uk. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.6.0/js/all.js" integrity="sha384-z9ZOvGHHo21RqN5De4rfJMoAxYpaVoiYhuJXPyVmSs8yn20IE3PmBM534CffwSJI" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/python/azure/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/python/azure"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://naramp4.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+  </body>
+</html>

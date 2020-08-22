@@ -10,3 +10,7 @@ sidebar:
 # BOOK
 
 [케라스 창시자에게 배우는 딥러닝](/AI/book/keras/index)
+
+# 강의
+
+[머신러닝 야학](/AI/lecture/opentutorials/index)
