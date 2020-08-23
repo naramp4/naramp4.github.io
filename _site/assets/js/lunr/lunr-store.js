@@ -54,6 +54,11 @@ var store = [{
         "tags": ["AI","deeplearning","tensorflow"],
         "url": "http://localhost:4000/opentutorials/tensorflow001/",
         "teaser":null},{
+        "title": "2일차 - 레몬에이드 판매 예측",
+        "excerpt":"표를 다루는 도구 ‘판다스’ 지도학습에서 제일 첫번째로 준비해야되는 사항은 과거의 데이터를 준비하는 것인데, 데이터들은 파일 형태로 되어 있고, 해당 데이터를 다루기위해 파이썬에서 제공하는 도구인 ‘판다스’를 사용하도록 하겠다. 판다스 라이브러리 불러오기 import pandas as pd 파일로부터 데이터 읽어오기 불러올 데이터로는 앞으로 실습해볼 레몬에이드 판매예측, 보스턴 집값 예측, 아이리스(꽃) 품종 분류를 위해...","categories": ["opentutorials"],
+        "tags": ["AI","deeplearning","tensorflow"],
+        "url": "http://localhost:4000/opentutorials/tensorflow002/",
+        "teaser":null},{
         "title": "programming",
         "excerpt":" python                           Microsoft Graph API                                            파이썬으로 google vision api의 ocr 만들기                    ","categories": [],
         "tags": [],

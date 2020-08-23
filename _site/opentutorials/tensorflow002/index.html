@@ -1,0 +1,748 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.14.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>2일차 - 레몬에이드 판매 예측 - chancoke Blog</title>
+<meta name="description" content="표를 다루는 도구 ‘판다스’지도학습에서 제일 첫번째로 준비해야되는 사항은 과거의 데이터를 준비하는 것인데, 데이터들은 파일 형태로 되어 있고, 해당 데이터를 다루기위해 파이썬에서 제공하는 도구인 ‘판다스’를 사용하도록 하겠다.판다스 라이브러리 불러오기import pandas as pd파일로부터 데이터 읽어오기불러올 데이터로는 앞으로 실습해볼 레몬에이드 판매예측, 보스턴 집값 예측, 아이리스(꽃) 품종 분류를 위해 3가지 파일을 불러오도록 하겠다.파일경로 = &#39;https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/lemonade.csv&#39;레몬에이드 = pd.read_csv(파일경로) 파일경로 = &#39;https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/boston.csv&#39;보스턴 = pd.read_csv(파일경로) 파일경로 = &#39;https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/iris.csv&#39;아이리스 = pd.read_csv(파일경로)레몬에이드 데이터확인데이터의 모양 확인print(레몬에이드.shape)print(보스턴.shape)print(아이리스.shape)소스 실행 결과레몬에이드 모양 :  (6, 2)보스턴 모양 :  (506, 14)아이리스 모양 :  (150, 5)대표적으로 레몬에이드 모양을 보면 row의 개수, column의 개수가 표시되는 것을 확인 할 수 있다.데이터 컬럼이름 확인print(레몬에이드.columns)print(보스턴.columns)print(아이리스.columns)소스 실행 결과레몬에이트 컬럼 : Index([&#39;온도&#39;, &#39;판매량&#39;], dtype=&#39;object&#39;)레몬에이드의 컬럼인 온도와 판매량이 출력되는 것을 알 수 있다.독립변수와 종속변수 분리레몬에이드_독립 = 레몬에이드[[&#39;온도&#39;]]레몬에이드_종속 = 레몬에이드[[&#39;판매량&#39;]]보스턴_독립 = 보스턴[[&#39;crim&#39;, &#39;zn&#39;, &#39;indus&#39;, &#39;chas&#39;, &#39;nox&#39;,             &#39;rm&#39;, &#39;age&#39;, &#39;dis&#39;, &#39;rad&#39;, &#39;tax&#39;,            &#39;ptratio&#39;, &#39;b&#39;, &#39;lstat&#39;]]보스턴_종속 = 보스턴[[&#39;medv&#39;]]아이리스_독립 = 아이리스[[&#39;꽃잎길이&#39;, &#39;꽃잎폭&#39;, &#39;꽃받침길이&#39;, &#39;꽃받침폭&#39;]]아이리스_종속 = 아이리스[[&#39;품종&#39;]]각 변수 모양 확인레몬에이드 독립변수 모양 : (6, 1)레몬에이드 종속변수 모양 : (6, 1)—————————————-보스턴 독립변수 모양 : (506, 13)보스턴 종속변수 모양 : (506, 1)—————————————-아이리스 독립변수 모양 : (150, 4) 아이리스 종속변수 모양 : (150, 1)첫번째 딥러닝 - 레몬에이드 판매예측필요 라이브러리 불러오기import tensorflow as tfimport pandas as pd데이터 준비하기# 데이터 불러오기파일경로 = &#39;https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/lemonade.csv&#39;레몬에이드 = pd.read_csv(파일경로)# 데이터를 종속변수와 독립변수로 나눠주기독립 = 레몬에이드[[&#39;온도&#39;]]종속 = 레몬에이드[[&#39;판매량&#39;]]모델만들기X = tf.keras.layers.Input(shape=[1])Y = tf.keras.layers.Dense(1)(X)model = tf.keras.models.Model(X, Y)model.compile(loss=&#39;mse&#39;)  X = tf.keras.layers.Input(shape=[1])숫자는 독립변수의 컬럼 수로 넣어 준다.  Y = tf.keras.layers.Dense(1)(X)숫자는 종속변수의 컬럼 수로 넣어준다.  model.compile(loss=’mse’)모델이 학습할 방법을 넣어주는데 자세한 설명은 이후 강의에 나올 것이다.모델 학습시키기# 모델을 학습시킵니다. model.fit(독립, 종속, epochs=1000, verbose=0)model.fit(독립, 종속, epochs=10)  model.fit(독립, 종속, epochs=1000, verbose=0)          epochs  무언가를 학습을 할 때 한번에 바로 이해를 할 수 없기 때문에 여러번 읽고 학습을 해야한다.  이와 마찬가지로 딥러닝도 여러번 학습을 해야하는데 epochs은 학습 정도를 직접 기입하여 해당 숫자만큼 학습하도록 한다.      학습화면위 그림은 학습을 하는 모습이다.여기서 제일 눈여겨 봐야 할 것이 있는데 그것은 loss이다.loss는 모델이 예측한 값과 실제 정답과의 차이를 나타낸것으로 0에 가까울수록 모델의 예측 값이  실제 정답과 가까워진다 할 수 있다.모델 이용# 모델을 이용합니다. print(model.predict([[15]]))결과값15도 일때의 예측 판매량 : [[30.010233]]실제 정답은 30과 비슷한 값을 예측을 한 것을 볼 수 있다.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko">
+<meta property="og:site_name" content="chancoke Blog">
+<meta property="og:title" content="2일차 - 레몬에이드 판매 예측">
+<meta property="og:url" content="http://localhost:4000/opentutorials/tensorflow002/">
+
+  <meta property="og:description" content="표를 다루는 도구 ‘판다스’지도학습에서 제일 첫번째로 준비해야되는 사항은 과거의 데이터를 준비하는 것인데, 데이터들은 파일 형태로 되어 있고, 해당 데이터를 다루기위해 파이썬에서 제공하는 도구인 ‘판다스’를 사용하도록 하겠다.판다스 라이브러리 불러오기import pandas as pd파일로부터 데이터 읽어오기불러올 데이터로는 앞으로 실습해볼 레몬에이드 판매예측, 보스턴 집값 예측, 아이리스(꽃) 품종 분류를 위해 3가지 파일을 불러오도록 하겠다.파일경로 = &#39;https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/lemonade.csv&#39;레몬에이드 = pd.read_csv(파일경로) 파일경로 = &#39;https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/boston.csv&#39;보스턴 = pd.read_csv(파일경로) 파일경로 = &#39;https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/iris.csv&#39;아이리스 = pd.read_csv(파일경로)레몬에이드 데이터확인데이터의 모양 확인print(레몬에이드.shape)print(보스턴.shape)print(아이리스.shape)소스 실행 결과레몬에이드 모양 :  (6, 2)보스턴 모양 :  (506, 14)아이리스 모양 :  (150, 5)대표적으로 레몬에이드 모양을 보면 row의 개수, column의 개수가 표시되는 것을 확인 할 수 있다.데이터 컬럼이름 확인print(레몬에이드.columns)print(보스턴.columns)print(아이리스.columns)소스 실행 결과레몬에이트 컬럼 : Index([&#39;온도&#39;, &#39;판매량&#39;], dtype=&#39;object&#39;)레몬에이드의 컬럼인 온도와 판매량이 출력되는 것을 알 수 있다.독립변수와 종속변수 분리레몬에이드_독립 = 레몬에이드[[&#39;온도&#39;]]레몬에이드_종속 = 레몬에이드[[&#39;판매량&#39;]]보스턴_독립 = 보스턴[[&#39;crim&#39;, &#39;zn&#39;, &#39;indus&#39;, &#39;chas&#39;, &#39;nox&#39;,             &#39;rm&#39;, &#39;age&#39;, &#39;dis&#39;, &#39;rad&#39;, &#39;tax&#39;,            &#39;ptratio&#39;, &#39;b&#39;, &#39;lstat&#39;]]보스턴_종속 = 보스턴[[&#39;medv&#39;]]아이리스_독립 = 아이리스[[&#39;꽃잎길이&#39;, &#39;꽃잎폭&#39;, &#39;꽃받침길이&#39;, &#39;꽃받침폭&#39;]]아이리스_종속 = 아이리스[[&#39;품종&#39;]]각 변수 모양 확인레몬에이드 독립변수 모양 : (6, 1)레몬에이드 종속변수 모양 : (6, 1)—————————————-보스턴 독립변수 모양 : (506, 13)보스턴 종속변수 모양 : (506, 1)—————————————-아이리스 독립변수 모양 : (150, 4) 아이리스 종속변수 모양 : (150, 1)첫번째 딥러닝 - 레몬에이드 판매예측필요 라이브러리 불러오기import tensorflow as tfimport pandas as pd데이터 준비하기# 데이터 불러오기파일경로 = &#39;https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/lemonade.csv&#39;레몬에이드 = pd.read_csv(파일경로)# 데이터를 종속변수와 독립변수로 나눠주기독립 = 레몬에이드[[&#39;온도&#39;]]종속 = 레몬에이드[[&#39;판매량&#39;]]모델만들기X = tf.keras.layers.Input(shape=[1])Y = tf.keras.layers.Dense(1)(X)model = tf.keras.models.Model(X, Y)model.compile(loss=&#39;mse&#39;)  X = tf.keras.layers.Input(shape=[1])숫자는 독립변수의 컬럼 수로 넣어 준다.  Y = tf.keras.layers.Dense(1)(X)숫자는 종속변수의 컬럼 수로 넣어준다.  model.compile(loss=’mse’)모델이 학습할 방법을 넣어주는데 자세한 설명은 이후 강의에 나올 것이다.모델 학습시키기# 모델을 학습시킵니다. model.fit(독립, 종속, epochs=1000, verbose=0)model.fit(독립, 종속, epochs=10)  model.fit(독립, 종속, epochs=1000, verbose=0)          epochs  무언가를 학습을 할 때 한번에 바로 이해를 할 수 없기 때문에 여러번 읽고 학습을 해야한다.  이와 마찬가지로 딥러닝도 여러번 학습을 해야하는데 epochs은 학습 정도를 직접 기입하여 해당 숫자만큼 학습하도록 한다.      학습화면위 그림은 학습을 하는 모습이다.여기서 제일 눈여겨 봐야 할 것이 있는데 그것은 loss이다.loss는 모델이 예측한 값과 실제 정답과의 차이를 나타낸것으로 0에 가까울수록 모델의 예측 값이  실제 정답과 가까워진다 할 수 있다.모델 이용# 모델을 이용합니다. print(model.predict([[15]]))결과값15도 일때의 예측 판매량 : [[30.010233]]실제 정답은 30과 비슷한 값을 예측을 한 것을 볼 수 있다.">
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-08-23T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/opentutorials/tensorflow002/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ryu Sang uk",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="chancoke Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+<meta name="naver-site-verification" content="50a215d9074fdd1a832aabc3895ba1b3935ca52d"/>
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/">chancoke Blog</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/AI/index/" >AI</a>
+            </li><li class="masthead__menu-item">
+              <a href="/programming/index/" >programming</a>
+            </li><li class="masthead__menu-item">
+              <a href="/os/index/" >os</a>
+            </li><li class="masthead__menu-item">
+              <a href="/etc/index/" >기타</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/" >모아보기</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+          <a href="/AI/lecture/opentutorials/index/"><span class="nav__sub-title">머신러닝 야학</span></a>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/opentutorials/tensorflow001/" class="">1일차</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/opentutorials/tensorflow002/" class="active">2일차</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="2일차 - 레몬에이드 판매 예측">
+    <meta itemprop="description" content="표를 다루는 도구 ‘판다스’지도학습에서 제일 첫번째로 준비해야되는 사항은 과거의 데이터를 준비하는 것인데, 데이터들은 파일 형태로 되어 있고, 해당 데이터를 다루기위해 파이썬에서 제공하는 도구인 ‘판다스’를 사용하도록 하겠다.판다스 라이브러리 불러오기import pandas as pd파일로부터 데이터 읽어오기불러올 데이터로는 앞으로 실습해볼 레몬에이드 판매예측, 보스턴 집값 예측, 아이리스(꽃) 품종 분류를 위해 3가지 파일을 불러오도록 하겠다.파일경로 = &#39;https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/lemonade.csv&#39;레몬에이드 = pd.read_csv(파일경로) 파일경로 = &#39;https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/boston.csv&#39;보스턴 = pd.read_csv(파일경로) 파일경로 = &#39;https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/iris.csv&#39;아이리스 = pd.read_csv(파일경로)레몬에이드 데이터확인데이터의 모양 확인print(레몬에이드.shape)print(보스턴.shape)print(아이리스.shape)소스 실행 결과레몬에이드 모양 :  (6, 2)보스턴 모양 :  (506, 14)아이리스 모양 :  (150, 5)대표적으로 레몬에이드 모양을 보면 row의 개수, column의 개수가 표시되는 것을 확인 할 수 있다.데이터 컬럼이름 확인print(레몬에이드.columns)print(보스턴.columns)print(아이리스.columns)소스 실행 결과레몬에이트 컬럼 : Index([&#39;온도&#39;, &#39;판매량&#39;], dtype=&#39;object&#39;)레몬에이드의 컬럼인 온도와 판매량이 출력되는 것을 알 수 있다.독립변수와 종속변수 분리레몬에이드_독립 = 레몬에이드[[&#39;온도&#39;]]레몬에이드_종속 = 레몬에이드[[&#39;판매량&#39;]]보스턴_독립 = 보스턴[[&#39;crim&#39;, &#39;zn&#39;, &#39;indus&#39;, &#39;chas&#39;, &#39;nox&#39;,             &#39;rm&#39;, &#39;age&#39;, &#39;dis&#39;, &#39;rad&#39;, &#39;tax&#39;,            &#39;ptratio&#39;, &#39;b&#39;, &#39;lstat&#39;]]보스턴_종속 = 보스턴[[&#39;medv&#39;]]아이리스_독립 = 아이리스[[&#39;꽃잎길이&#39;, &#39;꽃잎폭&#39;, &#39;꽃받침길이&#39;, &#39;꽃받침폭&#39;]]아이리스_종속 = 아이리스[[&#39;품종&#39;]]각 변수 모양 확인레몬에이드 독립변수 모양 : (6, 1)레몬에이드 종속변수 모양 : (6, 1)—————————————-보스턴 독립변수 모양 : (506, 13)보스턴 종속변수 모양 : (506, 1)—————————————-아이리스 독립변수 모양 : (150, 4) 아이리스 종속변수 모양 : (150, 1)첫번째 딥러닝 - 레몬에이드 판매예측필요 라이브러리 불러오기import tensorflow as tfimport pandas as pd데이터 준비하기# 데이터 불러오기파일경로 = &#39;https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/lemonade.csv&#39;레몬에이드 = pd.read_csv(파일경로)# 데이터를 종속변수와 독립변수로 나눠주기독립 = 레몬에이드[[&#39;온도&#39;]]종속 = 레몬에이드[[&#39;판매량&#39;]]모델만들기X = tf.keras.layers.Input(shape=[1])Y = tf.keras.layers.Dense(1)(X)model = tf.keras.models.Model(X, Y)model.compile(loss=&#39;mse&#39;)  X = tf.keras.layers.Input(shape=[1])숫자는 독립변수의 컬럼 수로 넣어 준다.  Y = tf.keras.layers.Dense(1)(X)숫자는 종속변수의 컬럼 수로 넣어준다.  model.compile(loss=’mse’)모델이 학습할 방법을 넣어주는데 자세한 설명은 이후 강의에 나올 것이다.모델 학습시키기# 모델을 학습시킵니다. model.fit(독립, 종속, epochs=1000, verbose=0)model.fit(독립, 종속, epochs=10)  model.fit(독립, 종속, epochs=1000, verbose=0)          epochs  무언가를 학습을 할 때 한번에 바로 이해를 할 수 없기 때문에 여러번 읽고 학습을 해야한다.  이와 마찬가지로 딥러닝도 여러번 학습을 해야하는데 epochs은 학습 정도를 직접 기입하여 해당 숫자만큼 학습하도록 한다.      학습화면위 그림은 학습을 하는 모습이다.여기서 제일 눈여겨 봐야 할 것이 있는데 그것은 loss이다.loss는 모델이 예측한 값과 실제 정답과의 차이를 나타낸것으로 0에 가까울수록 모델의 예측 값이  실제 정답과 가까워진다 할 수 있다.모델 이용# 모델을 이용합니다. print(model.predict([[15]]))결과값15도 일때의 예측 판매량 : [[30.010233]]실제 정답은 30과 비슷한 값을 예측을 한 것을 볼 수 있다.">
+    <meta itemprop="datePublished" content="August 23, 2020">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">2일차 - 레몬에이드 판매 예측
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#표를-다루는-도구-판다스">표를 다루는 도구 ‘판다스’</a>
+    <ul>
+      <li><a href="#판다스-라이브러리-불러오기">판다스 라이브러리 불러오기</a></li>
+      <li><a href="#파일로부터-데이터-읽어오기">파일로부터 데이터 읽어오기</a>
+        <ul>
+          <li><a href="#레몬에이드-데이터확인">레몬에이드 데이터확인</a></li>
+        </ul>
+      </li>
+      <li><a href="#데이터의-모양-확인">데이터의 모양 확인</a>
+        <ul>
+          <li><a href="#소스-실행-결과">소스 실행 결과</a></li>
+        </ul>
+      </li>
+      <li><a href="#데이터-컬럼이름-확인">데이터 컬럼이름 확인</a>
+        <ul>
+          <li><a href="#소스-실행-결과-1">소스 실행 결과</a></li>
+        </ul>
+      </li>
+      <li><a href="#독립변수와-종속변수-분리">독립변수와 종속변수 분리</a>
+        <ul>
+          <li><a href="#각-변수-모양-확인">각 변수 모양 확인</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#첫번째-딥러닝---레몬에이드-판매예측">첫번째 딥러닝 - 레몬에이드 판매예측</a>
+    <ul>
+      <li><a href="#필요-라이브러리-불러오기">필요 라이브러리 불러오기</a></li>
+      <li><a href="#데이터-준비하기">데이터 준비하기</a></li>
+      <li><a href="#모델만들기">모델만들기</a></li>
+      <li><a href="#모델-학습시키기">모델 학습시키기</a>
+        <ul>
+          <li><a href="#학습화면">학습화면</a></li>
+        </ul>
+      </li>
+      <li><a href="#모델-이용">모델 이용</a>
+        <ul>
+          <li><a href="#결과값">결과값</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+            </nav>
+          </aside>
+        
+        <h1 id="표를-다루는-도구-판다스">표를 다루는 도구 ‘판다스’</h1>
+
+<p>지도학습에서 제일 첫번째로 준비해야되는 사항은 과거의 데이터를 준비하는 것인데, 데이터들은 파일 형태로 되어 있고, 해당 데이터를 다루기위해 파이썬에서 제공하는 도구인 ‘판다스’를 사용하도록 하겠다.</p>
+
+<h2 id="판다스-라이브러리-불러오기">판다스 라이브러리 불러오기</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+</code></pre></div></div>
+
+<h2 id="파일로부터-데이터-읽어오기">파일로부터 데이터 읽어오기</h2>
+
+<p>불러올 데이터로는 앞으로 실습해볼 레몬에이드 판매예측, 보스턴 집값 예측, 아이리스(꽃) 품종 분류를 위해 3가지 파일을 불러오도록 하겠다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">파일경로</span> <span class="o">=</span> <span class="s">'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/lemonade.csv'</span>
+<span class="n">레몬에이드</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">파일경로</span><span class="p">)</span>
+ 
+<span class="n">파일경로</span> <span class="o">=</span> <span class="s">'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/boston.csv'</span>
+<span class="n">보스턴</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">파일경로</span><span class="p">)</span>
+ 
+<span class="n">파일경로</span> <span class="o">=</span> <span class="s">'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/iris.csv'</span>
+<span class="n">아이리스</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">파일경로</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="레몬에이드-데이터확인">레몬에이드 데이터확인</h3>
+
+<p><img src="/assets/img/20200823/Untitled.png" alt="/assets/img/20200823/Untitled.png" /></p>
+
+<h2 id="데이터의-모양-확인">데이터의 모양 확인</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">레몬에이드</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">보스턴</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">아이리스</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="소스-실행-결과">소스 실행 결과</h3>
+
+<p><code class="language-plaintext highlighter-rouge">레몬에이드 모양 :  (6, 2)</code><br />
+<code class="language-plaintext highlighter-rouge">보스턴 모양 :  (506, 14)</code><br />
+<code class="language-plaintext highlighter-rouge">아이리스 모양 :  (150, 5)</code></p>
+
+<p>대표적으로 레몬에이드 모양을 보면 row의 개수, column의 개수가 표시되는 것을 확인 할 수 있다.</p>
+
+<h2 id="데이터-컬럼이름-확인">데이터 컬럼이름 확인</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">레몬에이드</span><span class="p">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">보스턴</span><span class="p">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">아이리스</span><span class="p">.</span><span class="n">columns</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="소스-실행-결과-1">소스 실행 결과</h3>
+
+<p><code class="language-plaintext highlighter-rouge">레몬에이트 컬럼 : Index(['온도', '판매량'], dtype='object')</code></p>
+
+<p>레몬에이드의 컬럼인 온도와 판매량이 출력되는 것을 알 수 있다.</p>
+
+<h2 id="독립변수와-종속변수-분리">독립변수와 종속변수 분리</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">레몬에이드_독립</span> <span class="o">=</span> <span class="n">레몬에이드</span><span class="p">[[</span><span class="s">'온도'</span><span class="p">]]</span>
+<span class="n">레몬에이드_종속</span> <span class="o">=</span> <span class="n">레몬에이드</span><span class="p">[[</span><span class="s">'판매량'</span><span class="p">]]</span>
+
+<span class="n">보스턴_독립</span> <span class="o">=</span> <span class="n">보스턴</span><span class="p">[[</span><span class="s">'crim'</span><span class="p">,</span> <span class="s">'zn'</span><span class="p">,</span> <span class="s">'indus'</span><span class="p">,</span> <span class="s">'chas'</span><span class="p">,</span> <span class="s">'nox'</span><span class="p">,</span> 
+            <span class="s">'rm'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">,</span> <span class="s">'dis'</span><span class="p">,</span> <span class="s">'rad'</span><span class="p">,</span> <span class="s">'tax'</span><span class="p">,</span>
+            <span class="s">'ptratio'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'lstat'</span><span class="p">]]</span>
+<span class="n">보스턴_종속</span> <span class="o">=</span> <span class="n">보스턴</span><span class="p">[[</span><span class="s">'medv'</span><span class="p">]]</span>
+
+<span class="n">아이리스_독립</span> <span class="o">=</span> <span class="n">아이리스</span><span class="p">[[</span><span class="s">'꽃잎길이'</span><span class="p">,</span> <span class="s">'꽃잎폭'</span><span class="p">,</span> <span class="s">'꽃받침길이'</span><span class="p">,</span> <span class="s">'꽃받침폭'</span><span class="p">]]</span>
+<span class="n">아이리스_종속</span> <span class="o">=</span> <span class="n">아이리스</span><span class="p">[[</span><span class="s">'품종'</span><span class="p">]]</span>
+
+</code></pre></div></div>
+
+<h3 id="각-변수-모양-확인">각 변수 모양 확인</h3>
+
+<p><code class="language-plaintext highlighter-rouge">레몬에이드 독립변수 모양 : (6, 1)</code><br />
+<code class="language-plaintext highlighter-rouge">레몬에이드 종속변수 모양 : (6, 1)</code><br />
+—————————————-<br />
+<code class="language-plaintext highlighter-rouge">보스턴 독립변수 모양 : (506, 13)</code><br />
+<code class="language-plaintext highlighter-rouge">보스턴 종속변수 모양 : (506, 1)</code><br />
+—————————————-<br />
+<code class="language-plaintext highlighter-rouge">아이리스 독립변수 모양 : (150, 4)</code> <br />
+<code class="language-plaintext highlighter-rouge">아이리스 종속변수 모양 : (150, 1)</code></p>
+
+<hr />
+
+<h1 id="첫번째-딥러닝---레몬에이드-판매예측">첫번째 딥러닝 - 레몬에이드 판매예측</h1>
+
+<h2 id="필요-라이브러리-불러오기">필요 라이브러리 불러오기</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+</code></pre></div></div>
+
+<h2 id="데이터-준비하기">데이터 준비하기</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 데이터 불러오기
+</span><span class="n">파일경로</span> <span class="o">=</span> <span class="s">'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/lemonade.csv'</span>
+<span class="n">레몬에이드</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">파일경로</span><span class="p">)</span>
+
+<span class="c1"># 데이터를 종속변수와 독립변수로 나눠주기
+</span><span class="n">독립</span> <span class="o">=</span> <span class="n">레몬에이드</span><span class="p">[[</span><span class="s">'온도'</span><span class="p">]]</span>
+<span class="n">종속</span> <span class="o">=</span> <span class="n">레몬에이드</span><span class="p">[[</span><span class="s">'판매량'</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<h2 id="모델만들기">모델만들기</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">'mse'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>X = tf.keras.layers.Input(shape=[1])<br />
+숫자는 독립변수의 컬럼 수로 넣어 준다.</li>
+  <li>Y = tf.keras.layers.Dense(1)(X)<br />
+숫자는 종속변수의 컬럼 수로 넣어준다.</li>
+  <li>model.compile(loss=’mse’)<br />
+모델이 학습할 방법을 넣어주는데 자세한 설명은 이후 강의에 나올 것이다.</li>
+</ul>
+
+<h2 id="모델-학습시키기">모델 학습시키기</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 모델을 학습시킵니다. 
+</span><span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">독립</span><span class="p">,</span> <span class="n">종속</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">독립</span><span class="p">,</span> <span class="n">종속</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>model.fit(독립, 종속, epochs=1000, verbose=0)
+    <ul>
+      <li>epochs<br />
+  무언가를 학습을 할 때 한번에 바로 이해를 할 수 없기 때문에 여러번 읽고 학습을 해야한다.<br />
+  이와 마찬가지로 딥러닝도 여러번 학습을 해야하는데 epochs은 학습 정도를 직접 기입하여 해당 숫자만큼 학습하도록 한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="학습화면">학습화면</h3>
+
+<p><img src="/assets/img/20200823/Untitled%201.png" alt="/assets/img/20200823/Untitled%201.png" /></p>
+
+<p>위 그림은 학습을 하는 모습이다.<br />
+여기서 제일 눈여겨 봐야 할 것이 있는데 그것은 loss이다.<br />
+loss는 모델이 예측한 값과 실제 정답과의 차이를 나타낸것으로 0에 가까울수록 모델의 예측 값이  실제 정답과 가까워진다 할 수 있다.</p>
+
+<h2 id="모델-이용">모델 이용</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 모델을 이용합니다. 
+</span><span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">([[</span><span class="mi">15</span><span class="p">]]))</span>
+</code></pre></div></div>
+
+<h3 id="결과값">결과값</h3>
+
+<p><code class="language-plaintext highlighter-rouge">15도 일때의 예측 판매량 : [[30.010233]]</code></p>
+
+<p>실제 정답은 30과 비슷한 값을 예측을 한 것을 볼 수 있다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#opentutorials" class="page__taxonomy-item" rel="tag">opentutorials</a>
+    
+    </span>
+  </p>
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2020-08-23T00:00:00+09:00">August 23, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=2%EC%9D%BC%EC%B0%A8+-+%EB%A0%88%EB%AA%AC%EC%97%90%EC%9D%B4%EB%93%9C+%ED%8C%90%EB%A7%A4+%EC%98%88%EC%B8%A1%20http%3A%2F%2Flocalhost%3A4000%2Fopentutorials%2Ftensorflow002%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fopentutorials%2Ftensorflow002%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Fopentutorials%2Ftensorflow002%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Google Plus"><i class="fab fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fopentutorials%2Ftensorflow002%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/opentutorials/tensorflow001/" class="pagination--pager" title="1일차 - 머신러닝이란?
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/opentutorials/tensorflow001/" rel="permalink">1일차 - 머신러닝이란?
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">머신러닝이란?
+
+기계를 학습시켜서 인간의 판단능력을 기계에 위임하는 것을 머신러닝이라고 하는데 머신러닝이 할 수 있는 대표적인 기술들은 아래와 같다.
+
+
+
+해당 강의에서 텐서플로우로 해결하려고하는 문제는 지도학습의 분류, 회귀 문제이다.
+
+
+  
+    분류문제
+흰색 돌과 검은색 ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/python/azure/" rel="permalink">Microsoft Graph API
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">목적
+
+파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다.
+
+주의
+
+
+  개인 Microsoft ID로는 불가능 하다.
+  참고
+    
+      참고 링크
+    
+  
+
+
+Microsoft ID 만들기
+
+
+  
+    직장 혹은 학교 계정이 없다면 ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/os/windows-terminal-add-context-menu/" rel="permalink">windows 10 context menu에 terminal  추가하기
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  최대 1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Microsoft에서 WSL2 및 terminal 서비스를 하게 되면서 자주 사용하게 되는데
+
+PowerShell과 같이 폴더에서 오른쪽클릭해서 해당위치로 바로 못여는것에 대한 아쉬움이 있었다.
+
+
+
+[그림] terminal에서 실행시킨 ubuntu
+
+위 아쉬움을 해결하고자 구글링...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/keras-book/keras-book-01/" rel="permalink">1장 딥러닝이란?
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">케라스 창시자에게 배우는 딥러닝을 공부하면서 공부한 흔적을 남기는게 중요할거 같아 내용을 내 나름대로 요약 정리를 해보고자 한다. 이번 포스팅에서는 앞으로 시작할 딥러닝을 위해 AI, 머신러닝, 딥러닝에 대해 알아보도록 한다.
+
+딥러닝이란?
+
+Deep Learning에 대해 알아보...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Ryu Sang uk. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.6.0/js/all.js" integrity="sha384-z9ZOvGHHo21RqN5De4rfJMoAxYpaVoiYhuJXPyVmSs8yn20IE3PmBM534CffwSJI" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/opentutorials/tensorflow002/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/opentutorials/tensorflow002"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://naramp4.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+  </body>
+</html>

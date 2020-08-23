@@ -24,7 +24,7 @@ google과 생활코딩이 함께 하는 머신러닝야학을 참여하면서 �
 {% for i in (1..categories_max) reversed %}
   {% for category in site.categories %}
     {% if category[1].size == i %}
-        {% for post in category.last %}
+        {% for post in category.last reversed %}
             {% if category[0] == 'opentutorials' %}
                 {% include archive-title.html type=page.entries_layout %}
             {% endif %}
