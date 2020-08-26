@@ -53,3 +53,9 @@ opentutorials:
             url : /opentutorials/tensorflow001/
           - title: "2일차"
             url : /opentutorials/tensorflow002/
+          - title: "3일차"
+            url : /opentutorials/tensorflow003/
+          - title: "4일차"
+            url : /opentutorials/tensorflow004/
+          - title: "5일차"
+            url : /opentutorials/tensorflow005/
