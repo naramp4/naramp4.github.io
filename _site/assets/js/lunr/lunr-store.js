@@ -15,14 +15,9 @@ var store = [{
         "url": "http://localhost:4000/AI/lecture/opentutorials/index/",
         "teaser":null},{
         "title": "기타",
-        "excerpt":" ","categories": [],
+        "excerpt":"OS                           windows 10 context menu에 terminal  추가하기                                            Oh My Zsh                    ","categories": [],
         "tags": [],
         "url": "http://localhost:4000/etc/index/",
-        "teaser":null},{
-        "title": "os",
-        "excerpt":"                         windows 10 context menu에 terminal  추가하기                                            Oh My Zsh                    ","categories": [],
-        "tags": [],
-        "url": "http://localhost:4000/os/index/",
         "teaser":null},{
         "title": "Oh My Zsh",
         "excerpt":"zsh, oh-my-zsh mac의 터미널을 보다 보기 편하고 편리한 기능을 가지고 있는 oh-my-zsh의 설치 방법에 대해 알아보도록 하겠다. zsh 설치확인 zsh --version 설치가 안되어 있으면 brew install zsh 기본 쉘을 zsh로 바꾸기 chsh -s `which zsh` echo $SHELL iterm2 종료 후 재실행 oh-my-zsh 설치 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh oh-my-zsh 테마...","categories": ["os"],
@@ -59,8 +54,33 @@ var store = [{
         "tags": ["AI","deeplearning","tensorflow"],
         "url": "http://localhost:4000/opentutorials/tensorflow002/",
         "teaser":null},{
+        "title": "3일차 - 보스턴 집값 예측",
+        "excerpt":"보스턴 집값 예측 이번 강의에서 사용되는 데이터셋은 1978년도 미국 보스턴주 506개 타운들의 집값 데이터를 활용할 예정이다. 보스턴 집값 예측 데이터 맛보기 보스턴.head() 여러 컬럼들의 요소들로 집값(medv)가 결정되게 되는데 이러한 규칙들을 사람이 찾기란 불가능에 가까울 것이다. 머신러닝을 사용 한다면 규칙들을 찾아 줄것이고, 딥러닝의 매력에 한번 빠져보도록 하자. 두번째 딥러닝 필요 라이브러리...","categories": ["opentutorials"],
+        "tags": ["AI","deeplearning","tensorflow"],
+        "url": "http://localhost:4000/opentutorials/tensorflow003/",
+        "teaser":null},{
+        "title": "4일차 - 아이리스 품종 분류",
+        "excerpt":"아이리스 품종 분류 이번 강의에서 사용되는 데이터셋은 아이리스 품종 분류 문제에 대해 알아보도록 한다 아이리스 품종 분류 데이터 맛보기 아이리스.head() 아이리스는 꽃잎, 꽃받침에 따라서 품종이 달라지게 되는데 이를 정리한 데이터가 아이리스 데이터이다. 앞써 살펴본 레몬에이드, 보스턴 집값 예측과 같은 데이터들은 숫자를 예측을 하였는데, 아이리스 품종 분류 문제는 품종을 구분하는 다른...","categories": ["opentutorials"],
+        "tags": ["AI","deeplearning","tensorflow"],
+        "url": "http://localhost:4000/opentutorials/tensorflow004/",
+        "teaser":null},{
+        "title": "5일차 - 신경망의 완성:히든레이어 및 기타 팁",
+        "excerpt":"네번째 딥러닝 - 신경망의 완성:히든레이어 그동안 봐왔던 신경망에서 깊은 신경망을 만드는 것은 간단하다. 그저 Input Layer와 Output Layer 사이에 아래 그림과 같이 레이어만 추가하면 된다. 실습 보스턴 집값 예측 # 라이브러리 사용 import tensorflow as tf import pandas as pd # 1.과거의 데이터를 준비합니다. 파일경로 = 'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/boston.csv' 보스턴 = pd.read_csv(파일경로)...","categories": ["opentutorials"],
+        "tags": ["AI","deeplearning","tensorflow"],
+        "url": "http://localhost:4000/opentutorials/tensorflow005/",
+        "teaser":null},{
+        "title": "windows10에서 node.js 설치하기",
+        "excerpt":"windows10에서 node.js를 설치하는 여러방법 중 wsl(Linux용 windows 하위 시스템 - 자세히보기)를 사용하여 설치를 해보았지만, 너무 느린 관계로 네이티브 Windows에서 node.js를 설치하는 방법을 알아보도록 하겠다. nvm-windows를 이용하여 node.js 및 npm 설치 windows-nvm repository에서 nvm-setup.zip을 다운로드 및 설치 PowerShell를 열고 node.js설치 최신버전 설치 nvm install latest 원하는 버전 설치 설치가능한 버전 확인...","categories": ["node.js"],
+        "tags": ["web","node.js","windows10"],
+        "url": "http://localhost:4000/node.js/nodejs-install/",
+        "teaser":null},{
         "title": "programming",
         "excerpt":" python                           Microsoft Graph API                                            파이썬으로 google vision api의 ocr 만들기                    ","categories": [],
         "tags": [],
         "url": "http://localhost:4000/programming/index/",
+        "teaser":null},{
+        "title": "web",
+        "excerpt":"node.js                           windows10에서 node.js 설치하기                    ","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/web/index/",
         "teaser":null}]

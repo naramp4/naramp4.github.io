@@ -3,6 +3,7 @@ title: "기타"
 layout : category
 ---
 
+## OS
 
 {% assign categories_max = 0 %}
 {% for category in site.categories %}
@@ -15,7 +16,7 @@ layout : category
   {% for category in site.categories %}
     {% if category[1].size == i %}
         {% for post in category.last %}
-            {% if category[0] == 'etc' %}
+            {% if category[0] == 'os' %}
                 {% include archive-title.html type=page.entries_layout %}
             {% endif %}
         {% endfor %}

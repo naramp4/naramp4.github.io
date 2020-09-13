@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Microsoft Graph API - chancoke Blog</title>
-<meta name="description" content="목적파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다.주의  개인 Microsoft ID로는 불가능 하다.  참고          참고 링크      Microsoft ID 만들기      직장 혹은 학교 계정이 없다면 아래 그림을 참조하여 새로운 체험판 ID를 만들도록 한다.링크      Azure Active Directory 앱 등록Microsoft Graph의 API를 사용하고자 하면 Azure Active Directory에 우선 앱 등록을 해야한다.앱등록1. Azure 홈페이지로 들어 가서 로그인을 한다.2. 평가판 시작 클릭3. 사용자 정보입력4. Azure Active Directory에 앱등록  Azure AD(Azure Active Directory)는 리소스에 액세스할 수 있게 해주는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스이다.  Azure Portal의 메뉴를 통해 Azure AD에 접근  Azure AD의 앱등록 선택  앱 이름 및 리다이렉션 URI 입력권한 설정어떠한 API 사용을 하려면 그것에 맞는 권한을 허용을 해줘야한다.예시로 유저의 정보를 갖고 오는 권한을 활성해 보겠다.  메뉴에서 API 사용권한 클릭 &gt; + 권한추가 클릭 &gt; Microsoft Graph 클릭 &gt; 위임된 권한에서 Directory, User, tasks, group 하위 모든 권한 활성화  관리자동의 허용 클릭파이썬에서 사용자 정보 가져오기token 가져오기import requestsimport json# 중간에 디렉터리(테넌트) ID 입력url = &#39;https://login.microsoftonline.com/d5288197-6699-4eba-8295-*********/oauth2/v2.0/token&#39;data = {    &#39;grant_type&#39;: &#39;client_credentials&#39;, #인증방법    &#39;client_id&#39;: &#39;dfe91331-ca77-4be8-8793-**********&#39;, #app id    &#39;client_secret&#39;: &#39;BR3sTX9b4S_T2LhCZdL8UB********&#39;, #암호    &#39;scope&#39;:&#39;https://graph.microsoft.com/.default&#39;}token = requests.post(url, data=data).json().get(&#39;access_token&#39;)테넌트 ID 및 app id 확인  개요를 보면 확인할 수 있다.암호 생성사용자정보 갖고 오기headers = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/me&#39;response = requests.get(url, headers=headers).json()header에 받은 token을 넣어서 me로  request를 보내면 사용자 정보를 얻을 수 있다.taskstasks를 갖고 오는 방법은 2가지가 있습니다.  outlook API를 사용하는 방법  Microsoft graph의 planner API를 사용하여 task를 갖고 오는 방법outlook API를 사용하여 갖고오는 방법은https://docs.microsoft.com/ko-kr/outlook/rest/reference위 문서에 나와 있다시피 아직 베타버전만 제공하고 있을 뿐 정식 릴리즈 되진않았습니다.(2017년도 작성 문서인데 아직까지 안나온거 보면 출시할 생각이 없는거 같습니다.)      베타버전사용법    참고 URL      headers = {   &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)  }  url = &#39;https://graph.microsoft.com/beta/me/outlook/tasks&#39;  response = requests.get(url, headers=headers).json()  response      따라서 현재로써는 Microsoft graph의 planner API를 사용하여 갖고오는 수밖에 없습니다.planner에서 나에게 할당된 tasks 가져 오기참고 : https://docs.microsoft.com/en-us/graph/planner-concept-overviewheaders = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/me/planner/tasks&#39;response = requests.get(url, headers=headers).json()group 확인 하기참고 : https://docs.microsoft.com/en-us/graph/office365-groups-concept-overviewheaders = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/groups&#39;response = requests.get(url, headers=headers).json()response">
+<meta name="description" content="목적">
 
 
 
@@ -20,7 +20,7 @@
 <meta property="og:title" content="Microsoft Graph API">
 <meta property="og:url" content="http://localhost:4000/python/azure/">
 
-  <meta property="og:description" content="목적파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다.주의  개인 Microsoft ID로는 불가능 하다.  참고          참고 링크      Microsoft ID 만들기      직장 혹은 학교 계정이 없다면 아래 그림을 참조하여 새로운 체험판 ID를 만들도록 한다.링크      Azure Active Directory 앱 등록Microsoft Graph의 API를 사용하고자 하면 Azure Active Directory에 우선 앱 등록을 해야한다.앱등록1. Azure 홈페이지로 들어 가서 로그인을 한다.2. 평가판 시작 클릭3. 사용자 정보입력4. Azure Active Directory에 앱등록  Azure AD(Azure Active Directory)는 리소스에 액세스할 수 있게 해주는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스이다.  Azure Portal의 메뉴를 통해 Azure AD에 접근  Azure AD의 앱등록 선택  앱 이름 및 리다이렉션 URI 입력권한 설정어떠한 API 사용을 하려면 그것에 맞는 권한을 허용을 해줘야한다.예시로 유저의 정보를 갖고 오는 권한을 활성해 보겠다.  메뉴에서 API 사용권한 클릭 &gt; + 권한추가 클릭 &gt; Microsoft Graph 클릭 &gt; 위임된 권한에서 Directory, User, tasks, group 하위 모든 권한 활성화  관리자동의 허용 클릭파이썬에서 사용자 정보 가져오기token 가져오기import requestsimport json# 중간에 디렉터리(테넌트) ID 입력url = &#39;https://login.microsoftonline.com/d5288197-6699-4eba-8295-*********/oauth2/v2.0/token&#39;data = {    &#39;grant_type&#39;: &#39;client_credentials&#39;, #인증방법    &#39;client_id&#39;: &#39;dfe91331-ca77-4be8-8793-**********&#39;, #app id    &#39;client_secret&#39;: &#39;BR3sTX9b4S_T2LhCZdL8UB********&#39;, #암호    &#39;scope&#39;:&#39;https://graph.microsoft.com/.default&#39;}token = requests.post(url, data=data).json().get(&#39;access_token&#39;)테넌트 ID 및 app id 확인  개요를 보면 확인할 수 있다.암호 생성사용자정보 갖고 오기headers = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/me&#39;response = requests.get(url, headers=headers).json()header에 받은 token을 넣어서 me로  request를 보내면 사용자 정보를 얻을 수 있다.taskstasks를 갖고 오는 방법은 2가지가 있습니다.  outlook API를 사용하는 방법  Microsoft graph의 planner API를 사용하여 task를 갖고 오는 방법outlook API를 사용하여 갖고오는 방법은https://docs.microsoft.com/ko-kr/outlook/rest/reference위 문서에 나와 있다시피 아직 베타버전만 제공하고 있을 뿐 정식 릴리즈 되진않았습니다.(2017년도 작성 문서인데 아직까지 안나온거 보면 출시할 생각이 없는거 같습니다.)      베타버전사용법    참고 URL      headers = {   &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)  }  url = &#39;https://graph.microsoft.com/beta/me/outlook/tasks&#39;  response = requests.get(url, headers=headers).json()  response      따라서 현재로써는 Microsoft graph의 planner API를 사용하여 갖고오는 수밖에 없습니다.planner에서 나에게 할당된 tasks 가져 오기참고 : https://docs.microsoft.com/en-us/graph/planner-concept-overviewheaders = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/me/planner/tasks&#39;response = requests.get(url, headers=headers).json()group 확인 하기참고 : https://docs.microsoft.com/en-us/graph/office365-groups-concept-overviewheaders = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/groups&#39;response = requests.get(url, headers=headers).json()response">
+  <meta property="og:description" content="목적">
 
 
 
@@ -116,9 +116,9 @@
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/AI/index/" >AI</a>
             </li><li class="masthead__menu-item">
-              <a href="/programming/index/" >programming</a>
+              <a href="/web/index/" >web</a>
             </li><li class="masthead__menu-item">
-              <a href="/os/index/" >os</a>
+              <a href="/programming/index/" >programming</a>
             </li><li class="masthead__menu-item">
               <a href="/etc/index/" >기타</a>
             </li><li class="masthead__menu-item">
@@ -198,7 +198,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Microsoft Graph API">
-    <meta itemprop="description" content="목적파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다.주의  개인 Microsoft ID로는 불가능 하다.  참고          참고 링크      Microsoft ID 만들기      직장 혹은 학교 계정이 없다면 아래 그림을 참조하여 새로운 체험판 ID를 만들도록 한다.링크      Azure Active Directory 앱 등록Microsoft Graph의 API를 사용하고자 하면 Azure Active Directory에 우선 앱 등록을 해야한다.앱등록1. Azure 홈페이지로 들어 가서 로그인을 한다.2. 평가판 시작 클릭3. 사용자 정보입력4. Azure Active Directory에 앱등록  Azure AD(Azure Active Directory)는 리소스에 액세스할 수 있게 해주는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스이다.  Azure Portal의 메뉴를 통해 Azure AD에 접근  Azure AD의 앱등록 선택  앱 이름 및 리다이렉션 URI 입력권한 설정어떠한 API 사용을 하려면 그것에 맞는 권한을 허용을 해줘야한다.예시로 유저의 정보를 갖고 오는 권한을 활성해 보겠다.  메뉴에서 API 사용권한 클릭 &gt; + 권한추가 클릭 &gt; Microsoft Graph 클릭 &gt; 위임된 권한에서 Directory, User, tasks, group 하위 모든 권한 활성화  관리자동의 허용 클릭파이썬에서 사용자 정보 가져오기token 가져오기import requestsimport json# 중간에 디렉터리(테넌트) ID 입력url = &#39;https://login.microsoftonline.com/d5288197-6699-4eba-8295-*********/oauth2/v2.0/token&#39;data = {    &#39;grant_type&#39;: &#39;client_credentials&#39;, #인증방법    &#39;client_id&#39;: &#39;dfe91331-ca77-4be8-8793-**********&#39;, #app id    &#39;client_secret&#39;: &#39;BR3sTX9b4S_T2LhCZdL8UB********&#39;, #암호    &#39;scope&#39;:&#39;https://graph.microsoft.com/.default&#39;}token = requests.post(url, data=data).json().get(&#39;access_token&#39;)테넌트 ID 및 app id 확인  개요를 보면 확인할 수 있다.암호 생성사용자정보 갖고 오기headers = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/me&#39;response = requests.get(url, headers=headers).json()header에 받은 token을 넣어서 me로  request를 보내면 사용자 정보를 얻을 수 있다.taskstasks를 갖고 오는 방법은 2가지가 있습니다.  outlook API를 사용하는 방법  Microsoft graph의 planner API를 사용하여 task를 갖고 오는 방법outlook API를 사용하여 갖고오는 방법은https://docs.microsoft.com/ko-kr/outlook/rest/reference위 문서에 나와 있다시피 아직 베타버전만 제공하고 있을 뿐 정식 릴리즈 되진않았습니다.(2017년도 작성 문서인데 아직까지 안나온거 보면 출시할 생각이 없는거 같습니다.)      베타버전사용법    참고 URL      headers = {   &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)  }  url = &#39;https://graph.microsoft.com/beta/me/outlook/tasks&#39;  response = requests.get(url, headers=headers).json()  response      따라서 현재로써는 Microsoft graph의 planner API를 사용하여 갖고오는 수밖에 없습니다.planner에서 나에게 할당된 tasks 가져 오기참고 : https://docs.microsoft.com/en-us/graph/planner-concept-overviewheaders = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/me/planner/tasks&#39;response = requests.get(url, headers=headers).json()group 확인 하기참고 : https://docs.microsoft.com/en-us/graph/office365-groups-concept-overviewheaders = { &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(token)}url = &#39;https://graph.microsoft.com/v1.0/groups&#39;response = requests.get(url, headers=headers).json()response">
+    <meta itemprop="description" content="목적">
     <meta itemprop="datePublished" content="July 01, 2020">
     
 
@@ -511,78 +511,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/opentutorials/tensorflow002/" rel="permalink">2일차 - 레몬에이드 판매 예측
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  2 분 소요
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">표를 다루는 도구 ‘판다스’
-
-지도학습에서 제일 첫번째로 준비해야되는 사항은 과거의 데이터를 준비하는 것인데, 데이터들은 파일 형태로 되어 있고, 해당 데이터를 다루기위해 파이썬에서 제공하는 도구인 ‘판다스’를 사용하도록 하겠다.
-
-판다스 라이브러리 불러오기
-
-import pand...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/opentutorials/tensorflow001/" rel="permalink">1일차 - 머신러닝이란?
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  1 분 소요
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">머신러닝이란?
-
-기계를 학습시켜서 인간의 판단능력을 기계에 위임하는 것을 머신러닝이라고 하는데 머신러닝이 할 수 있는 대표적인 기술들은 아래와 같다.
-
-
-
-해당 강의에서 텐서플로우로 해결하려고하는 문제는 지도학습의 분류, 회귀 문제이다.
-
-
-  
-    분류문제
-흰색 돌과 검은색 ...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/os/windows-terminal-add-context-menu/" rel="permalink">windows 10 context menu에 terminal  추가하기
+        <a href="/node.js/nodejs-install/" rel="permalink">windows10에서 node.js 설치하기
 </a>
       
     </h2>
@@ -595,15 +524,8 @@ import pand...</p>
   최대 1 분 소요
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">Microsoft에서 WSL2 및 terminal 서비스를 하게 되면서 자주 사용하게 되는데
-
-PowerShell과 같이 폴더에서 오른쪽클릭해서 해당위치로 바로 못여는것에 대한 아쉬움이 있었다.
-
-
-
-[그림] terminal에서 실행시킨 ubuntu
-
-위 아쉬움을 해결하고자 구글링...</p>
+    <p class="archive__item-excerpt" itemprop="description">windows10에서 node.js를 설치하는 여러방법 중 wsl(Linux용 windows 하위 시스템 - 자세히보기)를 사용하여 설치를 해보았지만, 너무 느린 관계로 네이티브 Windows에서 node.js를 설치하는 방법을 알아보도록 하겠다.
+</p>
   </article>
 </div>
 
@@ -617,7 +539,7 @@ PowerShell과 같이 폴더에서 오른쪽클릭해서 해당위치로 바로 �
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/keras-book/keras-book-01/" rel="permalink">1장 딥러닝이란?
+        <a href="/opentutorials/tensorflow005/" rel="permalink">5일차 - 신경망의 완성:히든레이어 및 기타 팁
 </a>
       
     </h2>
@@ -627,14 +549,67 @@ PowerShell과 같이 폴더에서 오른쪽클릭해서 해당위치로 바로 �
 
 
 
-  3 분 소요
+  2 분 소요
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">케라스 창시자에게 배우는 딥러닝을 공부하면서 공부한 흔적을 남기는게 중요할거 같아 내용을 내 나름대로 요약 정리를 해보고자 한다. 이번 포스팅에서는 앞으로 시작할 딥러닝을 위해 AI, 머신러닝, 딥러닝에 대해 알아보도록 한다.
+    <p class="archive__item-excerpt" itemprop="description">네번째 딥러닝 - 신경망의 완성:히든레이어
+</p>
+  </article>
+</div>
 
-딥러닝이란?
+        
+          
 
-Deep Learning에 대해 알아보...</p>
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/opentutorials/tensorflow004/" rel="permalink">4일차 - 아이리스 품종 분류
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">아이리스 품종 분류
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/opentutorials/tensorflow003/" rel="permalink">3일차 - 보스턴 집값 예측
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">보스턴 집값 예측
+</p>
   </article>
 </div>
 

@@ -1,4 +1,372 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-23T18:39:08+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">chancoke Blog</title><subtitle>An amazing website.</subtitle><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><entry><title type="html">2일차 - 레몬에이드 판매 예측</title><link href="http://localhost:4000/opentutorials/tensorflow002/" rel="alternate" type="text/html" title="2일차 - 레몬에이드 판매 예측" /><published>2020-08-23T00:00:00+09:00</published><updated>2020-08-23T00:00:00+09:00</updated><id>http://localhost:4000/opentutorials/tensorflow002</id><content type="html" xml:base="http://localhost:4000/opentutorials/tensorflow002/">&lt;h1 id=&quot;표를-다루는-도구-판다스&quot;&gt;표를 다루는 도구 ‘판다스’&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-13T21:55:49+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">chancoke Blog</title><subtitle>An amazing website.</subtitle><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><entry><title type="html">windows10에서 node.js 설치하기</title><link href="http://localhost:4000/node.js/nodejs-install/" rel="alternate" type="text/html" title="windows10에서 node.js 설치하기" /><published>2020-09-13T00:00:00+09:00</published><updated>2020-09-13T00:00:00+09:00</updated><id>http://localhost:4000/node.js/nodejs-install</id><content type="html" xml:base="http://localhost:4000/node.js/nodejs-install/">&lt;p&gt;windows10에서 node.js를 설치하는 여러방법 중 wsl(Linux용 windows 하위 시스템 - &lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/install-win10&quot; target=&quot;_blank&quot;&gt;자세히보기&lt;/a&gt;)를 사용하여 설치를 해보았지만, 너무 느린 관계로 네이티브 Windows에서 node.js를 설치하는 방법을 알아보도록 하겠다.&lt;/p&gt;
+
+&lt;h1 id=&quot;nvm-windows를-이용하여-nodejs-및-npm-설치&quot;&gt;nvm-windows를 이용하여 node.js 및 npm 설치&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/coreybutler/nvm-windows#node-version-manager-nvm-for-windows&quot; target=&quot;_blank&quot;&gt;windows-nvm repository&lt;/a&gt;에서 nvm-setup.zip을 다운로드 및 설치&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/img/20200913/Untitled.png&quot; alt=&quot;/assets/img/20200913/Untitled.png&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;PowerShell를 열고 node.js설치
+    &lt;ul&gt;
+      &lt;li&gt;최신버전 설치
+        &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;nvm&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latest&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;원하는 버전 설치
+        &lt;ol&gt;
+          &lt;li&gt;설치가능한 버전 확인&lt;/li&gt;
+        &lt;/ol&gt;
+
+        &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;nvm&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;available&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+
+        &lt;ol&gt;
+          &lt;li&gt;버전 선택 후 설치&lt;/li&gt;
+        &lt;/ol&gt;
+
+        &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;nvm&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;설치된 버전 확인&lt;/p&gt;
+
+    &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;nvm&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ls&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;버전 선택&lt;/p&gt;
+
+    &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;nvm&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;출처&quot;&gt;출처&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/nodejs/setup-on-windows&quot; target=&quot;_blank&quot;&gt;windows 개발자 센터 - Windows에 직접 Node.js 개발 환경 설치&lt;/a&gt;&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;node.js&quot;]" /><category term="web" /><category term="node.js" /><category term="windows10" /><summary type="html">windows10에서 node.js를 설치하는 여러방법 중 wsl(Linux용 windows 하위 시스템 - 자세히보기)를 사용하여 설치를 해보았지만, 너무 느린 관계로 네이티브 Windows에서 node.js를 설치하는 방법을 알아보도록 하겠다.</summary></entry><entry><title type="html">5일차 - 신경망의 완성:히든레이어 및 기타 팁</title><link href="http://localhost:4000/opentutorials/tensorflow005/" rel="alternate" type="text/html" title="5일차 - 신경망의 완성:히든레이어 및 기타 팁" /><published>2020-08-26T00:00:00+09:00</published><updated>2020-08-26T00:00:00+09:00</updated><id>http://localhost:4000/opentutorials/tensorflow005</id><content type="html" xml:base="http://localhost:4000/opentutorials/tensorflow005/">&lt;h1 id=&quot;네번째-딥러닝---신경망의-완성히든레이어&quot;&gt;네번째 딥러닝 - 신경망의 완성:히든레이어&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200826/Untitled.png&quot; alt=&quot;/assets/img/20200826/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그동안 봐왔던 신경망에서 깊은 신경망을 만드는 것은 간단하다. 그저 Input Layer와 Output Layer 사이에 아래 그림과 같이 레이어만 추가하면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200826/Untitled%201.png&quot; alt=&quot;/assets/img/20200826/Untitled%201.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;실습&quot;&gt;실습&lt;/h2&gt;
+
+&lt;h3 id=&quot;보스턴-집값-예측&quot;&gt;보스턴 집값 예측&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 라이브러리 사용
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;tensorflow&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;# 1.과거의 데이터를 준비합니다.
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;파일경로&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/boston.csv'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;보스턴&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;파일경로&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;# 종속변수, 독립변수
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;독립&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;보스턴&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'crim'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'zn'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'indus'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'chas'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'nox'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+            &lt;span class=&quot;s&quot;&gt;'rm'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'age'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'dis'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rad'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'tax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;'ptratio'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'b'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'lstat'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;종속&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;보스턴&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'medv'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;독립&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;종속&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;# 2. 모델의 구조를 만듭니다
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'swish'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loss&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mse'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;# 모델 구조 확인
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;# 3.데이터로 모델을 학습(FIT)합니다.
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;독립&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;종속&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;epochs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;# 4. 모델을 이용합니다
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;독립&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;종속&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+ 
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;해당 모델을 학습을 시켜 보면 전에 봐왔던 모델에서 떨어지지 않았던 loss에서 더 떨어 지는 것을 확인을 해볼수 있다.&lt;/p&gt;
+
+&lt;h1 id=&quot;데이터를-위한-팁&quot;&gt;데이터를 위한 팁&lt;/h1&gt;
+
+&lt;p&gt;데이터를 다루다 보면 데이터 타입이 달라 애를 먹는 경우가 있다. 그때를 위해 데이터 타입을 확인 하는 방법과 데이터 타입을 바꾸는 방법 등 데이터를 다루는 방법에 대해 알아보도록 하겠다.&lt;/p&gt;
+
+&lt;h2 id=&quot;테스트-데이터-불러오기&quot;&gt;테스트 데이터 불러오기&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;###########################
+# 라이브러리 사용
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;###########################
+# 파일 읽어오기
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;파일경로&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/iris2.csv'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;아이리스&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;파일경로&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;데이터-타입-확인&quot;&gt;데이터 타입 확인&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 품종 타입을 범주형으로 바꾸어 준다. 
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;아이리스&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'품종'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;아이리스&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'품종'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;astype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'category'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;아이리스&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dtypes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;원핫-인코딩&quot;&gt;원핫 인코딩&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 카테고리 타입의 변수만 원핫인코딩
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;인코딩&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_dummies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;아이리스&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;na값-확인&quot;&gt;NA값 확인&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# NA값을 체크해 봅시다. 
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;아이리스&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isna&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;아이리스&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;na값에-꽃잎폭-평균값을-넣어주기&quot;&gt;NA값에 꽃잎폭 평균값을 넣어주기&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# NA값에 꽃잎폭 평균값을 넣어주는 방법
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;아이리스&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'꽃잎폭'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;아이리스&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'꽃잎폭'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;아이리스&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'꽃잎폭'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fillna&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;아이리스&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;모델을-위한-팁&quot;&gt;모델을 위한 팁&lt;/h1&gt;
+
+&lt;p&gt;히든 레이어를 추가하여 모델의 성능이 올라갔지만 BatchNormalization layer를 추가하여 모델의 성능을 더 이끌어 낼수 있다.&lt;/p&gt;
+
+&lt;p&gt;BatchNormalization layer가 무엇인지는 각자 알아보도록하고, 어떤 변화가 일어나는지 확인해보도록 한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;###########################
+# 라이브러리 사용
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;tensorflow&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;###########################
+# 1.과거의 데이터를 준비합니다.
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;파일경로&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/boston.csv'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;보스턴&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;파일경로&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;# 종속변수, 독립변수
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;독립&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;보스턴&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'crim'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'zn'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'indus'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'chas'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'nox'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+            &lt;span class=&quot;s&quot;&gt;'rm'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'age'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'dis'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rad'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'tax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;'ptratio'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'b'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'lstat'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;종속&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;보스턴&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'medv'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;독립&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;종속&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;###########################
+# 2. 모델의 구조를 만듭니다
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'swish'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'swish'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'swish'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loss&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mse'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;# 2. 모델의 구조를 BatchNormalization layer를 사용하여 만든다.
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+ 
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BatchNormalization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Activation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'swish'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BatchNormalization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Activation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'swish'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BatchNormalization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Activation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'swish'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+&lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loss&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mse'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;###########################
+# 3.데이터로 모델을 학습(FIT)합니다.
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;독립&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;종속&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;epochs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;opentutorials&quot;]" /><category term="AI" /><category term="deeplearning" /><category term="tensorflow" /><summary type="html">네번째 딥러닝 - 신경망의 완성:히든레이어</summary></entry><entry><title type="html">4일차 - 아이리스 품종 분류</title><link href="http://localhost:4000/opentutorials/tensorflow004/" rel="alternate" type="text/html" title="4일차 - 아이리스 품종 분류" /><published>2020-08-25T00:00:00+09:00</published><updated>2020-08-25T00:00:00+09:00</updated><id>http://localhost:4000/opentutorials/tensorflow004</id><content type="html" xml:base="http://localhost:4000/opentutorials/tensorflow004/">&lt;h1 id=&quot;아이리스-품종-분류&quot;&gt;아이리스 품종 분류&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200825/Untitled.png&quot; alt=&quot;/assets/img/20200825/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이번 강의에서 사용되는 데이터셋은 아이리스 품종 분류 문제에 대해 알아보도록 한다&lt;/p&gt;
+
+&lt;h2 id=&quot;아이리스-품종-분류-데이터-맛보기&quot;&gt;아이리스 품종 분류 데이터 맛보기&lt;/h2&gt;
+
+&lt;h3 id=&quot;아이리스head&quot;&gt;아이리스.head()&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200825/Untitled%201.png&quot; alt=&quot;/assets/img/20200825/Untitled%201.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;아이리스는 꽃잎, 꽃받침에 따라서 품종이 달라지게 되는데 이를 정리한 데이터가 아이리스 데이터이다.&lt;/p&gt;
+
+&lt;p&gt;앞써 살펴본 레몬에이드, 보스턴 집값 예측과 같은 데이터들은 숫자를 예측을 하였는데, 아이리스 품종 분류 문제는 품종을 구분하는 다른 양상의 문제이다.&lt;/p&gt;
+
+&lt;p&gt;레몬에이드, 보스턴 집값 예측 문제를 회귀문제라 하고, 아이리스 품종 분류 문제는 분류문제라 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;원핫인코딩&quot;&gt;원핫인코딩&lt;/h2&gt;
+
+&lt;p&gt;딥러닝은 사람이 해결하지 못하는 문제를 수식으로써 해결을 하는 것을 보았다. 하지만 아이리스 데이터를 살펴보면 품종이 글자로 되어 있어 수식에 대입이 불가능하다.&lt;/p&gt;
+
+&lt;p&gt;이를 해결해 주는 것이 원핫인코딩이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200825/Untitled%202.png&quot; alt=&quot;/assets/img/20200825/Untitled%202.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 그림에서와 같이 품종을 0과 1로 분류를 한것을 원핫인코딩이라 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;세번째-딥러닝&quot;&gt;세번째 딥러닝&lt;/h2&gt;
+
+&lt;h3 id=&quot;필요-라이브러리-불러오기&quot;&gt;필요 라이브러리 불러오기&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;tensorflow&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;데이터-준비하기&quot;&gt;데이터 준비하기&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 데이터 불러오기
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;파일경로&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/iris.csv'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;아이리스&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;파일경로&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 원핫인코딩
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;인코딩&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_dummies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;아이리스&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 데이터를 종속변수와 독립변수로 나눠주기
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;독립&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;인코딩&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'꽃잎길이'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'꽃잎폭'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'꽃받침길이'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'꽃받침폭'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;종속&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;인코딩&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'품종_setosa'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'품종_versicolor'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'품종_virginica'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;모델만들기&quot;&gt;모델만들기&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'softmax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loss&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'categorical_crossentropy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+              &lt;span class=&quot;n&quot;&gt;metrics&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'accuracy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;softmax&lt;br /&gt;
+여기에서 softmax는 20%, 30%와 같이 확률로 나타내주는 도구이다.&lt;/li&gt;
+  &lt;li&gt;model.compile(loss=’categorical_crossentropy’, metrics=’accuracy’)
+    &lt;ul&gt;
+      &lt;li&gt;categorical_crossentropy&lt;br /&gt;
+  모델별로( 회귀 문제를 푸는 모델, 분류 문제를 푸는 모델 ) loss를 나타내주는 방법을 다르게 해야한다.&lt;/li&gt;
+      &lt;li&gt;accuracy&lt;br /&gt;
+  분류모델에서는 loss 보다 사람이 판단하기 더 좋은 정확도를 나타내준다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;모델-학습시키기&quot;&gt;모델 학습시키기&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 모델을 학습시킵니다. 
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;독립&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;종속&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;epochs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;모델-이용&quot;&gt;모델 이용&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 모델을 이용합니다. 
+# 맨 처음 데이터 5개
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;독립&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;종속&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200825/Untitled%203.png&quot; alt=&quot;/assets/img/20200825/Untitled%203.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;결과값을 확인해 보면 setosa의 확률이 가장 높게 예측을 하였고, 실제 정답도 setosa인것을 확인 할 수 있다.&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;opentutorials&quot;]" /><category term="AI" /><category term="deeplearning" /><category term="tensorflow" /><summary type="html">아이리스 품종 분류</summary></entry><entry><title type="html">3일차 - 보스턴 집값 예측</title><link href="http://localhost:4000/opentutorials/tensorflow003/" rel="alternate" type="text/html" title="3일차 - 보스턴 집값 예측" /><published>2020-08-24T00:00:00+09:00</published><updated>2020-08-24T00:00:00+09:00</updated><id>http://localhost:4000/opentutorials/tensorflow003</id><content type="html" xml:base="http://localhost:4000/opentutorials/tensorflow003/">&lt;h1 id=&quot;보스턴-집값-예측&quot;&gt;보스턴 집값 예측&lt;/h1&gt;
+
+&lt;p&gt;이번 강의에서 사용되는 데이터셋은 1978년도 미국 보스턴주 506개 타운들의 집값 데이터를 활용할 예정이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;보스턴-집값-예측-데이터-맛보기&quot;&gt;보스턴 집값 예측 데이터 맛보기&lt;/h2&gt;
+
+&lt;h3 id=&quot;보스턴head&quot;&gt;보스턴.head()&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200824/Untitled.png&quot; alt=&quot;/assets/img/20200824/Untitled.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;여러 컬럼들의 요소들로 집값(medv)가 결정되게 되는데 이러한 규칙들을 사람이 찾기란 불가능에 가까울 것이다.&lt;/p&gt;
+
+&lt;p&gt;머신러닝을 사용 한다면 규칙들을 찾아 줄것이고, 딥러닝의 매력에 한번 빠져보도록 하자.&lt;/p&gt;
+
+&lt;h2 id=&quot;두번째-딥러닝&quot;&gt;두번째 딥러닝&lt;/h2&gt;
+
+&lt;h3 id=&quot;필요-라이브러리-불러오기&quot;&gt;필요 라이브러리 불러오기&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;tensorflow&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;데이터-준비하기&quot;&gt;데이터 준비하기&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 데이터 불러오기
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;파일경로&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/boston.csv'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;보스턴&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;파일경로&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 데이터를 종속변수와 독립변수로 나눠주기
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;독립&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;보스턴&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'crim'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'zn'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'indus'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'chas'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'nox'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rm'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'age'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'dis'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rad'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'tax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;'ptratio'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'b'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'lstat'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;종속&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;보스턴&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'medv'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;모델만들기&quot;&gt;모델만들기&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loss&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mse'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;X = tf.keras.layers.Input(shape=[13])&lt;br /&gt;
+독립변수의 개수를 넣어준다.&lt;/li&gt;
+  &lt;li&gt;Y = tf.keras.layers.Dense(1)(X)&lt;br /&gt;
+종속변수의 개수를 넣어준다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;해당 모델을 그림으로 나타내면 아래와 같게 나온다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200824/Untitled%201.png&quot; alt=&quot;/assets/img/20200824/Untitled%201.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;출처 : Opentutorials - Tensorflow1 - 두번째 딥러닝 - 보스턴 집값 예측, 이숙번님의 강의자료 - &lt;a href=&quot;https://opentutorials.org/module/4966/28976&quot;&gt;링크&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;모델의 학습은 가중치의 값과 편향 값을 loss가 작아지는 값들을 수정하면서 찾아가는 것이라 할 수 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;모델-학습시키기&quot;&gt;모델 학습시키기&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 모델을 학습시킵니다. 
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;독립&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;종속&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;epochs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;verbose&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;독립&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;종속&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;epochs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;모델-이용&quot;&gt;모델 이용&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 모델을 이용합니다. 
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;독립&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 종속변수 확인
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;종속&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;독립변수의-예측값&quot;&gt;독립변수의 예측값&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[[26.725424] [21.420061] [18.252525] [ 9.580503] [17.877533]]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;실제 종속변수의 값&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;28.7, 22.9, 27.1, 16.5, 18.9&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;loss의 값이 약 26으로 나와서 그런지 비슷해 보이는 값들도 있는 반면 전혀 다른 값들로 예측을 하고 있는 것을 볼 수 있다.&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;opentutorials&quot;]" /><category term="AI" /><category term="deeplearning" /><category term="tensorflow" /><summary type="html">보스턴 집값 예측</summary></entry><entry><title type="html">2일차 - 레몬에이드 판매 예측</title><link href="http://localhost:4000/opentutorials/tensorflow002/" rel="alternate" type="text/html" title="2일차 - 레몬에이드 판매 예측" /><published>2020-08-23T00:00:00+09:00</published><updated>2020-08-23T00:00:00+09:00</updated><id>http://localhost:4000/opentutorials/tensorflow002</id><content type="html" xml:base="http://localhost:4000/opentutorials/tensorflow002/">&lt;h1 id=&quot;표를-다루는-도구-판다스&quot;&gt;표를 다루는 도구 ‘판다스’&lt;/h1&gt;
 
 &lt;p&gt;지도학습에서 제일 첫번째로 준비해야되는 사항은 과거의 데이터를 준비하는 것인데, 데이터들은 파일 형태로 되어 있고, 해당 데이터를 다루기위해 파이썬에서 제공하는 도구인 ‘판다스’를 사용하도록 하겠다.&lt;/p&gt;
 
@@ -152,7 +520,7 @@ loss는 모델이 예측한 값과 실제 정답과의 차이를 나타낸것으
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;15도 일때의 예측 판매량 : [[30.010233]]&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;실제 정답은 30과 비슷한 값을 예측을 한 것을 볼 수 있다.&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;opentutorials&quot;]" /><category term="AI" /><category term="deeplearning" /><category term="tensorflow" /><summary type="html">표를 다루는 도구 ‘판다스’ 지도학습에서 제일 첫번째로 준비해야되는 사항은 과거의 데이터를 준비하는 것인데, 데이터들은 파일 형태로 되어 있고, 해당 데이터를 다루기위해 파이썬에서 제공하는 도구인 ‘판다스’를 사용하도록 하겠다. 판다스 라이브러리 불러오기 import pandas as pd 파일로부터 데이터 읽어오기 불러올 데이터로는 앞으로 실습해볼 레몬에이드 판매예측, 보스턴 집값 예측, 아이리스(꽃) 품종 분류를 위해 3가지 파일을 불러오도록 하겠다. 파일경로 = 'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/lemonade.csv' 레몬에이드 = pd.read_csv(파일경로) 파일경로 = 'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/boston.csv' 보스턴 = pd.read_csv(파일경로) 파일경로 = 'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/iris.csv' 아이리스 = pd.read_csv(파일경로) 레몬에이드 데이터확인 데이터의 모양 확인 print(레몬에이드.shape) print(보스턴.shape) print(아이리스.shape) 소스 실행 결과 레몬에이드 모양 : (6, 2) 보스턴 모양 : (506, 14) 아이리스 모양 : (150, 5) 대표적으로 레몬에이드 모양을 보면 row의 개수, column의 개수가 표시되는 것을 확인 할 수 있다. 데이터 컬럼이름 확인 print(레몬에이드.columns) print(보스턴.columns) print(아이리스.columns) 소스 실행 결과 레몬에이트 컬럼 : Index(['온도', '판매량'], dtype='object') 레몬에이드의 컬럼인 온도와 판매량이 출력되는 것을 알 수 있다. 독립변수와 종속변수 분리 레몬에이드_독립 = 레몬에이드[['온도']] 레몬에이드_종속 = 레몬에이드[['판매량']] 보스턴_독립 = 보스턴[['crim', 'zn', 'indus', 'chas', 'nox', 'rm', 'age', 'dis', 'rad', 'tax', 'ptratio', 'b', 'lstat']] 보스턴_종속 = 보스턴[['medv']] 아이리스_독립 = 아이리스[['꽃잎길이', '꽃잎폭', '꽃받침길이', '꽃받침폭']] 아이리스_종속 = 아이리스[['품종']] 각 변수 모양 확인 레몬에이드 독립변수 모양 : (6, 1) 레몬에이드 종속변수 모양 : (6, 1) —————————————- 보스턴 독립변수 모양 : (506, 13) 보스턴 종속변수 모양 : (506, 1) —————————————- 아이리스 독립변수 모양 : (150, 4) 아이리스 종속변수 모양 : (150, 1) 첫번째 딥러닝 - 레몬에이드 판매예측 필요 라이브러리 불러오기 import tensorflow as tf import pandas as pd 데이터 준비하기 # 데이터 불러오기 파일경로 = 'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/lemonade.csv' 레몬에이드 = pd.read_csv(파일경로) # 데이터를 종속변수와 독립변수로 나눠주기 독립 = 레몬에이드[['온도']] 종속 = 레몬에이드[['판매량']] 모델만들기 X = tf.keras.layers.Input(shape=[1]) Y = tf.keras.layers.Dense(1)(X) model = tf.keras.models.Model(X, Y) model.compile(loss='mse') X = tf.keras.layers.Input(shape=[1]) 숫자는 독립변수의 컬럼 수로 넣어 준다. Y = tf.keras.layers.Dense(1)(X) 숫자는 종속변수의 컬럼 수로 넣어준다. model.compile(loss=’mse’) 모델이 학습할 방법을 넣어주는데 자세한 설명은 이후 강의에 나올 것이다. 모델 학습시키기 # 모델을 학습시킵니다. model.fit(독립, 종속, epochs=1000, verbose=0) model.fit(독립, 종속, epochs=10) model.fit(독립, 종속, epochs=1000, verbose=0) epochs 무언가를 학습을 할 때 한번에 바로 이해를 할 수 없기 때문에 여러번 읽고 학습을 해야한다. 이와 마찬가지로 딥러닝도 여러번 학습을 해야하는데 epochs은 학습 정도를 직접 기입하여 해당 숫자만큼 학습하도록 한다. 학습화면 위 그림은 학습을 하는 모습이다. 여기서 제일 눈여겨 봐야 할 것이 있는데 그것은 loss이다. loss는 모델이 예측한 값과 실제 정답과의 차이를 나타낸것으로 0에 가까울수록 모델의 예측 값이 실제 정답과 가까워진다 할 수 있다. 모델 이용 # 모델을 이용합니다. print(model.predict([[15]])) 결과값 15도 일때의 예측 판매량 : [[30.010233]] 실제 정답은 30과 비슷한 값을 예측을 한 것을 볼 수 있다.</summary></entry><entry><title type="html">1일차 - 머신러닝이란?</title><link href="http://localhost:4000/opentutorials/tensorflow001/" rel="alternate" type="text/html" title="1일차 - 머신러닝이란?" /><published>2020-08-22T00:00:00+09:00</published><updated>2020-08-22T00:00:00+09:00</updated><id>http://localhost:4000/opentutorials/tensorflow001</id><content type="html" xml:base="http://localhost:4000/opentutorials/tensorflow001/">&lt;h1 id=&quot;머신러닝이란&quot;&gt;머신러닝이란?&lt;/h1&gt;
+&lt;p&gt;실제 정답은 30과 비슷한 값을 예측을 한 것을 볼 수 있다.&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;opentutorials&quot;]" /><category term="AI" /><category term="deeplearning" /><category term="tensorflow" /><summary type="html">표를 다루는 도구 ‘판다스’</summary></entry><entry><title type="html">1일차 - 머신러닝이란?</title><link href="http://localhost:4000/opentutorials/tensorflow001/" rel="alternate" type="text/html" title="1일차 - 머신러닝이란?" /><published>2020-08-22T00:00:00+09:00</published><updated>2020-08-22T00:00:00+09:00</updated><id>http://localhost:4000/opentutorials/tensorflow001</id><content type="html" xml:base="http://localhost:4000/opentutorials/tensorflow001/">&lt;h1 id=&quot;머신러닝이란&quot;&gt;머신러닝이란?&lt;/h1&gt;
 
 &lt;p&gt;기계를 학습시켜서 인간의 판단능력을 기계에 위임하는 것을 머신러닝이라고 하는데 머신러닝이 할 수 있는 대표적인 기술들은 아래와 같다.&lt;/p&gt;
 
@@ -213,7 +581,7 @@ Neural Network는 인간의 뉴런을 모방하여 고안된 알고리즘이다.
 
 &lt;p&gt;지도학습이란 과거의 데이터를 통해 모델을 학습하고, 독립변수와 종속변수간의 규칙을 찾아내어&lt;/p&gt;
 
-&lt;p&gt;전혀 새로운 값이 들어 왔을 때 해당 규칙을 통해 새로운 결과값을 예측하는 것을 의미한다.&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;opentutorials&quot;]" /><category term="AI" /><category term="deeplearning" /><category term="tensorflow" /><summary type="html">머신러닝이란? 기계를 학습시켜서 인간의 판단능력을 기계에 위임하는 것을 머신러닝이라고 하는데 머신러닝이 할 수 있는 대표적인 기술들은 아래와 같다. 해당 강의에서 텐서플로우로 해결하려고하는 문제는 지도학습의 분류, 회귀 문제이다. 분류문제 흰색 돌과 검은색 돌을 나누는 것과 같이 카테고리 형태로 예측하는 문제 회귀문제 부동산의 가격 예측과 같이 숫자로된 결과를 예측하는 문제 분류문제와 회귀문제를 해결할 수 있는 대표적인 알고리즘으로는 Decision Tree Random Forest KNN SVM Neural Network 위 5가지가 있는데 우리가 실습을 해보고 사용해볼 알고리즘은 Neural Network이다. Neural Network Neural Network는 인간의 뉴런을 모방하여 고안된 알고리즘이다. 요즘 많이 들리는 딥러닝은 이러한 뉴런들을 여러개 쌓아서 만든 알고리즘이다. 요즘 딥러닝이 인공지능의 대체어로 많이 사용되는 것을 들을 수 가 있는데 실질적으로는 아래 그림과 같이 딥러닝은 머신러닝 여러 알고리즘 중 하나이다. 딥러닝이 이렇게 유명해진 이유로는 천재들도, 대기업들도 해결하기에 어려워 보였던 문제들을 척척 풀어가는 모습을 보여주었고, 또한 딥러닝의 구체적인 원리를 잘 몰라도 코드 몇줄로 딥러닝을 이용할 수 있도록 도와주는 여러 라이브러리들이 나왔기 때문이다. 여러 라이브러리 중 구글에서 오픈소스로 제공해주고 있는 텐서플로우를 사용해보고자 한다. 이번 강의의 목표는 가볍게 딥러닝을 만나보고 즐겁게 사용할 수 있는 것을 지향을 하고 있다. 예를 들어 만드는데 굉장히 복잡한 도구인 스마트폰인 경우 이것이 만들어 지기까지의 원리나 구현방법을 알지 못해도 재미 있게 사용하듯이 딥러닝도 이렇게 자연스럽게 사용하는 방법을 알아 보고자 한다. 지도학습 출처 : Opentutorials - Tensorflow1 - 지도학습의 빅픽처, 이숙번님의 강의자료 - 링크 지도학습이란 과거의 데이터를 통해 모델을 학습하고, 독립변수와 종속변수간의 규칙을 찾아내어 전혀 새로운 값이 들어 왔을 때 해당 규칙을 통해 새로운 결과값을 예측하는 것을 의미한다.</summary></entry><entry><title type="html">Microsoft Graph API</title><link href="http://localhost:4000/python/azure/" rel="alternate" type="text/html" title="Microsoft Graph API" /><published>2020-07-01T00:00:00+09:00</published><updated>2020-07-01T00:00:00+09:00</updated><id>http://localhost:4000/python/azure</id><content type="html" xml:base="http://localhost:4000/python/azure/">&lt;h1 id=&quot;목적&quot;&gt;목적&lt;/h1&gt;
+&lt;p&gt;전혀 새로운 값이 들어 왔을 때 해당 규칙을 통해 새로운 결과값을 예측하는 것을 의미한다.&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;opentutorials&quot;]" /><category term="AI" /><category term="deeplearning" /><category term="tensorflow" /><summary type="html">머신러닝이란?</summary></entry><entry><title type="html">Microsoft Graph API</title><link href="http://localhost:4000/python/azure/" rel="alternate" type="text/html" title="Microsoft Graph API" /><published>2020-07-01T00:00:00+09:00</published><updated>2020-07-01T00:00:00+09:00</updated><id>http://localhost:4000/python/azure</id><content type="html" xml:base="http://localhost:4000/python/azure/">&lt;h1 id=&quot;목적&quot;&gt;목적&lt;/h1&gt;
 
 &lt;p&gt;파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다.&lt;/p&gt;
 
@@ -386,7 +754,7 @@ Neural Network는 인간의 뉴런을 모방하여 고안된 알고리즘이다.
 &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://graph.microsoft.com/v1.0/groups'&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;python&quot;]" /><category term="azure" /><category term="Microsoft Graph API" /><category term="python" /><summary type="html">목적 파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다. 주의 개인 Microsoft ID로는 불가능 하다. 참고 참고 링크 Microsoft ID 만들기 직장 혹은 학교 계정이 없다면 아래 그림을 참조하여 새로운 체험판 ID를 만들도록 한다. 링크 Azure Active Directory 앱 등록 Microsoft Graph의 API를 사용하고자 하면 Azure Active Directory에 우선 앱 등록을 해야한다. 앱등록 1. Azure 홈페이지로 들어 가서 로그인을 한다. 2. 평가판 시작 클릭 3. 사용자 정보입력 4. Azure Active Directory에 앱등록 Azure AD(Azure Active Directory)는 리소스에 액세스할 수 있게 해주는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스이다. Azure Portal의 메뉴를 통해 Azure AD에 접근 Azure AD의 앱등록 선택 앱 이름 및 리다이렉션 URI 입력 권한 설정 어떠한 API 사용을 하려면 그것에 맞는 권한을 허용을 해줘야한다. 예시로 유저의 정보를 갖고 오는 권한을 활성해 보겠다. 메뉴에서 API 사용권한 클릭 &amp;gt; + 권한추가 클릭 &amp;gt; Microsoft Graph 클릭 &amp;gt; 위임된 권한에서 Directory, User, tasks, group 하위 모든 권한 활성화 관리자동의 허용 클릭 파이썬에서 사용자 정보 가져오기 token 가져오기 import requests import json # 중간에 디렉터리(테넌트) ID 입력 url = 'https://login.microsoftonline.com/d5288197-6699-4eba-8295-*********/oauth2/v2.0/token' data = { 'grant_type': 'client_credentials', #인증방법 'client_id': 'dfe91331-ca77-4be8-8793-**********', #app id 'client_secret': 'BR3sTX9b4S_T2LhCZdL8UB********', #암호 'scope':'https://graph.microsoft.com/.default'} token = requests.post(url, data=data).json().get('access_token') 테넌트 ID 및 app id 확인 개요를 보면 확인할 수 있다. 암호 생성 사용자정보 갖고 오기 headers = { 'Authorization': 'Bearer {}'.format(token) } url = 'https://graph.microsoft.com/v1.0/me' response = requests.get(url, headers=headers).json() header에 받은 token을 넣어서 me로 request를 보내면 사용자 정보를 얻을 수 있다. tasks tasks를 갖고 오는 방법은 2가지가 있습니다. outlook API를 사용하는 방법 Microsoft graph의 planner API를 사용하여 task를 갖고 오는 방법 outlook API를 사용하여 갖고오는 방법은 https://docs.microsoft.com/ko-kr/outlook/rest/reference 위 문서에 나와 있다시피 아직 베타버전만 제공하고 있을 뿐 정식 릴리즈 되진않았습니다.(2017년도 작성 문서인데 아직까지 안나온거 보면 출시할 생각이 없는거 같습니다.) 베타버전사용법 참고 URL headers = { 'Authorization': 'Bearer {}'.format(token) } url = 'https://graph.microsoft.com/beta/me/outlook/tasks' response = requests.get(url, headers=headers).json() response 따라서 현재로써는 Microsoft graph의 planner API를 사용하여 갖고오는 수밖에 없습니다. planner에서 나에게 할당된 tasks 가져 오기 참고 : https://docs.microsoft.com/en-us/graph/planner-concept-overview headers = { 'Authorization': 'Bearer {}'.format(token) } url = 'https://graph.microsoft.com/v1.0/me/planner/tasks' response = requests.get(url, headers=headers).json() group 확인 하기 참고 : https://docs.microsoft.com/en-us/graph/office365-groups-concept-overview headers = { 'Authorization': 'Bearer {}'.format(token) } url = 'https://graph.microsoft.com/v1.0/groups' response = requests.get(url, headers=headers).json() response</summary></entry><entry><title type="html">windows 10 context menu에 terminal 추가하기</title><link href="http://localhost:4000/os/windows-terminal-add-context-menu/" rel="alternate" type="text/html" title="windows 10 context menu에 terminal 추가하기" /><published>2020-06-19T00:00:00+09:00</published><updated>2020-06-19T00:00:00+09:00</updated><id>http://localhost:4000/os/windows-terminal-add-context-menu</id><content type="html" xml:base="http://localhost:4000/os/windows-terminal-add-context-menu/">&lt;p&gt;Microsoft에서 WSL2 및 terminal 서비스를 하게 되면서 자주 사용하게 되는데&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;python&quot;]" /><category term="azure" /><category term="Microsoft Graph API" /><category term="python" /><summary type="html">목적</summary></entry><entry><title type="html">windows 10 context menu에 terminal 추가하기</title><link href="http://localhost:4000/os/windows-terminal-add-context-menu/" rel="alternate" type="text/html" title="windows 10 context menu에 terminal 추가하기" /><published>2020-06-19T00:00:00+09:00</published><updated>2020-06-19T00:00:00+09:00</updated><id>http://localhost:4000/os/windows-terminal-add-context-menu</id><content type="html" xml:base="http://localhost:4000/os/windows-terminal-add-context-menu/">&lt;p&gt;Microsoft에서 WSL2 및 terminal 서비스를 하게 되면서 자주 사용하게 되는데&lt;/p&gt;
 
 &lt;p&gt;PowerShell과 같이 폴더에서 오른쪽클릭해서 해당위치로 바로 못여는것에 대한 아쉬움이 있었다.&lt;/p&gt;
 
@@ -424,7 +792,7 @@ Neural Network는 인간의 뉴런을 모방하여 고안된 알고리즘이다.
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/20200619/Untitled1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;[그림] contextmenu에 terminal를 추가한 사진&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;os&quot;]" /><category term="terminal" /><summary type="html">Microsoft에서 WSL2 및 terminal 서비스를 하게 되면서 자주 사용하게 되는데 PowerShell과 같이 폴더에서 오른쪽클릭해서 해당위치로 바로 못여는것에 대한 아쉬움이 있었다. [그림] terminal에서 실행시킨 ubuntu 위 아쉬움을 해결하고자 구글링을 해본결과!! 해결법을 찾게되어 공유하고자 한다. 사실 terminal에서 한줄만 실행시키면 되긴하는데 혹시 찾으시는분이 있을까봐 공유를 한다. 준비물 windows Terminal 설치 바로가기 windows PowerShell7 설치 방법 보러가기 설치 powerShell7를 관리자권한으로 실행시킨 후 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/lextm/windowsterminal-shell/master/install.ps1')) 위 코드를 입력시킨다. [그림] contextmenu에 terminal를 추가한 사진</summary></entry><entry><title type="html">1장 딥러닝이란?</title><link href="http://localhost:4000/keras-book/keras-book-01/" rel="alternate" type="text/html" title="1장 딥러닝이란?" /><published>2019-02-28T00:00:00+09:00</published><updated>2019-02-28T00:00:00+09:00</updated><id>http://localhost:4000/keras-book/keras-book-01</id><content type="html" xml:base="http://localhost:4000/keras-book/keras-book-01/">&lt;p&gt;케라스 창시자에게 배우는 딥러닝을 공부하면서 공부한 흔적을 남기는게 중요할거 같아 내용을 내 나름대로 요약 정리를 해보고자 한다. 이번 포스팅에서는 앞으로 시작할 딥러닝을 위해 AI, 머신러닝, 딥러닝에 대해 알아보도록 한다.&lt;/p&gt;
+&lt;p&gt;[그림] contextmenu에 terminal를 추가한 사진&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;os&quot;]" /><category term="terminal" /><summary type="html">Microsoft에서 WSL2 및 terminal 서비스를 하게 되면서 자주 사용하게 되는데</summary></entry><entry><title type="html">1장 딥러닝이란?</title><link href="http://localhost:4000/keras-book/keras-book-01/" rel="alternate" type="text/html" title="1장 딥러닝이란?" /><published>2019-02-28T00:00:00+09:00</published><updated>2019-02-28T00:00:00+09:00</updated><id>http://localhost:4000/keras-book/keras-book-01</id><content type="html" xml:base="http://localhost:4000/keras-book/keras-book-01/">&lt;p&gt;케라스 창시자에게 배우는 딥러닝을 공부하면서 공부한 흔적을 남기는게 중요할거 같아 내용을 내 나름대로 요약 정리를 해보고자 한다. 이번 포스팅에서는 앞으로 시작할 딥러닝을 위해 AI, 머신러닝, 딥러닝에 대해 알아보도록 한다.&lt;/p&gt;
 
 &lt;h1 id=&quot;딥러닝이란&quot;&gt;딥러닝이란?&lt;/h1&gt;
 
@@ -537,7 +905,7 @@ Neural Network는 인간의 뉴런을 모방하여 고안된 알고리즘이다.
 &lt;h1 id=&quot;출처&quot;&gt;출처&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;프랑소와 숄레 지음 박해선 옮김(2018). “케라스 창시자에게 배우는 딥러닝”. (주)도서출판 길벗.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;keras-book&quot;]" /><category term="AI" /><category term="deeplearning" /><category term="케라스 창시자에게 배우는 딥러닝" /><summary type="html">케라스 창시자에게 배우는 딥러닝을 공부하면서 공부한 흔적을 남기는게 중요할거 같아 내용을 내 나름대로 요약 정리를 해보고자 한다. 이번 포스팅에서는 앞으로 시작할 딥러닝을 위해 AI, 머신러닝, 딥러닝에 대해 알아보도록 한다. 딥러닝이란? Deep Learning에 대해 알아보기 앞서서 인공지능(AI), 머신러닝(Machine Learning) 대해 간략하게 먼저 알아보도록 하겠다. 인공지능(Artificial Intelligence) 인공지능 즉, AI는 보통의 사람이 수행하는 지능적인 작업을 자동화하기 위한 연구 활동으로 정의될 수가 있다. 이렇듯 AI는 머신러닝과 딥러닝을 포괄하는 개념이다. 또한 일련의 학습과정을 거치지 않고 프로그래머가 하드코딩으로 규칙을 정하여 만든 프로그램도 포함한다. 이런 방식을 심볼릭 AI라고 하며 인공지능 연구 초반에는 이러한 방법론이 주를 이루었다. 하지만 논리적인 규칙을 가지고 있지 않는 음성, 이미지, 언어 분석 등과 같은 방식에는 적용하기에 한계점이 있었고, 이를 해결하고자 머신러닝이 대두되었다. 머신러닝 머신러닝은 심볼릭 AI와 같이 프로그래머가 하나하나 규칙을 설정하는 것이 아닌 컴퓨터 스스로 데이터를 보고 규칙을 자동으로 학습할 수 없을까? 라는 질문에서 부터 시작되었으며, 새로운 패러다임 장을 열게되었다. 즉, 기존의 프로그래밍 방식으로는 규칙과, 데이터를 입력하면 해답이 나오지만, 머신러닝에서는 데이터와 해답을 입력하면 규칙이 출력이 되고 이를 새 데이터에 적용을 하면 해답을 얻을 수 있다. 여기서 규칙을 얻어내는 과정을 훈련이라 한다. 학습하기 딥러닝을 이해하기 위해 우선, 머신러닝의 알고리즘에 대해 알아보기로 한다. 앞에서 말했듯이 머신러닝은 데이터와 해답이 주어지면 규칙을 찾게 되는데 이를 위해서는 세 가지가 필요하다. 데이터 - 음성파일, 사진, 텍스트와 같은 데이터 해답 - 사진인 경우 ‘사람’, ‘강아지’와 같은 정답 태깅 측정값 - 머신러닝에서 예측한 값과 실제 해답간의 차이를 결정하기 위한 값, 이 측정값으로 머신러닝에 피드백하여 수정단계를 거치게 되는데 이 과정을 학습이라고 한다. 머신러닝은 이미 알고 있는 데이터와 해답으로 부터 의미있는 값을 출력할 수 있도록 하는 학습의 과정이다. 그렇기 때문에 핵심 문제는 의미 있는 데이터로의 변환이다. 즉, 입력 데이터를 기반으로 해답에 가깝게 하는 유용한 표현을 학습하는 것이라 할 수 있다. 여기서 표현은 데이터를 바라보는 방법이다. 예를 들어 색은 RGB 포맷이나 HSV포맷으로 인코딩이 될 수 있는데 이 둘다 색을 표현하는 방법이다. 표현에 따라 문제를 쉽게 해결할 수 있고, 또는 어려울 수 있는데 예를 들어 파란색만 추출하고자 할때 RGB 포맷에서는 쉽지만 HSV 포맷으로는 어렵다. 이와 같이 머신러닝은 입력 데이터에서 적절한 표현을 찾는 것이다. 또 다른 예로 아래 그림과 같이 좌표 위에 있는 두가지의 점을 구분하는 문제를 해결해보고자 한다. 위 그림에서 3가지를 알수가 있는데 입력 데이터는 x, y의 좌표 값이다. 해답은 흰 점과 검은 점 2가지이다. 예측 값과 해답을 비교하여 측정 값을 알 수 있다. 이를 해결하는 방법으로 여러 방법이 있지만 사용할 수 있는 변환 방법 중 하나는 아래 그림과 같은 좌표 변환이다. 점에 대한 새로운 좌표 값은 새로운 표현이라 할 수 있다. 예를 들어 x &amp;gt; 0 이면 검은 점이다. 또는 x &amp;lt; 0 이면 흰 점이다.으로 간단한 규칙으로 나타낼 수 있다. 이러한 과정을 우리가 직접 하였지만, 머신러닝을 이용하면 더 나은 표현을 찾는 과정을 자동화 할 수 있을 것이고, 이 과정을 학습이라 한다. 딥러닝에서 딥이란? 머신러닝의 한 분야인 딥러닝은 연속된 층에서 의미 있는 표현을 찾는데 강점이 있다. 여기서 딥은 깊은 통찰력을 얻을 수 있다는 뜻이 아닌 여러 층으로 표현을 학습하는 것을 의미한다. 즉, 얼마나 많은 층을 사용했냐에 따라 딥러닝 모델의 깊이가 정해진다. 최근 딥러닝 모델에서는 신경망이라는 모델을 곂곂이 쌓아 올려 수십개 부터 수백 개의 층으로 이루어져 있다. 보통 딥러닝을 설명을 할때 뇌 를 모방하여 만들었다는 글들이 있지만, 이는 사실이 아니며 처음 접하는 사람들에게는 이러한 설명 때문에 혼란을 가중 시킬수 있다. 딥러닝은 단지 데이터로부터 표현을 학습 하는 수학 모델일 뿐이다. 숫자 이미지를 인식하는 딥러닝 알고리즘을 간략하게 나타내면 아래 그림과 같다. 원본 데이터가 딥러닝 모델에 들어가게 되면 층을 거칠때 마다 더 나은 표현으로 자동으로 이미지가 변하게 되고, 결국에는 마지막 층에서는 예측값을 얻을 수가 있다. 딥러닝의 작동 원리 입력데이터가 층을 거치면서 일어나는 변환들은 가중치에 수치로 저장이 된다. 즉, 우리가 원하는 해답을 얻기위해서는 학습을 통해 가중치의 수치를 변경하는 과정을 거쳐야 한다. 가중치의 수치를 변경하기 위해서는 해답과 얼마나 벗어나 있는지 파악을 해야 하는데 이를 loss function이 담당 한다. loss function에서 나온 값으로 가중치의 수치를 조정하게 되는데 이를 optimizer가 담당한다. 이러한 메카니즘을 구현한 알고리즘이 역전파(backpropagation) 알고리즘이라 한다. 딥러닝의 성과 2010년 초부터 유명세를 탔지만 이미지분류, 음성인식, 필기인식등 여러 분야에서 괄목할만한 여러 성과를 냈다. AI 겨울 및 전망 딥러닝이 최근 몇 년 동안 괄목할만한 성과를 냈지만 앞으로도 단기간내에 이와 같은 성장세를 탈것이라 생각하면 안된다. 일례로 1960년대 심볼릭 AI에 기대가 높았는데 심볼릭 AI에 대한 권위가 높았던 마빈 민스키는 몇년안에 사람 수준의 지능을 가진 AI가 나올것이라 했었다. 하지만 기대와는 다르게 구체화가 되지 못하여 투자는 줄어들었고, 첫 번째 AI 겨울이 시작되었다. 1980년대 심볼릭 AI의 발전시켜 전문가 시스템이 인기를 끌기 시작하였다. 하지만 유지 비용이 비싸고, 확장이 어렵고 하여 관심이 사그라들어 두 번째 AI 겨울이 시작하였다. 지금 현재 딥러닝의 놀라운 성과로 이목을 집중시키고 있지만, 앞으로도 계속 장미빛이 계속 될지, 아니면 앞써 본 AI 겨울이 찾아 올지도 모른다. 하지만 장기적인 관점에서 보면 AI의 전망은 아주 밝다. 비록 단기적인 관점에선 또 세번째 AI 겨울이 찾아 올지 모르지만 AI의 시대는 올것이고, 지금과는 다른 미래가 기다리고 있을 것이다. 출처 프랑소와 숄레 지음 박해선 옮김(2018). “케라스 창시자에게 배우는 딥러닝”. (주)도서출판 길벗.</summary></entry><entry><title type="html">파이썬으로 google vision api의 ocr 만들기</title><link href="http://localhost:4000/python/ocr/" rel="alternate" type="text/html" title="파이썬으로 google vision api의 ocr 만들기" /><published>2019-01-21T00:00:00+09:00</published><updated>2019-01-21T00:00:00+09:00</updated><id>http://localhost:4000/python/ocr</id><content type="html" xml:base="http://localhost:4000/python/ocr/">&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python&lt;/code&gt;과 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Google Vision API&lt;/code&gt;를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ocr&lt;/code&gt;에 대해 알아 보겠다.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;keras-book&quot;]" /><category term="AI" /><category term="deeplearning" /><category term="케라스 창시자에게 배우는 딥러닝" /><summary type="html">케라스 창시자에게 배우는 딥러닝을 공부하면서 공부한 흔적을 남기는게 중요할거 같아 내용을 내 나름대로 요약 정리를 해보고자 한다. 이번 포스팅에서는 앞으로 시작할 딥러닝을 위해 AI, 머신러닝, 딥러닝에 대해 알아보도록 한다.</summary></entry><entry><title type="html">파이썬으로 google vision api의 ocr 만들기</title><link href="http://localhost:4000/python/ocr/" rel="alternate" type="text/html" title="파이썬으로 google vision api의 ocr 만들기" /><published>2019-01-21T00:00:00+09:00</published><updated>2019-01-21T00:00:00+09:00</updated><id>http://localhost:4000/python/ocr</id><content type="html" xml:base="http://localhost:4000/python/ocr/">&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python&lt;/code&gt;과 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Google Vision API&lt;/code&gt;를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ocr&lt;/code&gt;에 대해 알아 보겠다.&lt;/p&gt;
 
 &lt;figure class=&quot;half&quot;&gt;
   &lt;img src=&quot;/assets/img/20190121/hello-486a0821-d0fa-4f57-8a14-f0d8e9bed0e7.png&quot; alt=&quot;스캔 이미지&quot; /&gt;
@@ -709,230 +1077,4 @@ Neural Network는 인간의 뉴런을 모방하여 고안된 알고리즘이다.
 
 &lt;hr /&gt;
 
-&lt;p&gt;해당 소스 github 주소 : &lt;a href=&quot;https://github.com/naramp4/python/tree/master/ocr&quot; target=&quot;_blank&quot; class=&quot;btn btn--primary&quot;&gt;ocr코드 바로가기&lt;/a&gt;&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;python&quot;]" /><category term="OCR" /><category term="python" /><category term="google vision api" /><summary type="html">python과 Google Vision API를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 ocr에 대해 알아 보겠다. 스크린샷 이미지와 OCR이후 텍스트 준비물 python3, 구글 계정, 해외 결제가 되는 카드(신용카드 또는 체크카드), 스캔할 대상 파일 Google Cloud Platform 가입 Google Vision API 접속 후 무료로 사용해보기 버튼 클릭 서비스 약관 및 이메일로 정보 수신 여부 선택 후 AGREE AND CONTINUE 버튼 클릭 고객 정보에 빨간 줄을 필수 값으로 입력 후 가입 결제 수단인 카드 정보도 입력해야 함 가입이 완료 되었으면 Google Cloude Platform의 왼쪽메뉴에서 인공지능 &amp;gt; Vision 클릭 Use the pre-trained model의 Learn about the Vision API 클릭 사용설정 버튼 클릭 사용자 인증 정보 만들기 클릭 Cloud Vision API, 아니요 선택 후 ‘어떤 사용자 인증 정보가 필요한가요?’ 버튼 클릭 서비스 계정 이름 및 ID 입력, JSON 선택 후 계속 클릭 JSON 파일 다운 완료가 되면 준비물 완성 !!!! 폴더 구조 파이썬 루트 폴더 아래에 아래 그림과 같이 book_img, book_txt 폴더와 인증정보가 담겨있는 JSON 파일을 같이 넣는다. Google Vision API 사용자 인증 위 폴더 위치에서 Terminal 실행 후 export GOOGLE_APPLICATION_CREDENTIALS=&quot;인증파일 JSON 위치&quot; 예) export GOOGLE_APPLICATION_CREDENTIALS=&quot;./My First Project-c13a79533674.json&quot; 이후 jupyter notebook 실행 파이썬 코드 필요한 모듈 불러오기 import io # 파일을 읽고 쓰기위한 모듈 import os # os의 기능을 사용하기 위한 모듈 # Imports the Google Cloud client library from google.cloud import vision from google.cloud.vision import types 필요 변수 설정 client = vision.ImageAnnotatorClient() filenames = os.listdir('./book_img') # book_img 아래에 있는 이미지 파일 이름을 불러오기 book_img 아래의 파일을 읽은 후 같은 이름의 txt 포맷으로 book_txt에 저장 for filename in filenames: path = os.path.join('./book_img', filename) # Loads the image into memory with io.open(path, 'rb') as image_file: content = image_file.read() image = vision.types.Image(content=content) response = client.text_detection(image=image) texts = response.text_annotations with open('./book_txt/'+filename[0:-4]+'.txt', &quot;w&quot;) as f: f.write(texts[0].description) 결과 화면 스크린샷 이미지와 OCR이후 텍스트 위와 같은 방법으로 스캔 되어 있는 600page를 한번에 OCR를 해보았는데 생각보다 인식률이 좋게 나와 공유하는 차원에 포스팅을 해보았다. 이를 이용하면 학생인 경우 참고서를 OCR하여 자신만의 요약집을 만들때 유용할거 같고, 아니면 집 한켠에 쌓아두고 있는 책들을 이북으로 만들때 유용하게 이용이 될수 있을 거 같다. 하지만 이 Google Vision API에도 문제점이 몇가지가 있는데, 사용자가 쓴 손글씨의 인식률이 너무 낮다. ‘책이’라는 단어를 OCR를 하면 ‘이’가 숫자 0, 1로 인식되는 경우가 있다. 위와 같은 문제점으로 OCR를 한후에 후처리 과정이 필수로 보이는데 그래도 전부 타이핑하는 시간을 획기적으로 줄일수 있는 방법으로 보인다. 해당 소스 github 주소 : ocr코드 바로가기</summary></entry><entry><title type="html">Oh My Zsh</title><link href="http://localhost:4000/os/oh-my-zsh/" rel="alternate" type="text/html" title="Oh My Zsh" /><published>2019-01-14T00:00:00+09:00</published><updated>2019-01-14T00:00:00+09:00</updated><id>http://localhost:4000/os/oh-my-zsh</id><content type="html" xml:base="http://localhost:4000/os/oh-my-zsh/">&lt;h1 id=&quot;zsh-oh-my-zsh&quot;&gt;zsh, oh-my-zsh&lt;/h1&gt;
-
-&lt;p&gt;mac의 터미널을 보다 보기 편하고 편리한 기능을 가지고 있는 oh-my-zsh의 설치 방법에 대해 알아보도록 하겠다.&lt;/p&gt;
-
-&lt;h2 id=&quot;zsh-설치확인&quot;&gt;zsh 설치확인&lt;/h2&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;zsh &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;설치가-안되어-있으면&quot;&gt;설치가 안되어 있으면&lt;/h2&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;zsh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;기본-쉘을-zsh로-바꾸기&quot;&gt;기본 쉘을 zsh로 바꾸기&lt;/h2&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chsh &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;which zsh&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$SHELL&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;iterm2 종료 후 재실행&lt;/p&gt;
-
-&lt;h2 id=&quot;oh-my-zsh-설치&quot;&gt;oh-my-zsh 설치&lt;/h2&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;oh-my-zsh-테마-설정---agnoster-테마-적용&quot;&gt;oh-my-zsh 테마 설정 - agnoster 테마 적용&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;~/.zshrc 파일 열기&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#atom 사용&lt;/span&gt;
-atom ~/.zshrc
-
-&lt;span class=&quot;c&quot;&gt;#vim 사용&lt;/span&gt;
-vim ~/.zshrc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;해당 파일에 아래 내용 추가&lt;/p&gt;
-
-    &lt;p&gt;ZSH_THEME=”agnoster”&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;변경한 내용 적용&lt;/p&gt;
-
-    &lt;p&gt;source ~/.zshrc&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;해당 테마를 적용하면 별로 예쁘지 않게 나오는데 iterm2의 배경을 Solarized Dark로 변경하면 예쁘게 나온다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Solarized Dark로 변경&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-
-  &lt;ol&gt;
-    &lt;li&gt;iterm2 실행&lt;/li&gt;
-    &lt;li&gt;cmd + , (iterm2의 preferences로 진입)&lt;/li&gt;
-    &lt;li&gt;Profiles 메뉴로 이동&lt;/li&gt;
-    &lt;li&gt;Profiles의 Colors 탭으로 이동&lt;/li&gt;
-    &lt;li&gt;우측 하단의 Color Presets 샐렉트 박스 클릭 후 Solarized Dark 선택&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/blockquote&gt;
-
-&lt;figure class=&quot;half &quot;&gt;
-  
-    
-      &lt;img src=&quot;/assets/img/20190114/2018-11-071-e59a8a7c-e668-41d0-85d4-3abaf191a404.42.37.png&quot; alt=&quot;before&quot; /&gt;
-    
-  
-    
-      &lt;img src=&quot;/assets/img/20190114/2018-11-071-8d26a001-0ec8-4e16-a2e4-876b773c7c36.41.46.png&quot; alt=&quot;before&quot; /&gt;
-    
-  
-  
-    &lt;figcaption&gt;해당 소스 적용 전후 사진
-&lt;/figcaption&gt;
-  
-&lt;/figure&gt;
-
-&lt;h2 id=&quot;깨지는-폰트-잘나오도록-폰트-설정-변경&quot;&gt;깨지는 폰트 잘나오도록 폰트 설정 변경&lt;/h2&gt;
-
-&lt;p&gt;네이버 코딩 글꼴,  Ubuntu_Mono_derivative_Powerline 등 깨지는 않는 글꼴로 변경이 필요하다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;네이버 코딩 글꼴 다운 위치&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developers.naver.com/opensource/tools/editor/&quot;&gt;https://developers.naver.com/opensource/tools/editor/&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Ubuntu_Mono_derivative_Powerline 글꼴 다운 위치&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/powerline/fonts/tree/master/UbuntuMono&quot;&gt;https://github.com/powerline/fonts/tree/master/UbuntuMono&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;글꼴을 설치한 후 iterm2에 적용&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-
-  &lt;ol&gt;
-    &lt;li&gt;iterm2 실행&lt;/li&gt;
-    &lt;li&gt;cmd + , (iterm2의 preferences로 진입)&lt;/li&gt;
-    &lt;li&gt;Profiles 메뉴로 이동&lt;/li&gt;
-    &lt;li&gt;Profiles의 Text 탭으로 이동&lt;/li&gt;
-    &lt;li&gt;Change Font 버튼 클릭 후 해당 글꼴 선택&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/20190114/2018-11-071-3a329769-fa79-465e-a5f5-8ffb54c37324.39.27.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;사용자-이름-나오게-않게-변경&quot;&gt;사용자 이름 나오게 않게 변경&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;~/.zshrc 파일 열기&lt;/p&gt;
-
-    &lt;p&gt;#atom 사용
-  atom ~/.zshrc&lt;/p&gt;
-
-    &lt;p&gt;#vim 사용
-  vim ~/.zshrc&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;해당 파일에 아래 내용 추가&lt;/p&gt;
-
-    &lt;p&gt;prompt_context() {
-  }&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;변경한 내용 적용&lt;/p&gt;
-
-    &lt;p&gt;source ~/.zshrc&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;half &quot;&gt;
-  
-    
-      &lt;img src=&quot;/assets/img/20190114/2018-11-071-da26032a-1dfd-463c-8ebe-528907558ed3.18.13.png&quot; alt=&quot;before&quot; /&gt;
-    
-  
-    
-      &lt;img src=&quot;/assets/img/20190114/2018-11-071-430e5529-6e37-4857-9343-495e03dd27db.19.25.png&quot; alt=&quot;after&quot; /&gt;
-    
-  
-  
-    &lt;figcaption&gt;해당 소스 적용 전후 사진
-&lt;/figcaption&gt;
-  
-&lt;/figure&gt;
-
-&lt;h2 id=&quot;멀티라인-적용&quot;&gt;멀티라인 적용&lt;/h2&gt;
-
-&lt;p&gt;폴더의 depth가 깊어지거나, 창의 넓이가 좁으면 명령어의 영역이 좁아져서 가독이 나빠진다.&lt;/p&gt;
-
-&lt;p&gt;이를 해결하기 위해 멀티라인을 적용한다.&lt;/p&gt;
-
-&lt;p&gt;해당 함수는&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://totuworld.github.io/2016/04/08/zsh2line/&quot;&gt;http://totuworld.github.io/2016/04/08/zsh2line/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;위 블로그의 작성글을 참고하여 적용하였다.&lt;/p&gt;
-
-&lt;p&gt;아래 명령어는 agnoster 테마를 적용한 경우를 예를 들었다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;agnoster 테마 설정파일 파일 열기&lt;/p&gt;
-
-    &lt;p&gt;#atom 사용
-  atom ~/.oh-my-zsh/themes/agnoster.zsh-theme&lt;/p&gt;
-
-    &lt;p&gt;#vim 사용
-  vim ~/.oh-my-zsh/themes/agnoster.zsh-theme&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;해당 파일에 아래 내용 추가&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;prompt_newline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;vg&quot;&gt;$CURRENT_BG&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]];&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR
-    %{%k%F{blue}%}$SEGMENT_SEPARATOR&quot;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;%{%k%}&quot;&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;fi&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;%{%f%}&quot;&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;CURRENT_BG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;기존 함수 수정&lt;/p&gt;
-
-    &lt;p&gt;## Main prompt
-  build_prompt() {
-    RETVAL=$?
-    prompt_status
-    prompt_virtualenv
-    prompt_context
-    prompt_dir
-    prompt_git
-    prompt_hg
-    prompt_newline
-    prompt_end
-  }&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;변경한 내용 적용&lt;/p&gt;
-
-    &lt;p&gt;source ~/.oh-my-zsh/themes/agnoster.zsh-theme&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;최종적용-모습&quot;&gt;최종적용 모습&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/20190114/2018-11-072-1ec363c3-df4e-477e-8338-a48504ea46ce.15.32.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;참고&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://nolboo.kim/blog/2015/08/21/oh-my-zsh/&quot;&gt;https://nolboo.kim/blog/2015/08/21/oh-my-zsh/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://wayhome25.github.io/etc/2017/03/12/zsh-alias/&quot;&gt;https://wayhome25.github.io/etc/2017/03/12/zsh-alias/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://totuworld.github.io/2016/04/08/zsh2line/&quot;&gt;http://totuworld.github.io/2016/04/08/zsh2line/&lt;/a&gt;&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;os&quot;]" /><category term="oh my zsh" /><summary type="html">zsh, oh-my-zsh mac의 터미널을 보다 보기 편하고 편리한 기능을 가지고 있는 oh-my-zsh의 설치 방법에 대해 알아보도록 하겠다. zsh 설치확인 zsh --version 설치가 안되어 있으면 brew install zsh 기본 쉘을 zsh로 바꾸기 chsh -s `which zsh` echo $SHELL iterm2 종료 후 재실행 oh-my-zsh 설치 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh oh-my-zsh 테마 설정 - agnoster 테마 적용 ~/.zshrc 파일 열기 #atom 사용 atom ~/.zshrc #vim 사용 vim ~/.zshrc 해당 파일에 아래 내용 추가 ZSH_THEME=”agnoster” 변경한 내용 적용 source ~/.zshrc 해당 테마를 적용하면 별로 예쁘지 않게 나오는데 iterm2의 배경을 Solarized Dark로 변경하면 예쁘게 나온다. Solarized Dark로 변경 iterm2 실행 cmd + , (iterm2의 preferences로 진입) Profiles 메뉴로 이동 Profiles의 Colors 탭으로 이동 우측 하단의 Color Presets 샐렉트 박스 클릭 후 Solarized Dark 선택 해당 소스 적용 전후 사진 깨지는 폰트 잘나오도록 폰트 설정 변경 네이버 코딩 글꼴, Ubuntu_Mono_derivative_Powerline 등 깨지는 않는 글꼴로 변경이 필요하다. 네이버 코딩 글꼴 다운 위치 https://developers.naver.com/opensource/tools/editor/ Ubuntu_Mono_derivative_Powerline 글꼴 다운 위치 https://github.com/powerline/fonts/tree/master/UbuntuMono 글꼴을 설치한 후 iterm2에 적용 iterm2 실행 cmd + , (iterm2의 preferences로 진입) Profiles 메뉴로 이동 Profiles의 Text 탭으로 이동 Change Font 버튼 클릭 후 해당 글꼴 선택 사용자 이름 나오게 않게 변경 ~/.zshrc 파일 열기 #atom 사용 atom ~/.zshrc #vim 사용 vim ~/.zshrc 해당 파일에 아래 내용 추가 prompt_context() { } 변경한 내용 적용 source ~/.zshrc 해당 소스 적용 전후 사진 멀티라인 적용 폴더의 depth가 깊어지거나, 창의 넓이가 좁으면 명령어의 영역이 좁아져서 가독이 나빠진다. 이를 해결하기 위해 멀티라인을 적용한다. 해당 함수는 http://totuworld.github.io/2016/04/08/zsh2line/ 위 블로그의 작성글을 참고하여 적용하였다. 아래 명령어는 agnoster 테마를 적용한 경우를 예를 들었다. agnoster 테마 설정파일 파일 열기 #atom 사용 atom ~/.oh-my-zsh/themes/agnoster.zsh-theme #vim 사용 vim ~/.oh-my-zsh/themes/agnoster.zsh-theme 해당 파일에 아래 내용 추가 prompt_newline() { if [[ -n $CURRENT_BG ]]; then echo -n &quot;%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR %{%k%F{blue}%}$SEGMENT_SEPARATOR&quot; else echo -n &quot;%{%k%}&quot; fi echo -n &quot;%{%f%}&quot; CURRENT_BG='' } 기존 함수 수정 ## Main prompt build_prompt() { RETVAL=$? prompt_status prompt_virtualenv prompt_context prompt_dir prompt_git prompt_hg prompt_newline prompt_end } 변경한 내용 적용 source ~/.oh-my-zsh/themes/agnoster.zsh-theme 최종적용 모습 참고 https://nolboo.kim/blog/2015/08/21/oh-my-zsh/ https://wayhome25.github.io/etc/2017/03/12/zsh-alias/ http://totuworld.github.io/2016/04/08/zsh2line/</summary></entry></feed>
+&lt;p&gt;해당 소스 github 주소 : &lt;a href=&quot;https://github.com/naramp4/python/tree/master/ocr&quot; target=&quot;_blank&quot; class=&quot;btn btn--primary&quot;&gt;ocr코드 바로가기&lt;/a&gt;&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;python&quot;]" /><category term="OCR" /><category term="python" /><category term="google vision api" /><summary type="html">python과 Google Vision API를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 ocr에 대해 알아 보겠다.</summary></entry></feed>

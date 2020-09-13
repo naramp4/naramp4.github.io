@@ -323,7 +323,7 @@ collections:
   AI :
     output: true
     permalink: /:collection/:path/
-  os :
+  web :
     output: true
     permalink: /:collection/:path/
   programming :

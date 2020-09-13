@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Oh My Zsh - chancoke Blog</title>
-<meta name="description" content="zsh, oh-my-zshmac의 터미널을 보다 보기 편하고 편리한 기능을 가지고 있는 oh-my-zsh의 설치 방법에 대해 알아보도록 하겠다.zsh 설치확인zsh --version설치가 안되어 있으면brew install zsh기본 쉘을 zsh로 바꾸기chsh -s `which zsh`echo $SHELLiterm2 종료 후 재실행oh-my-zsh 설치curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | shoh-my-zsh 테마 설정 - agnoster 테마 적용  ~/.zshrc 파일 열기#atom 사용atom ~/.zshrc#vim 사용vim ~/.zshrc      해당 파일에 아래 내용 추가    ZSH_THEME=”agnoster”        변경한 내용 적용    source ~/.zshrc  해당 테마를 적용하면 별로 예쁘지 않게 나오는데 iterm2의 배경을 Solarized Dark로 변경하면 예쁘게 나온다.  Solarized Dark로 변경      iterm2 실행    cmd + , (iterm2의 preferences로 진입)    Profiles 메뉴로 이동    Profiles의 Colors 탭으로 이동    우측 하단의 Color Presets 샐렉트 박스 클릭 후 Solarized Dark 선택                                          해당 소스 적용 전후 사진  깨지는 폰트 잘나오도록 폰트 설정 변경네이버 코딩 글꼴,  Ubuntu_Mono_derivative_Powerline 등 깨지는 않는 글꼴로 변경이 필요하다.  네이버 코딩 글꼴 다운 위치https://developers.naver.com/opensource/tools/editor/  Ubuntu_Mono_derivative_Powerline 글꼴 다운 위치https://github.com/powerline/fonts/tree/master/UbuntuMono  글꼴을 설치한 후 iterm2에 적용      iterm2 실행    cmd + , (iterm2의 preferences로 진입)    Profiles 메뉴로 이동    Profiles의 Text 탭으로 이동    Change Font 버튼 클릭 후 해당 글꼴 선택  사용자 이름 나오게 않게 변경      ~/.zshrc 파일 열기    #atom 사용  atom ~/.zshrc    #vim 사용  vim ~/.zshrc        해당 파일에 아래 내용 추가    prompt_context() {  }        변경한 내용 적용    source ~/.zshrc                                          해당 소스 적용 전후 사진  멀티라인 적용폴더의 depth가 깊어지거나, 창의 넓이가 좁으면 명령어의 영역이 좁아져서 가독이 나빠진다.이를 해결하기 위해 멀티라인을 적용한다.해당 함수는http://totuworld.github.io/2016/04/08/zsh2line/위 블로그의 작성글을 참고하여 적용하였다.아래 명령어는 agnoster 테마를 적용한 경우를 예를 들었다.      agnoster 테마 설정파일 파일 열기    #atom 사용  atom ~/.oh-my-zsh/themes/agnoster.zsh-theme    #vim 사용  vim ~/.oh-my-zsh/themes/agnoster.zsh-theme        해당 파일에 아래 내용 추가  prompt_newline() {  if [[ -n $CURRENT_BG ]]; then    echo -n &quot;%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR    %{%k%F{blue}%}$SEGMENT_SEPARATOR&quot;  else    echo -n &quot;%{%k%}&quot;  fi  echo -n &quot;%{%f%}&quot;  CURRENT_BG=&#39;&#39;}      기존 함수 수정    ## Main prompt  build_prompt() {    RETVAL=$?    prompt_status    prompt_virtualenv    prompt_context    prompt_dir    prompt_git    prompt_hg    prompt_newline    prompt_end  }        변경한 내용 적용    source ~/.oh-my-zsh/themes/agnoster.zsh-theme  최종적용 모습참고https://nolboo.kim/blog/2015/08/21/oh-my-zsh/https://wayhome25.github.io/etc/2017/03/12/zsh-alias/http://totuworld.github.io/2016/04/08/zsh2line/">
+<meta name="description" content="zsh, oh-my-zsh">
 
 
 
@@ -20,7 +20,7 @@
 <meta property="og:title" content="Oh My Zsh">
 <meta property="og:url" content="http://localhost:4000/os/oh-my-zsh/">
 
-  <meta property="og:description" content="zsh, oh-my-zshmac의 터미널을 보다 보기 편하고 편리한 기능을 가지고 있는 oh-my-zsh의 설치 방법에 대해 알아보도록 하겠다.zsh 설치확인zsh --version설치가 안되어 있으면brew install zsh기본 쉘을 zsh로 바꾸기chsh -s `which zsh`echo $SHELLiterm2 종료 후 재실행oh-my-zsh 설치curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | shoh-my-zsh 테마 설정 - agnoster 테마 적용  ~/.zshrc 파일 열기#atom 사용atom ~/.zshrc#vim 사용vim ~/.zshrc      해당 파일에 아래 내용 추가    ZSH_THEME=”agnoster”        변경한 내용 적용    source ~/.zshrc  해당 테마를 적용하면 별로 예쁘지 않게 나오는데 iterm2의 배경을 Solarized Dark로 변경하면 예쁘게 나온다.  Solarized Dark로 변경      iterm2 실행    cmd + , (iterm2의 preferences로 진입)    Profiles 메뉴로 이동    Profiles의 Colors 탭으로 이동    우측 하단의 Color Presets 샐렉트 박스 클릭 후 Solarized Dark 선택                                          해당 소스 적용 전후 사진  깨지는 폰트 잘나오도록 폰트 설정 변경네이버 코딩 글꼴,  Ubuntu_Mono_derivative_Powerline 등 깨지는 않는 글꼴로 변경이 필요하다.  네이버 코딩 글꼴 다운 위치https://developers.naver.com/opensource/tools/editor/  Ubuntu_Mono_derivative_Powerline 글꼴 다운 위치https://github.com/powerline/fonts/tree/master/UbuntuMono  글꼴을 설치한 후 iterm2에 적용      iterm2 실행    cmd + , (iterm2의 preferences로 진입)    Profiles 메뉴로 이동    Profiles의 Text 탭으로 이동    Change Font 버튼 클릭 후 해당 글꼴 선택  사용자 이름 나오게 않게 변경      ~/.zshrc 파일 열기    #atom 사용  atom ~/.zshrc    #vim 사용  vim ~/.zshrc        해당 파일에 아래 내용 추가    prompt_context() {  }        변경한 내용 적용    source ~/.zshrc                                          해당 소스 적용 전후 사진  멀티라인 적용폴더의 depth가 깊어지거나, 창의 넓이가 좁으면 명령어의 영역이 좁아져서 가독이 나빠진다.이를 해결하기 위해 멀티라인을 적용한다.해당 함수는http://totuworld.github.io/2016/04/08/zsh2line/위 블로그의 작성글을 참고하여 적용하였다.아래 명령어는 agnoster 테마를 적용한 경우를 예를 들었다.      agnoster 테마 설정파일 파일 열기    #atom 사용  atom ~/.oh-my-zsh/themes/agnoster.zsh-theme    #vim 사용  vim ~/.oh-my-zsh/themes/agnoster.zsh-theme        해당 파일에 아래 내용 추가  prompt_newline() {  if [[ -n $CURRENT_BG ]]; then    echo -n &quot;%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR    %{%k%F{blue}%}$SEGMENT_SEPARATOR&quot;  else    echo -n &quot;%{%k%}&quot;  fi  echo -n &quot;%{%f%}&quot;  CURRENT_BG=&#39;&#39;}      기존 함수 수정    ## Main prompt  build_prompt() {    RETVAL=$?    prompt_status    prompt_virtualenv    prompt_context    prompt_dir    prompt_git    prompt_hg    prompt_newline    prompt_end  }        변경한 내용 적용    source ~/.oh-my-zsh/themes/agnoster.zsh-theme  최종적용 모습참고https://nolboo.kim/blog/2015/08/21/oh-my-zsh/https://wayhome25.github.io/etc/2017/03/12/zsh-alias/http://totuworld.github.io/2016/04/08/zsh2line/">
+  <meta property="og:description" content="zsh, oh-my-zsh">
 
 
 
@@ -116,9 +116,9 @@
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/AI/index/" >AI</a>
             </li><li class="masthead__menu-item">
-              <a href="/programming/index/" >programming</a>
+              <a href="/web/index/" >web</a>
             </li><li class="masthead__menu-item">
-              <a href="/os/index/" >os</a>
+              <a href="/programming/index/" >programming</a>
             </li><li class="masthead__menu-item">
               <a href="/etc/index/" >기타</a>
             </li><li class="masthead__menu-item">
@@ -153,7 +153,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Oh My Zsh">
-    <meta itemprop="description" content="zsh, oh-my-zshmac의 터미널을 보다 보기 편하고 편리한 기능을 가지고 있는 oh-my-zsh의 설치 방법에 대해 알아보도록 하겠다.zsh 설치확인zsh --version설치가 안되어 있으면brew install zsh기본 쉘을 zsh로 바꾸기chsh -s `which zsh`echo $SHELLiterm2 종료 후 재실행oh-my-zsh 설치curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | shoh-my-zsh 테마 설정 - agnoster 테마 적용  ~/.zshrc 파일 열기#atom 사용atom ~/.zshrc#vim 사용vim ~/.zshrc      해당 파일에 아래 내용 추가    ZSH_THEME=”agnoster”        변경한 내용 적용    source ~/.zshrc  해당 테마를 적용하면 별로 예쁘지 않게 나오는데 iterm2의 배경을 Solarized Dark로 변경하면 예쁘게 나온다.  Solarized Dark로 변경      iterm2 실행    cmd + , (iterm2의 preferences로 진입)    Profiles 메뉴로 이동    Profiles의 Colors 탭으로 이동    우측 하단의 Color Presets 샐렉트 박스 클릭 후 Solarized Dark 선택                                          해당 소스 적용 전후 사진  깨지는 폰트 잘나오도록 폰트 설정 변경네이버 코딩 글꼴,  Ubuntu_Mono_derivative_Powerline 등 깨지는 않는 글꼴로 변경이 필요하다.  네이버 코딩 글꼴 다운 위치https://developers.naver.com/opensource/tools/editor/  Ubuntu_Mono_derivative_Powerline 글꼴 다운 위치https://github.com/powerline/fonts/tree/master/UbuntuMono  글꼴을 설치한 후 iterm2에 적용      iterm2 실행    cmd + , (iterm2의 preferences로 진입)    Profiles 메뉴로 이동    Profiles의 Text 탭으로 이동    Change Font 버튼 클릭 후 해당 글꼴 선택  사용자 이름 나오게 않게 변경      ~/.zshrc 파일 열기    #atom 사용  atom ~/.zshrc    #vim 사용  vim ~/.zshrc        해당 파일에 아래 내용 추가    prompt_context() {  }        변경한 내용 적용    source ~/.zshrc                                          해당 소스 적용 전후 사진  멀티라인 적용폴더의 depth가 깊어지거나, 창의 넓이가 좁으면 명령어의 영역이 좁아져서 가독이 나빠진다.이를 해결하기 위해 멀티라인을 적용한다.해당 함수는http://totuworld.github.io/2016/04/08/zsh2line/위 블로그의 작성글을 참고하여 적용하였다.아래 명령어는 agnoster 테마를 적용한 경우를 예를 들었다.      agnoster 테마 설정파일 파일 열기    #atom 사용  atom ~/.oh-my-zsh/themes/agnoster.zsh-theme    #vim 사용  vim ~/.oh-my-zsh/themes/agnoster.zsh-theme        해당 파일에 아래 내용 추가  prompt_newline() {  if [[ -n $CURRENT_BG ]]; then    echo -n &quot;%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR    %{%k%F{blue}%}$SEGMENT_SEPARATOR&quot;  else    echo -n &quot;%{%k%}&quot;  fi  echo -n &quot;%{%f%}&quot;  CURRENT_BG=&#39;&#39;}      기존 함수 수정    ## Main prompt  build_prompt() {    RETVAL=$?    prompt_status    prompt_virtualenv    prompt_context    prompt_dir    prompt_git    prompt_hg    prompt_newline    prompt_end  }        변경한 내용 적용    source ~/.oh-my-zsh/themes/agnoster.zsh-theme  최종적용 모습참고https://nolboo.kim/blog/2015/08/21/oh-my-zsh/https://wayhome25.github.io/etc/2017/03/12/zsh-alias/http://totuworld.github.io/2016/04/08/zsh2line/">
+    <meta itemprop="description" content="zsh, oh-my-zsh">
     <meta itemprop="datePublished" content="January 14, 2019">
     
 
@@ -504,124 +504,7 @@ vim ~/.zshrc
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/opentutorials/tensorflow002/" rel="permalink">2일차 - 레몬에이드 판매 예측
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  2 분 소요
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">표를 다루는 도구 ‘판다스’
-
-지도학습에서 제일 첫번째로 준비해야되는 사항은 과거의 데이터를 준비하는 것인데, 데이터들은 파일 형태로 되어 있고, 해당 데이터를 다루기위해 파이썬에서 제공하는 도구인 ‘판다스’를 사용하도록 하겠다.
-
-판다스 라이브러리 불러오기
-
-import pand...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/opentutorials/tensorflow001/" rel="permalink">1일차 - 머신러닝이란?
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  1 분 소요
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">머신러닝이란?
-
-기계를 학습시켜서 인간의 판단능력을 기계에 위임하는 것을 머신러닝이라고 하는데 머신러닝이 할 수 있는 대표적인 기술들은 아래와 같다.
-
-
-
-해당 강의에서 텐서플로우로 해결하려고하는 문제는 지도학습의 분류, 회귀 문제이다.
-
-
-  
-    분류문제
-흰색 돌과 검은색 ...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/python/azure/" rel="permalink">Microsoft Graph API
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  2 분 소요
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">목적
-
-파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다.
-
-주의
-
-
-  개인 Microsoft ID로는 불가능 하다.
-  참고
-    
-      참고 링크
-    
-  
-
-
-Microsoft ID 만들기
-
-
-  
-    직장 혹은 학교 계정이 없다면 ...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/os/windows-terminal-add-context-menu/" rel="permalink">windows 10 context menu에 terminal  추가하기
+        <a href="/node.js/nodejs-install/" rel="permalink">windows10에서 node.js 설치하기
 </a>
       
     </h2>
@@ -634,15 +517,92 @@ Microsoft ID 만들기
   최대 1 분 소요
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">Microsoft에서 WSL2 및 terminal 서비스를 하게 되면서 자주 사용하게 되는데
+    <p class="archive__item-excerpt" itemprop="description">windows10에서 node.js를 설치하는 여러방법 중 wsl(Linux용 windows 하위 시스템 - 자세히보기)를 사용하여 설치를 해보았지만, 너무 느린 관계로 네이티브 Windows에서 node.js를 설치하는 방법을 알아보도록 하겠다.
+</p>
+  </article>
+</div>
 
-PowerShell과 같이 폴더에서 오른쪽클릭해서 해당위치로 바로 못여는것에 대한 아쉬움이 있었다.
+        
+          
 
 
 
-[그림] terminal에서 실행시킨 ubuntu
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/opentutorials/tensorflow005/" rel="permalink">5일차 - 신경망의 완성:히든레이어 및 기타 팁
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
 
-위 아쉬움을 해결하고자 구글링...</p>
+
+
+
+  2 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">네번째 딥러닝 - 신경망의 완성:히든레이어
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/opentutorials/tensorflow004/" rel="permalink">4일차 - 아이리스 품종 분류
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">아이리스 품종 분류
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/opentutorials/tensorflow003/" rel="permalink">3일차 - 보스턴 집값 예측
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">보스턴 집값 예측
+</p>
   </article>
 </div>
 

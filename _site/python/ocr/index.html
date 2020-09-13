@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>파이썬으로 google vision api의 ocr 만들기 - chancoke Blog</title>
-<meta name="description" content="python과 Google Vision API를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 ocr에 대해 알아 보겠다.      스크린샷 이미지와 OCR이후 텍스트준비물python3, 구글 계정, 해외 결제가 되는 카드(신용카드 또는 체크카드), 스캔할 대상 파일Google Cloud Platform 가입  Google Vision API 접속 후 무료로 사용해보기 버튼 클릭  서비스 약관 및 이메일로 정보 수신 여부 선택 후 AGREE AND CONTINUE 버튼 클릭  고객 정보에 빨간 줄을 필수 값으로 입력 후 가입  결제 수단인 카드 정보도 입력해야 함  가입이 완료 되었으면 Google Cloude Platform의 왼쪽메뉴에서 인공지능 &gt; Vision 클릭  Use the pre-trained model의 Learn about the Vision API 클릭  사용설정 버튼 클릭  사용자 인증 정보 만들기 클릭  Cloud Vision API, 아니요 선택 후 ‘어떤 사용자 인증 정보가 필요한가요?’ 버튼 클릭  서비스 계정 이름 및 ID 입력, JSON 선택 후 계속 클릭JSON 파일 다운 완료가 되면 준비물 완성 !!!!폴더 구조  파이썬 루트 폴더 아래에 아래 그림과 같이 book_img, book_txt 폴더와 인증정보가 담겨있는 JSON 파일을 같이 넣는다.Google Vision API 사용자 인증위 폴더 위치에서 Terminal 실행 후export GOOGLE_APPLICATION_CREDENTIALS=&quot;인증파일 JSON 위치&quot;예)export GOOGLE_APPLICATION_CREDENTIALS=&quot;./My First Project-c13a79533674.json&quot;이후 jupyter notebook 실행파이썬 코드  필요한 모듈 불러오기import io # 파일을 읽고 쓰기위한 모듈import os # os의 기능을 사용하기 위한 모듈# Imports the Google Cloud client libraryfrom google.cloud import visionfrom google.cloud.vision import types  필요 변수 설정client = vision.ImageAnnotatorClient()filenames = os.listdir(&#39;./book_img&#39;) # book_img 아래에 있는 이미지 파일 이름을 불러오기  book_img 아래의 파일을 읽은 후 같은 이름의 txt 포맷으로 book_txt에 저장for filename in filenames:    path = os.path.join(&#39;./book_img&#39;, filename)    # Loads the image into memory    with io.open(path, &#39;rb&#39;) as image_file:        content = image_file.read()    image = vision.types.Image(content=content)    response = client.text_detection(image=image)    texts = response.text_annotations    with open(&#39;./book_txt/&#39;+filename[0:-4]+&#39;.txt&#39;, &quot;w&quot;) as f:        f.write(texts[0].description)결과 화면      스크린샷 이미지와 OCR이후 텍스트위와 같은 방법으로 스캔 되어 있는 600page를 한번에 OCR를 해보았는데 생각보다 인식률이 좋게 나와 공유하는 차원에 포스팅을 해보았다.이를 이용하면 학생인 경우 참고서를 OCR하여 자신만의 요약집을 만들때 유용할거 같고, 아니면 집 한켠에 쌓아두고 있는 책들을 이북으로 만들때 유용하게 이용이 될수 있을 거 같다.하지만 이 Google Vision API에도 문제점이 몇가지가 있는데,  사용자가 쓴 손글씨의 인식률이 너무 낮다.  ‘책이’라는 단어를 OCR를 하면 ‘이’가 숫자 0, 1로 인식되는 경우가 있다.위와 같은 문제점으로 OCR를 한후에 후처리 과정이 필수로 보이는데 그래도 전부 타이핑하는 시간을 획기적으로 줄일수 있는 방법으로 보인다.해당 소스 github 주소 : ocr코드 바로가기">
+<meta name="description" content="python과 Google Vision API를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 ocr에 대해 알아 보겠다.">
 
 
 
@@ -20,7 +20,7 @@
 <meta property="og:title" content="파이썬으로 google vision api의 ocr 만들기">
 <meta property="og:url" content="http://localhost:4000/python/ocr/">
 
-  <meta property="og:description" content="python과 Google Vision API를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 ocr에 대해 알아 보겠다.      스크린샷 이미지와 OCR이후 텍스트준비물python3, 구글 계정, 해외 결제가 되는 카드(신용카드 또는 체크카드), 스캔할 대상 파일Google Cloud Platform 가입  Google Vision API 접속 후 무료로 사용해보기 버튼 클릭  서비스 약관 및 이메일로 정보 수신 여부 선택 후 AGREE AND CONTINUE 버튼 클릭  고객 정보에 빨간 줄을 필수 값으로 입력 후 가입  결제 수단인 카드 정보도 입력해야 함  가입이 완료 되었으면 Google Cloude Platform의 왼쪽메뉴에서 인공지능 &gt; Vision 클릭  Use the pre-trained model의 Learn about the Vision API 클릭  사용설정 버튼 클릭  사용자 인증 정보 만들기 클릭  Cloud Vision API, 아니요 선택 후 ‘어떤 사용자 인증 정보가 필요한가요?’ 버튼 클릭  서비스 계정 이름 및 ID 입력, JSON 선택 후 계속 클릭JSON 파일 다운 완료가 되면 준비물 완성 !!!!폴더 구조  파이썬 루트 폴더 아래에 아래 그림과 같이 book_img, book_txt 폴더와 인증정보가 담겨있는 JSON 파일을 같이 넣는다.Google Vision API 사용자 인증위 폴더 위치에서 Terminal 실행 후export GOOGLE_APPLICATION_CREDENTIALS=&quot;인증파일 JSON 위치&quot;예)export GOOGLE_APPLICATION_CREDENTIALS=&quot;./My First Project-c13a79533674.json&quot;이후 jupyter notebook 실행파이썬 코드  필요한 모듈 불러오기import io # 파일을 읽고 쓰기위한 모듈import os # os의 기능을 사용하기 위한 모듈# Imports the Google Cloud client libraryfrom google.cloud import visionfrom google.cloud.vision import types  필요 변수 설정client = vision.ImageAnnotatorClient()filenames = os.listdir(&#39;./book_img&#39;) # book_img 아래에 있는 이미지 파일 이름을 불러오기  book_img 아래의 파일을 읽은 후 같은 이름의 txt 포맷으로 book_txt에 저장for filename in filenames:    path = os.path.join(&#39;./book_img&#39;, filename)    # Loads the image into memory    with io.open(path, &#39;rb&#39;) as image_file:        content = image_file.read()    image = vision.types.Image(content=content)    response = client.text_detection(image=image)    texts = response.text_annotations    with open(&#39;./book_txt/&#39;+filename[0:-4]+&#39;.txt&#39;, &quot;w&quot;) as f:        f.write(texts[0].description)결과 화면      스크린샷 이미지와 OCR이후 텍스트위와 같은 방법으로 스캔 되어 있는 600page를 한번에 OCR를 해보았는데 생각보다 인식률이 좋게 나와 공유하는 차원에 포스팅을 해보았다.이를 이용하면 학생인 경우 참고서를 OCR하여 자신만의 요약집을 만들때 유용할거 같고, 아니면 집 한켠에 쌓아두고 있는 책들을 이북으로 만들때 유용하게 이용이 될수 있을 거 같다.하지만 이 Google Vision API에도 문제점이 몇가지가 있는데,  사용자가 쓴 손글씨의 인식률이 너무 낮다.  ‘책이’라는 단어를 OCR를 하면 ‘이’가 숫자 0, 1로 인식되는 경우가 있다.위와 같은 문제점으로 OCR를 한후에 후처리 과정이 필수로 보이는데 그래도 전부 타이핑하는 시간을 획기적으로 줄일수 있는 방법으로 보인다.해당 소스 github 주소 : ocr코드 바로가기">
+  <meta property="og:description" content="python과 Google Vision API를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 ocr에 대해 알아 보겠다.">
 
 
 
@@ -116,9 +116,9 @@
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/AI/index/" >AI</a>
             </li><li class="masthead__menu-item">
-              <a href="/programming/index/" >programming</a>
+              <a href="/web/index/" >web</a>
             </li><li class="masthead__menu-item">
-              <a href="/os/index/" >os</a>
+              <a href="/programming/index/" >programming</a>
             </li><li class="masthead__menu-item">
               <a href="/etc/index/" >기타</a>
             </li><li class="masthead__menu-item">
@@ -198,7 +198,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="파이썬으로 google vision api의 ocr 만들기">
-    <meta itemprop="description" content="python과 Google Vision API를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 ocr에 대해 알아 보겠다.      스크린샷 이미지와 OCR이후 텍스트준비물python3, 구글 계정, 해외 결제가 되는 카드(신용카드 또는 체크카드), 스캔할 대상 파일Google Cloud Platform 가입  Google Vision API 접속 후 무료로 사용해보기 버튼 클릭  서비스 약관 및 이메일로 정보 수신 여부 선택 후 AGREE AND CONTINUE 버튼 클릭  고객 정보에 빨간 줄을 필수 값으로 입력 후 가입  결제 수단인 카드 정보도 입력해야 함  가입이 완료 되었으면 Google Cloude Platform의 왼쪽메뉴에서 인공지능 &gt; Vision 클릭  Use the pre-trained model의 Learn about the Vision API 클릭  사용설정 버튼 클릭  사용자 인증 정보 만들기 클릭  Cloud Vision API, 아니요 선택 후 ‘어떤 사용자 인증 정보가 필요한가요?’ 버튼 클릭  서비스 계정 이름 및 ID 입력, JSON 선택 후 계속 클릭JSON 파일 다운 완료가 되면 준비물 완성 !!!!폴더 구조  파이썬 루트 폴더 아래에 아래 그림과 같이 book_img, book_txt 폴더와 인증정보가 담겨있는 JSON 파일을 같이 넣는다.Google Vision API 사용자 인증위 폴더 위치에서 Terminal 실행 후export GOOGLE_APPLICATION_CREDENTIALS=&quot;인증파일 JSON 위치&quot;예)export GOOGLE_APPLICATION_CREDENTIALS=&quot;./My First Project-c13a79533674.json&quot;이후 jupyter notebook 실행파이썬 코드  필요한 모듈 불러오기import io # 파일을 읽고 쓰기위한 모듈import os # os의 기능을 사용하기 위한 모듈# Imports the Google Cloud client libraryfrom google.cloud import visionfrom google.cloud.vision import types  필요 변수 설정client = vision.ImageAnnotatorClient()filenames = os.listdir(&#39;./book_img&#39;) # book_img 아래에 있는 이미지 파일 이름을 불러오기  book_img 아래의 파일을 읽은 후 같은 이름의 txt 포맷으로 book_txt에 저장for filename in filenames:    path = os.path.join(&#39;./book_img&#39;, filename)    # Loads the image into memory    with io.open(path, &#39;rb&#39;) as image_file:        content = image_file.read()    image = vision.types.Image(content=content)    response = client.text_detection(image=image)    texts = response.text_annotations    with open(&#39;./book_txt/&#39;+filename[0:-4]+&#39;.txt&#39;, &quot;w&quot;) as f:        f.write(texts[0].description)결과 화면      스크린샷 이미지와 OCR이후 텍스트위와 같은 방법으로 스캔 되어 있는 600page를 한번에 OCR를 해보았는데 생각보다 인식률이 좋게 나와 공유하는 차원에 포스팅을 해보았다.이를 이용하면 학생인 경우 참고서를 OCR하여 자신만의 요약집을 만들때 유용할거 같고, 아니면 집 한켠에 쌓아두고 있는 책들을 이북으로 만들때 유용하게 이용이 될수 있을 거 같다.하지만 이 Google Vision API에도 문제점이 몇가지가 있는데,  사용자가 쓴 손글씨의 인식률이 너무 낮다.  ‘책이’라는 단어를 OCR를 하면 ‘이’가 숫자 0, 1로 인식되는 경우가 있다.위와 같은 문제점으로 OCR를 한후에 후처리 과정이 필수로 보이는데 그래도 전부 타이핑하는 시간을 획기적으로 줄일수 있는 방법으로 보인다.해당 소스 github 주소 : ocr코드 바로가기">
+    <meta itemprop="description" content="python과 Google Vision API를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 ocr에 대해 알아 보겠다.">
     <meta itemprop="datePublished" content="January 21, 2019">
     
 
@@ -489,124 +489,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/opentutorials/tensorflow002/" rel="permalink">2일차 - 레몬에이드 판매 예측
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  2 분 소요
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">표를 다루는 도구 ‘판다스’
-
-지도학습에서 제일 첫번째로 준비해야되는 사항은 과거의 데이터를 준비하는 것인데, 데이터들은 파일 형태로 되어 있고, 해당 데이터를 다루기위해 파이썬에서 제공하는 도구인 ‘판다스’를 사용하도록 하겠다.
-
-판다스 라이브러리 불러오기
-
-import pand...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/opentutorials/tensorflow001/" rel="permalink">1일차 - 머신러닝이란?
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  1 분 소요
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">머신러닝이란?
-
-기계를 학습시켜서 인간의 판단능력을 기계에 위임하는 것을 머신러닝이라고 하는데 머신러닝이 할 수 있는 대표적인 기술들은 아래와 같다.
-
-
-
-해당 강의에서 텐서플로우로 해결하려고하는 문제는 지도학습의 분류, 회귀 문제이다.
-
-
-  
-    분류문제
-흰색 돌과 검은색 ...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/python/azure/" rel="permalink">Microsoft Graph API
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  2 분 소요
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">목적
-
-파이썬으로 Microsoft Graph를 다루는 방법에 대해 알아보도록 한다.
-
-주의
-
-
-  개인 Microsoft ID로는 불가능 하다.
-  참고
-    
-      참고 링크
-    
-  
-
-
-Microsoft ID 만들기
-
-
-  
-    직장 혹은 학교 계정이 없다면 ...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/os/windows-terminal-add-context-menu/" rel="permalink">windows 10 context menu에 terminal  추가하기
+        <a href="/node.js/nodejs-install/" rel="permalink">windows10에서 node.js 설치하기
 </a>
       
     </h2>
@@ -619,15 +502,92 @@ Microsoft ID 만들기
   최대 1 분 소요
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">Microsoft에서 WSL2 및 terminal 서비스를 하게 되면서 자주 사용하게 되는데
+    <p class="archive__item-excerpt" itemprop="description">windows10에서 node.js를 설치하는 여러방법 중 wsl(Linux용 windows 하위 시스템 - 자세히보기)를 사용하여 설치를 해보았지만, 너무 느린 관계로 네이티브 Windows에서 node.js를 설치하는 방법을 알아보도록 하겠다.
+</p>
+  </article>
+</div>
 
-PowerShell과 같이 폴더에서 오른쪽클릭해서 해당위치로 바로 못여는것에 대한 아쉬움이 있었다.
+        
+          
 
 
 
-[그림] terminal에서 실행시킨 ubuntu
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/opentutorials/tensorflow005/" rel="permalink">5일차 - 신경망의 완성:히든레이어 및 기타 팁
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
 
-위 아쉬움을 해결하고자 구글링...</p>
+
+
+
+  2 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">네번째 딥러닝 - 신경망의 완성:히든레이어
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/opentutorials/tensorflow004/" rel="permalink">4일차 - 아이리스 품종 분류
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">아이리스 품종 분류
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/opentutorials/tensorflow003/" rel="permalink">3일차 - 보스턴 집값 예측
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">보스턴 집값 예측
+</p>
   </article>
 </div>
 
