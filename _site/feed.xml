@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-13T21:55:49+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">chancoke Blog</title><subtitle>An amazing website.</subtitle><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><entry><title type="html">windows10에서 node.js 설치하기</title><link href="http://localhost:4000/node.js/nodejs-install/" rel="alternate" type="text/html" title="windows10에서 node.js 설치하기" /><published>2020-09-13T00:00:00+09:00</published><updated>2020-09-13T00:00:00+09:00</updated><id>http://localhost:4000/node.js/nodejs-install</id><content type="html" xml:base="http://localhost:4000/node.js/nodejs-install/">&lt;p&gt;windows10에서 node.js를 설치하는 여러방법 중 wsl(Linux용 windows 하위 시스템 - &lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/install-win10&quot; target=&quot;_blank&quot;&gt;자세히보기&lt;/a&gt;)를 사용하여 설치를 해보았지만, 너무 느린 관계로 네이티브 Windows에서 node.js를 설치하는 방법을 알아보도록 하겠다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-14T16:53:04+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">chancoke Blog</title><subtitle>An amazing website.</subtitle><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><entry><title type="html">react에서 원하는 Props를 받고 있는지 체크하는 방법</title><link href="http://localhost:4000/node.js/proptypes/" rel="alternate" type="text/html" title="react에서 원하는 Props를 받고 있는지 체크하는 방법" /><published>2020-09-14T00:00:00+09:00</published><updated>2020-09-14T00:00:00+09:00</updated><id>http://localhost:4000/node.js/proptypes</id><content type="html" xml:base="http://localhost:4000/node.js/proptypes/">&lt;p&gt;상위 component로 부터 전달받은 props가 우리가 예상한 props인지 확인 하기 위해 PropTypes를 사용하겠다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;설치&quot;&gt;설치&lt;/h1&gt;
+
+&lt;p&gt;powershell에서 아래를 입력하여 설치를 해준다.&lt;/p&gt;
+
+&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;npm&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prop-types&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;사용방법&quot;&gt;사용방법&lt;/h1&gt;
+
+&lt;h2 id=&quot;import&quot;&gt;import&lt;/h2&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PropTypes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;form&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;prop-types&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;prop-타입-정의&quot;&gt;prop 타입 정의&lt;/h2&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Greeting&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;React&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;Hello, &lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;Greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;propTypes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PropTypes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Greeting.propTypes&lt;/code&gt;를 통하여 name이 스트링인지 확인을 할 수 있으며 필수 값으로 설정하고자 하면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PropTypes.string.isRequired&lt;/code&gt;와 같이 입력을 해주면 된다.&lt;/p&gt;
+
+&lt;p&gt;해당 경고문은 javascript 콘솔을 통해 확인할 수 있다.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;출처&quot;&gt;출처&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ko.reactjs.org/docs/typechecking-with-proptypes.html&quot; target=&quot;_blank&quot;&gt;React 공식 홈페이지 - PropTypes와 함께 하는 타입 확인&lt;/a&gt;&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;node.js&quot;]" /><category term="web" /><category term="node.js" /><summary type="html">상위 component로 부터 전달받은 props가 우리가 예상한 props인지 확인 하기 위해 PropTypes를 사용하겠다.</summary></entry><entry><title type="html">windows10에서 node.js 설치하기</title><link href="http://localhost:4000/node.js/nodejs-install/" rel="alternate" type="text/html" title="windows10에서 node.js 설치하기" /><published>2020-09-13T00:00:00+09:00</published><updated>2020-09-13T00:00:00+09:00</updated><id>http://localhost:4000/node.js/nodejs-install</id><content type="html" xml:base="http://localhost:4000/node.js/nodejs-install/">&lt;p&gt;windows10에서 node.js를 설치하는 여러방법 중 wsl(Linux용 windows 하위 시스템 - &lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/install-win10&quot; target=&quot;_blank&quot;&gt;자세히보기&lt;/a&gt;)를 사용하여 설치를 해보았지만, 너무 느린 관계로 네이티브 Windows에서 node.js를 설치하는 방법을 알아보도록 하겠다.&lt;/p&gt;
 
 &lt;h1 id=&quot;nvm-windows를-이용하여-nodejs-및-npm-설치&quot;&gt;nvm-windows를 이용하여 node.js 및 npm 설치&lt;/h1&gt;
 
@@ -905,176 +947,4 @@ Neural Network는 인간의 뉴런을 모방하여 고안된 알고리즘이다.
 &lt;h1 id=&quot;출처&quot;&gt;출처&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;프랑소와 숄레 지음 박해선 옮김(2018). “케라스 창시자에게 배우는 딥러닝”. (주)도서출판 길벗.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;keras-book&quot;]" /><category term="AI" /><category term="deeplearning" /><category term="케라스 창시자에게 배우는 딥러닝" /><summary type="html">케라스 창시자에게 배우는 딥러닝을 공부하면서 공부한 흔적을 남기는게 중요할거 같아 내용을 내 나름대로 요약 정리를 해보고자 한다. 이번 포스팅에서는 앞으로 시작할 딥러닝을 위해 AI, 머신러닝, 딥러닝에 대해 알아보도록 한다.</summary></entry><entry><title type="html">파이썬으로 google vision api의 ocr 만들기</title><link href="http://localhost:4000/python/ocr/" rel="alternate" type="text/html" title="파이썬으로 google vision api의 ocr 만들기" /><published>2019-01-21T00:00:00+09:00</published><updated>2019-01-21T00:00:00+09:00</updated><id>http://localhost:4000/python/ocr</id><content type="html" xml:base="http://localhost:4000/python/ocr/">&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python&lt;/code&gt;과 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Google Vision API&lt;/code&gt;를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ocr&lt;/code&gt;에 대해 알아 보겠다.&lt;/p&gt;
-
-&lt;figure class=&quot;half&quot;&gt;
-  &lt;img src=&quot;/assets/img/20190121/hello-486a0821-d0fa-4f57-8a14-f0d8e9bed0e7.png&quot; alt=&quot;스캔 이미지&quot; /&gt;
-  &lt;img src=&quot;/assets/img/20190121/2019-01-172-47369ec2-cb34-43d6-ab80-16aa779479d5.35.25.png&quot; alt=&quot;OCR이 후 이미지&quot; /&gt;
-  &lt;figcaption&gt;스크린샷 이미지와 OCR이후 텍스트&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h2 id=&quot;준비물&quot;&gt;준비물&lt;/h2&gt;
-
-&lt;p&gt;python3, 구글 계정, 해외 결제가 되는 카드(신용카드 또는 체크카드), 스캔할 대상 파일&lt;/p&gt;
-
-&lt;h2 id=&quot;google-cloud-platform-가입&quot;&gt;Google Cloud Platform 가입&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://cloud.google.com/vision/?hl=ko&quot; target=&quot;_blank&quot;&gt;Google Vision API&lt;/a&gt; 접속 후 무료로 사용해보기 버튼 클릭&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/2-2d707945-fc84-465e-89ab-35b9d44d80b8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;서비스 약관 및 이메일로 정보 수신 여부 선택 후 AGREE AND CONTINUE 버튼 클릭&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/3-ca90889f-21ac-4543-b863-86757b18bfbb.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;고객 정보에 빨간 줄을 필수 값으로 입력 후 가입&lt;/li&gt;
-  &lt;li&gt;결제 수단인 카드 정보도 입력해야 함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/4-e7158275-fc16-4a8a-b499-d7c6f840aead.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;가입이 완료 되었으면 Google Cloude Platform의 왼쪽메뉴에서 인공지능 &amp;gt; Vision 클릭&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/5-07da49e6-8ef6-4e54-8bd8-32af96c10716.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Use the pre-trained model의 Learn about the Vision API 클릭&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/6-1ad44c7b-bc27-47d8-87b0-48c02e2c4377.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;사용설정 버튼 클릭&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/7-d7774bf0-2675-41e8-ba9a-f38e0b47ef3d.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;사용자 인증 정보 만들기 클릭&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/8-bf4640a1-4487-4526-b7b5-9133fa242dca.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Cloud Vision API, 아니요 선택 후 ‘어떤 사용자 인증 정보가 필요한가요?’ 버튼 클릭&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/9-2f157cba-8176-45b5-9f9b-a0ce2cf6ba97.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;서비스 계정 이름 및 ID 입력, JSON 선택 후 계속 클릭&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/10-e9cccec9-6341-4f91-b816-bcfee5bf45d3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;JSON 파일 다운 완료가 되면 준비물 완성 !!!!&lt;/p&gt;
-
-&lt;h2 id=&quot;폴더-구조&quot;&gt;폴더 구조&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;파이썬 루트 폴더 아래에 아래 그림과 같이 book_img, book_txt 폴더와 인증정보가 담겨있는 JSON 파일을 같이 넣는다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/20190121/2019-01-2111-e381a92f-7fae-4cfb-9168-0a5405c8c9be.31.00.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;google-vision-api-사용자-인증&quot;&gt;Google Vision API 사용자 인증&lt;/h2&gt;
-
-&lt;p&gt;위 폴더 위치에서 Terminal 실행 후&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOOGLE_APPLICATION_CREDENTIALS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;인증파일 JSON 위치&quot;&lt;/span&gt;
-예&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOOGLE_APPLICATION_CREDENTIALS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;./My First Project-c13a79533674.json&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;이후 jupyter notebook 실행&lt;/p&gt;
-
-&lt;h2 id=&quot;파이썬-코드&quot;&gt;파이썬 코드&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;필요한 모듈 불러오기&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 파일을 읽고 쓰기위한 모듈
-&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# os의 기능을 사용하기 위한 모듈
-&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# Imports the Google Cloud client library
-&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;google.cloud&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vision&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;google.cloud.vision&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;types&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;필요 변수 설정&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;client&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ImageAnnotatorClient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;filenames&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./book_img'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# book_img 아래에 있는 이미지 파일 이름을 불러오기
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;book_img 아래의 파일을 읽은 후 같은 이름의 txt 포맷으로 book_txt에 저장&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filenames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./book_img'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;# Loads the image into memory
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text_detection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;texts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text_annotations&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./book_txt/'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'.txt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;w&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;결과-화면&quot;&gt;결과 화면&lt;/h2&gt;
-
-&lt;figure class=&quot;half&quot;&gt;
-  &lt;img src=&quot;/assets/img/20190121/hello-486a0821-d0fa-4f57-8a14-f0d8e9bed0e7.png&quot; alt=&quot;스캔 이미지&quot; /&gt;
-  &lt;img src=&quot;/assets/img/20190121/2019-01-172-47369ec2-cb34-43d6-ab80-16aa779479d5.35.25.png&quot; alt=&quot;OCR이 후 이미지&quot; /&gt;
-  &lt;figcaption&gt;스크린샷 이미지와 OCR이후 텍스트&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;위와 같은 방법으로 스캔 되어 있는 600page를 한번에 OCR를 해보았는데 생각보다 인식률이 좋게 나와 공유하는 차원에 포스팅을 해보았다.&lt;/p&gt;
-
-&lt;p&gt;이를 이용하면 학생인 경우 참고서를 OCR하여 자신만의 요약집을 만들때 유용할거 같고, 아니면 집 한켠에 쌓아두고 있는 책들을 이북으로 만들때 유용하게 이용이 될수 있을 거 같다.&lt;/p&gt;
-
-&lt;p&gt;하지만 이 Google Vision API에도 문제점이 몇가지가 있는데,&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;사용자가 쓴 손글씨의 인식률이 너무 낮다.&lt;/li&gt;
-  &lt;li&gt;‘책이’라는 단어를 OCR를 하면 ‘이’가 숫자 0, 1로 인식되는 경우가 있다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;위와 같은 문제점으로 OCR를 한후에 후처리 과정이 필수로 보이는데 그래도 전부 타이핑하는 시간을 획기적으로 줄일수 있는 방법으로 보인다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;해당 소스 github 주소 : &lt;a href=&quot;https://github.com/naramp4/python/tree/master/ocr&quot; target=&quot;_blank&quot; class=&quot;btn btn--primary&quot;&gt;ocr코드 바로가기&lt;/a&gt;&lt;/p&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;python&quot;]" /><category term="OCR" /><category term="python" /><category term="google vision api" /><summary type="html">python과 Google Vision API를 이용하여 아래 그림과 같이 스캔 혹은 스크린샷 되어 있는 그림 안에 글자를 우리가 편집할 수 있는 텍스트로 변환할 수 있는 ocr에 대해 알아 보겠다.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>{&quot;avatar&quot;=&gt;&quot;/assets/img/IMG_5198.jpeg&quot;, &quot;bio&quot;=&gt;&quot;&quot;, &quot;location&quot;=&gt;&quot;Jejudo&quot;, &quot;email&quot;=&gt;nil, &quot;links&quot;=&gt;[{&quot;label&quot;=&gt;&quot;Email&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-envelope-square&quot;, &quot;url&quot;=&gt;&quot;mailto:naramp4@gmail.com&quot;}, {&quot;label&quot;=&gt;&quot;Website&quot;, &quot;icon&quot;=&gt;&quot;fas fa-fw fa-link&quot;}, {&quot;label&quot;=&gt;&quot;Twitter&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-twitter-square&quot;}, {&quot;label&quot;=&gt;&quot;Facebook&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-facebook-square&quot;}, {&quot;label&quot;=&gt;&quot;GitHub&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-github&quot;, &quot;url&quot;=&gt;&quot;https://github.com/naramp4&quot;}, {&quot;label&quot;=&gt;&quot;Instagram&quot;, &quot;icon&quot;=&gt;&quot;fab fa-fw fa-instagram&quot;}]}</name></author><category term="[&quot;keras-book&quot;]" /><category term="AI" /><category term="deeplearning" /><category term="케라스 창시자에게 배우는 딥러닝" /><summary type="html">케라스 창시자에게 배우는 딥러닝을 공부하면서 공부한 흔적을 남기는게 중요할거 같아 내용을 내 나름대로 요약 정리를 해보고자 한다. 이번 포스팅에서는 앞으로 시작할 딥러닝을 위해 AI, 머신러닝, 딥러닝에 대해 알아보도록 한다.</summary></entry></feed>

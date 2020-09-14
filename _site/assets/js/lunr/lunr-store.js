@@ -74,13 +74,18 @@ var store = [{
         "tags": ["web","node.js","windows10"],
         "url": "http://localhost:4000/node.js/nodejs-install/",
         "teaser":null},{
+        "title": "react에서 원하는 Props를 받고 있는지 체크하는 방법",
+        "excerpt":"상위 component로 부터 전달받은 props가 우리가 예상한 props인지 확인 하기 위해 PropTypes를 사용하겠다. 설치 powershell에서 아래를 입력하여 설치를 해준다. npm i prop-types 사용방법 import import PropTypes form \"prop-types\" prop 타입 정의 class Greeting extends React.Component { render() { return ( &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt; ); } } Greeting.propTypes = { name: PropTypes.string...","categories": ["node.js"],
+        "tags": ["web","node.js"],
+        "url": "http://localhost:4000/node.js/proptypes/",
+        "teaser":null},{
         "title": "programming",
         "excerpt":" python                           Microsoft Graph API                                            파이썬으로 google vision api의 ocr 만들기                    ","categories": [],
         "tags": [],
         "url": "http://localhost:4000/programming/index/",
         "teaser":null},{
         "title": "web",
-        "excerpt":"node.js                           windows10에서 node.js 설치하기                    ","categories": [],
+        "excerpt":"node.js                           react에서 원하는 Props를 받고 있는지 체크하는 방법                                            windows10에서 node.js 설치하기                    ","categories": [],
         "tags": [],
         "url": "http://localhost:4000/web/index/",
         "teaser":null}]
