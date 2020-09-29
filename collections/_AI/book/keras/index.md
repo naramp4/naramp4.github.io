@@ -13,7 +13,7 @@ sidebar:
 소스코드 같은 것은 역자의 [github](https://github.com/rickiepark/deep-learning-with-python-notebooks){:target='_blank'}에 잘 요약정리 되어 있기 참고하기 바란다.
 
 
-{% assign categories_max = 0 %}
+<!-- {% assign categories_max = 0 %}
 {% for category in site.categories %}
   {% if category[1].size > categories_max %}
     {% assign categories_max = category[1].size %}
@@ -30,4 +30,4 @@ sidebar:
         {% endfor %}
     {% endif %}
   {% endfor %}
-{% endfor %}
+{% endfor %} -->
