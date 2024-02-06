@@ -296,6 +296,7 @@ defaults:
       related: true
       toc: true
       toc_sticky: true
+      show_date: true
   # _pages
   - scope:
       path: "_pages"
@@ -318,6 +319,7 @@ defaults:
   #             nav: "keras"
   #     toc: true
   #     toc_sticky: true
+data_format: "%Y-%m-%d"
 collections_dir: collections
 collections:
   AI :
