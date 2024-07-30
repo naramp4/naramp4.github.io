@@ -1,0 +1,27 @@
+# main links
+main:
+  - title: "programming"
+    url: /programming/index/
+  - title: "back-end"
+    url: /back/index/
+  - title: "etc"
+    url: /etc/index/
+  - title: "모아보기"
+    url: /categories/
+
+nav:
+  - title: "programming"
+    children:
+#      - title: java
+#        url: /programming/index/#java
+#        category: java
+      - title : python
+        url: /programming/index/#python
+        category: python
+  - title : "back-end"
+    children:
+  - title : "etc"
+    children:
+      - title : os
+        url : /etc/index/#os
+        category: os
